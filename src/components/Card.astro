@@ -5,7 +5,7 @@ interface Props {
 
 const { file } = Astro.props.post;
 const slug = file.split("/").slice(-1).at(0).split(".").at(0);
-const { title, imgSrc, date } = Astro.props.post.frontmatter;
+const { title, imgSrc, minutesRead, date } = Astro.props.post.frontmatter;
 ---
 
 <a
@@ -20,7 +20,7 @@ const { title, imgSrc, date } = Astro.props.post.frontmatter;
         <p class="font-thin text-tertiary">
           {new Date(date.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}
         </p>
-        <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">5 Minutes Read</p>
+        <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">{minutesRead}</p>
       </div>
     </div>
   </div>

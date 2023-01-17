@@ -1,6 +1,6 @@
 ---
 import Layout from "./Layout.astro";
-const { title, description, author, date } = Astro.props.frontmatter;
+const { title, description, minutesRead, author, date } = Astro.props.frontmatter;
 ---
 
 <Layout title={`${title} | AITU`} headerTitle={title} description={description}>
@@ -15,10 +15,10 @@ const { title, description, author, date } = Astro.props.frontmatter;
       <p>
         Published <strong>{new Date(date.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" })}</strong>
         <p>/</p>
-        <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">5 Minutes Read</p>
+      <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">{minutesRead}</p>
       </p>
     </div>
-    <article class="my-20 max-w-4xl">
+    <article class="my-20 max-w-4xl mx-auto">
       <slot />
     </article>
   </div>
