@@ -1,0 +1,44 @@
+---
+---
+
+<div id="activities" class="flex w-full flex-col items-end leading-relaxed text-right py-20">
+  <p class="text-transparent bg-clip-text bg-amethyst mt-8">Reading.</p>
+  <p id="reading" class="text-3xl md:text-6xl text-gray-400 md:w-3/5">Together, we read and discuss one AI research paper every week.</p>
+  <p class="text-transparent bg-clip-text bg-amethyst mt-8">Projects.</p>
+  <p id="projects" class="text-3xl md:text-6xl text-gray-400 md:w-3/5">We work on hands-on coding projects and case studies every month.</p>
+  <p class="text-transparent bg-clip-text bg-amethyst mt-8">Talks.</p>
+  <p id="talks" class="text-3xl md:text-6xl text-gray-400 md:w-3/5">We host insightful talks from researchers and practitioners.</p>
+</div>
+
+<script>
+  const activities = document.getElementById("activities")!;
+  const reading = document.getElementById("reading")!;
+  const projects = document.getElementById("projects")!;
+  const talks = document.getElementById("talks")!;
+
+  handleScroll();
+  function handleScroll() {
+    const windowHeight = window.innerHeight;
+    const { top, height } = activities.getBoundingClientRect();
+
+    const pixelsIntoViewport = windowHeight / 2 - top;
+    if (pixelsIntoViewport <= height / 3) {
+      // first
+      reading.style.color = "white";
+      projects.style.color = "gray";
+      talks.style.color = "gray";
+    } else if (pixelsIntoViewport >= (2 * height) / 3) {
+      // last
+      reading.style.color = "gray";
+      projects.style.color = "gray";
+      talks.style.color = "white";
+    } else {
+      // middle
+      reading.style.color = "gray";
+      projects.style.color = "white";
+      talks.style.color = "gray";
+    }
+  }
+
+  document.addEventListener("scroll", handleScroll);
+</script>
