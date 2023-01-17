@@ -21,7 +21,9 @@ module.exports = {
       // custom gradient
       backgroundImage: {
         // https://uigradients.com
-        amethyst: "linear-gradient(to top, #9d50bb, #6e48aa)",
+        "amethyst-top": "linear-gradient(to top, #9d50bb, #6e48aa)",
+        "amethyst-right": "linear-gradient(to right, #9d50bb, #6e48aa)",
+        "aitu": "linear-gradient(to right, #552383, #88BCE9)",
       },
       // custom box shadow
       boxShadow: {
