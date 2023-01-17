@@ -1,50 +1,81 @@
-# Welcome to [Astro](https://astro.build)
+# AITU Webpage
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+This repository holds the source code for the AITU webpage.
+The website is hosted on Vercel and live at the domain [www.aitu.dk](https://www.aitu.dk)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🌟 Techstack
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+The website is written in the modern JS framework [Astro](https://www.astro.build) and uses a minimal project setup. 
+The entire project tries to use native HTML, CSS and JS (in `.astro` files), whenever possible.
+External packages are kept minimal to avoid maintenance work. The packages used are:
 
+- [Tailwind](https://www.tailwindcss.com) for styling
+- [ThreeJS](https://www.threejs.org) for 3d rendering
+- [Three Noise](https://www.npmjs.com/package/three-noise) for creating perlin noise vector field
+- [Fontsource DM-Sans](https://fontsource.org/fonts/dm-sans) for custom font
+
+Additionally, the following astro adapters are used:
+
+- [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/) to integrate Tailwind with astro
+- [@astrojs/vercel"](https://docs.astro.build/en/guides/integrations-guide/vercel/) to conveniently deploy to Vercel
 
 ## 🚀 Project Structure
 
+The project structure broadly follows the default `Astro` filestructure. 
 Inside of your Astro project, you'll see the following folders and files:
 
-```
+```plain
 /
 ├── public/
-│   └── favicon.svg
+│   └── authors/
+│   └── posts/
+│   └── ...
 ├── src/
+│   ├── js/
 │   ├── components/
-│   │   └── Card.astro
 │   ├── layouts/
 │   │   └── Layout.astro
+│   │   └── BlogLayout.astro
 │   └── pages/
 │       └── index.astro
+│       └── blog/
+│           └── index.astro
+│           └── post.md
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Any static assets, i.e. images, can be placed in the `public/` directory. If an image belongs to a post,
+put it in the `/public/posts` directory. If you upload your own author image, because you are writing a blog post, put it into the `/public/authors` component. Make sure to compress all static images to reduce load time. 
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**Note, that all images are required to be `.png` images**
 
-Any static assets, like images, can be placed in the `public/` directory.
+The `src` directory contains all source code. This is mostly `.astro` files, which include JSX-like HTML syntax, (Tailwind-)CSS and Java/Typescript support. The `js` directory contains JavaScript and TypeScript files that include module imports, which are not recognised in `.astro` files. The `layout` component holds two base layouts, that apply global styles. All styles are wrapped in the `Layout.astro` component and all blog posts are additionally wrapped in the `BlogLayout.astro` component.
+The `pages` component configures all routes that are available. By default, there are just two routes `/` and `/blog`. All individual blog articles are stored as `.md` files, see the _Writing a Blog Post_ section for details.
 
-## 🧞 Commands
+## 🗒️ Writing a Blog Post
 
-All commands are run from the root of the project, from a terminal:
+## 🧞 Contributing
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+If you want to contribute to this project, i.e. add blog articles, fix bugs or improve functionality, please fork this repository 
 
-## 👀 Want to learn more?
+```bash
+gh repo fork aitu-dk/webpage
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+To develop your change, create a new branch with following [Commitizen](https://github.com/commitizen/cz-cli) guidelines. Make sure to also use the Commitizen for every commit on the branch.
+
+```bash
+git branch -b <new-branch>
+```
+
+Once you are finished developing the feature, open a pull request to the `main` branch. Use the following command and follow the interactive prompt.
+
+```bash
+gh pr create
+```
+
+✅ Done. Thanks for making this project better!
+
+## 📬 Feedback and Inquiries
+
+For any inquiries, reach out to [mika@aitu.dk](mailto:mika@aitu.dk).
