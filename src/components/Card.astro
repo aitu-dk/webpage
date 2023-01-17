@@ -1,62 +1,27 @@
 ---
-export interface Props {
-	title: string;
-	body: string;
-	href: string;
+interface Props {
+  post: any;
 }
 
-const { href, title, body } = Astro.props;
+const { file } = Astro.props.post;
+const slug = file.split("/").slice(-1).at(0).split(".").at(0);
+const { title, imgSrc, date } = Astro.props.post.frontmatter;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.15rem;
-		background-color: white;
-		background-image: var(--accent-gradient);
-		background-size: 400%;
-		border-radius: 0.5rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
-
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
-	}
-</style>
+<a
+  href={`/blog/${slug}`}
+  class="bg-black border-[0.5px] border-tertiary hover:shadow-accent hover:decoration-transparent rounded-lg transition-shadow duration-300"
+>
+  <div class="h-80 flex flex-col items-center">
+    <img src={imgSrc} alt={imgSrc?.split("/").slice(-1).at(-1)} class="h-3/5 w-full object-cover rounded-t-lg" />
+    <div class="flex-1 flex flex-col items-center justify-center">
+      <h1 class="text-center text-3xl my-2">{title}</h1>
+      <div class="flex items-center justify-center space-x-2">
+        <p class="font-thin text-tertiary">
+          {new Date(date.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+        </p>
+        <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">5 Minutes Read</p>
+      </div>
+    </div>
+  </div>
+</a>
