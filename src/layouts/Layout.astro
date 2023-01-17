@@ -1,35 +1,106 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
+  description: string;
+  headerTitle?: string;
 }
+const { title, headerTitle, description } = Astro.props;
 
-const { title } = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="flex flex-col min-h-screen items-center selection:bg-accent/30 selection:text-primary">
+    <Header headerTitle={headerTitle} />
+    <div class="container flex-1">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+
+  <style is:global>
+    :global(:root) {
+      accent: #9a4fba;
+      background: #000000;
+      primary: #ffffff;
+      secondary: #adb5bd;
+      tertiary: #6c757d;
+    }
+    html {
+      background-color: black;
+    }
+    body {
+      color: white;
+      line-height: 2;
+    }
+    body::selection {
+      color: var(--accent);
+      background-color: var(--accent);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 4px;
+      transition: text-decoration-color 300ms;
+    }
+
+    a:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    nounderline:hover {
+      text-decoration-color: transparent;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 72rem;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0 auto;
+    }
+
+    .full-width {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+  </style>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
+
+<script>
+  /*
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log(document.location.href);
+      if (document.location.href !== "/") {
+        document.location.href = "/";
+      }
+
+      // @ts-ignore
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+  */
+</script>
