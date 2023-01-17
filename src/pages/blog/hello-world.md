@@ -3,7 +3,7 @@ title: Hello, World
 description: We are launching our website!
 author: Mika Senghaas
 date: 01/16/2023
-imgSrc: /posts/aitubanner.png
+imgSrc: /assets/aitubanner.png
 
 layout: ../../layouts/BlogLayout.astro
 ---
