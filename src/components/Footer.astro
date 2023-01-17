@@ -1,0 +1,23 @@
+---
+---
+
+<div id="footer" class="py-20 w-full">
+  <div class="container text-right w-full p-4 h-28 text-secondary">
+    <p class="text-sm lg:text-base font-thin">
+      Say Hello
+      <a href="mailto:hello@aitu.dk" class="text-white font-medium hover:underline">hello@aitu.dk</a>.
+    </p>
+    <p class="text-sm lg:text-base font-thin">
+      Or find us on
+      <a href="https://www.github.com/aitu-dk" target="_blank" class="text-white font-medium hover:underline">GitHub</a> or
+      <a href="https://www.linkedin.com/company/aitu-dk/" target="_blank" class="text-white font-medium hover:underline">LinkedIn</a>.
+    </p>
+    <p id="copyright" class="text-tertiary text-xs mt-10 lg:text-sm font-extralight">&copy; AITU Copenhagen, 2023</p>
+  </div>
+</div>
+
+<script>
+  const copyright = document.getElementById("copyright")!;
+
+  copyright.innerHTML = `&copy; AITU Copenhagen, ${new Date().getFullYear()}`;
+</script>
