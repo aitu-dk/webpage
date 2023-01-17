@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+
+function comparePosts(postA: any, postB: any) {
+  if (new Date(postA.frontmatter.date) < new Date(postB.frontmatter.date)) {
+    return 1;
+  }
+  return -1;
+}
+
+const posts = await Astro.glob("../../pages/blog/*.md");
+const sorted = posts.sort(comparePosts);
+---
+
+<Layout title="Blog | AITU" description="AITU Blog">
+  <main>
+    <div class="mt-60">
+      <a href="/" class="text-sm text-accent">Back</a>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-medium my-6">Blog</h1>
+      <p class="text-secondary font-light sm:text-lg md:text-xl md:w-3/4">
+        In the AITU blog we write about insightful discussion in our reading groups, reflections on coding projects, as well as reflection on hosted
+        talks.
+      </p>
+    </div>
+    <div class="my-20 grid md:grid-cols-3 2xl:grid-cols-4 gap-4">
+      {posts.map((post) => <Card post={post} />)}
+    </div>
+  </main>
+</Layout>
