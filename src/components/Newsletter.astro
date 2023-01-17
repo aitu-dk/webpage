@@ -1,0 +1,69 @@
+---
+---
+
+<div id="join" class="flex flex-col justify-center items-center mt-40 text-center">
+  <div class="flex items-center justify-center space-x-3 text-3xl md:text-6xl text-center">
+    <h1 class="font-thin">Join the</h1>
+    <h1 class="text-transparent bg-clip-text bg-amethyst">Newsletter</h1>
+    <h1 class="inline font-thin">📬</h1>
+  </div>
+  <p class="mt-4 max-w-3xl text-secondary text-md md:text-lg font-light">
+    In our newsletter we reflect on insightful readings, completed projects and summarise the take-aways from external talks. <i>
+      You can expect around two emails per month.</i
+    >
+  </p>
+  <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:space-x-2 w-full max-w-3xl mx-auto my-14">
+    <div class="flex-1 w-full">
+      <input
+        id="email"
+        placeholder="Your Email"
+        type="email"
+        class="w-full bg-transparent md:text-lg border-b border-tertiary hover:border-accent focus:border-accent focus:outline-none placeholder:text-white"
+      />
+      <label class="block mt-1 text-sm text-left text-tertiary">Enter a valid email address.</label>
+    </div>
+    <button
+      id="signup"
+      class="w-full md:w-20 tracking-wider m-0 px-2 mt-8 md:mt-0 font-medium rounded-md bg-accentDark text-accent hover:shadow-accent-small focus:outline-none focus:shadow-accent-small transition-shadow duration-300"
+      >Sign Up</button
+    >
+  </div>
+  <p id="response" class="text-sm text-secondary md:text-md opacity-0 w-full max-w-3xl h-8 transition-opacity duration-300"></p>
+</div>
+
+<script>
+  const email: HTMLInputElement = document.getElementById("email")!;
+  const signup: HTMLElement = document.getElementById("signup")!;
+  const response: HTMLElement = document.getElementById("response")!;
+
+  const emptyMessage: string = "Please enter an email.";
+  const invalidMessage: string = "Please enter a valid email.";
+  const validMessage: string = "Thank you for signing up! You will receive a confirmation email shortly.";
+
+  function validateEmail(mail: string) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+      return true;
+    }
+    return false;
+  }
+
+  function handleClick() {
+    // no input
+    if (email.value === "") {
+      response.innerText = emptyMessage;
+    } else if (!validateEmail(email.value)) {
+      response.innerText = invalidMessage;
+    } else {
+      response.innerText = validMessage;
+    }
+    response.style.opacity = "100%";
+    email.value = "";
+
+    setTimeout(() => {
+      response.innerText = "";
+      response.style.opacity = "0%";
+    }, 3000);
+  }
+
+  signup.addEventListener("click", handleClick);
+</script>
