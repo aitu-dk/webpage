@@ -1,0 +1,23 @@
+---
+import Card from "./Card.astro";
+
+function comparePosts(postA: any, postB: any) {
+  if (new Date(postA.frontmatter.date) < new Date(postB.frontmatter.date)) {
+    return 1;
+  }
+  return -1;
+}
+
+const posts = await Astro.glob("../pages/blog/*.md");
+const mostRecent = posts.sort(comparePosts).slice(0, 3);
+---
+
+<div id="recent" class="pt-20 my-40">
+  <p class="text-transparent bg-clip-text bg-amethyst mb-4">Recently.</p>
+  <div class="grid md:grid-cols-3 gap-8">
+    {mostRecent.map((post) => <Card post={post} />)}
+  </div>
+  <div class="flex items-center justify-center mt-10">
+    <a href="/blog" class="text-accent">See all blog posts</a>
+  </div>
+</div>
