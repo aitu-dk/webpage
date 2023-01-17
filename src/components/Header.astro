@@ -1,0 +1,94 @@
+---
+const { headerTitle } = Astro.props;
+---
+
+<div
+  id="header"
+  class="fixed top-0 flex w-full h-40 items-center justify-center border-b-tertiary/50 transition-[height] duration-300 select-none z-40"
+>
+  <div class="container flex justify-between">
+    <div class="flex items-center justify-start space-x-12">
+      <a id="logo" href="/" class="group relative">
+        <img src="/assets/aitu.png" height={60} width={60} />
+        <p
+          class="opacity-0 absolute bg-accentDark text-accent text-center font-medium rounded-md mx-auto left-0 right-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          Home
+        </p>
+      </a>
+      <h2 id="animatedTitle" class="hidden lg:block text-2xl opacity-0 transition-opacity duration-300">{headerTitle}</h2>
+    </div>
+    <div id="menu" class="flex items-center space-x-6">
+      <a href="/#activities" class="hidden sm:block tracking-wider">
+        <p>Activities</p>
+      </a>
+      <a href="/#recent" class="hidden sm:block tracking-wider">
+        <p>Recent</p>
+      </a>
+      <a href="/blog" class="tracking-wider">
+        <p>Blog</p>
+      </a>
+      <a
+        id="join"
+        href="/#join"
+        class="nounderline tracking-wider px-2 font-medium rounded-md bg-accentDark text-accent hover:shadow-accent-small transition-shadow duration-300"
+      >
+        <p>Join</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  #join:hover {
+    text-decoration-color: transparent;
+  }
+</style>
+
+<script>
+  let windowWidth = window.innerWidth;
+
+  const header = document.getElementById("header")!;
+  const animatedTitle: HTMLElement = document.getElementById("animatedTitle")!;
+
+  function animateHeader() {
+    if (window.scrollY > 100) {
+      header.classList.remove("h-40");
+      header.classList.add("h-20");
+      header.classList.add("backdrop-blur-md");
+      header.classList.add("border-b");
+    } else {
+      header.classList.remove("h-20");
+      header.classList.add("h-40");
+      header.classList.remove("backdrop-blur-md");
+      header.classList.remove("border-b");
+    }
+  }
+
+  function animatedHeaderTitle() {
+    if (windowWidth > 630) {
+      if (window.scrollY > 200) {
+        animatedTitle.style.opacity = "100%";
+      } else {
+        animatedTitle.style.opacity = "0%";
+      }
+    } else {
+      animatedTitle.style.opacity = "0%";
+    }
+  }
+
+  function handleScroll() {
+    animateHeader();
+    animatedHeaderTitle();
+  }
+
+  function handleResize() {
+    windowWidth = window.innerWidth;
+    console.log(windowWidth);
+  }
+
+  animateHeader();
+  animatedHeaderTitle();
+  document.addEventListener("scroll", handleScroll);
+  document.addEventListener("resize", handleResize);
+</script>
