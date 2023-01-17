@@ -1,0 +1,109 @@
+---
+import Layout from "./Layout.astro";
+const { title, description, author, date } = Astro.props.frontmatter;
+---
+
+<Layout title={`${title} | AITU`} headerTitle={title} description={description}>
+  <div class="mt-80 max-w-4xl mx-auto">
+    <a href="/blog" class="text-sm text-accent">Back</a>
+    <h1 id="title" class="text-4xl sm:text-5xl lg:text-7xl font-medium my-6">{title}</h1>
+    <div class="flex items-center space-x-2">
+      <img src={`/authors/${author.toLowerCase().replaceAll(" ", "-")}.png`} class="w-7 h-7 rounded-full" />
+      <p class="text-xl tracking-wider text-secondary">{author}</p>
+    </div>
+    <div class="flex items-center space-x-2 font-thin text-tertiary mt-2">
+      <p>
+        Published <strong>{new Date(date.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" })}</strong>
+        <p>/</p>
+        <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">5 Minutes Read</p>
+      </p>
+    </div>
+    <article class="my-20 max-w-4xl">
+      <slot />
+    </article>
+  </div>
+
+  <style>
+    article :global(h2),
+    article :global(h3) {
+      color: white;
+      margin-top: 2rem;
+    }
+
+    article :global(h2) {
+      font-size: 32px;
+    }
+
+    article :global(h3) {
+      font-size: 24px;
+    }
+
+    article :global(p),
+    article :global(li) {
+      color: #adb5bd;
+      font-weight: 300;
+      font-size: 18px;
+    }
+
+    article :global(p) {
+      margin: 0.25rem 0;
+    }
+
+    article :global(a) {
+      color: #9a4fba;
+    }
+
+    article :global(hr) {
+      border-top: 0.5px solid #adb5bd;
+    }
+
+    article :global(strong) {
+      color: white;
+      font-weight: 400;
+    }
+
+    article :global(blockquote) {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 5px solid #9a4fba;
+      padding-left: 10px;
+      padding: 10px 0 10px 20px;
+    }
+
+    article :global(img) {
+      margin: 1rem auto;
+      border-radius: 20px;
+    }
+
+    article :global(ol),
+    article :global(ul) {
+      margin: 0.5rem 0;
+    }
+    article :global(ul) :global(li) {
+      display: list-item;
+      list-style-type: disc;
+      margin-left: 30px;
+    }
+
+    article :global(ol) :global(li) {
+      display: list-item;
+      list-style-type: decimal;
+      margin-left: 30px;
+    }
+
+    /* sm breakpoint */
+    @media (min-width: 640px) {
+      article :global(h2) {
+        font-size: 38px;
+      }
+
+      article :global(h3) {
+        font-size: 28px;
+      }
+
+      article :global(p),
+      article :global(li) {
+        font-size: 20px;
+      }
+    }
+  </style>
+</Layout>
