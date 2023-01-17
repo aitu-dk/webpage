@@ -231,28 +231,28 @@
     // from right to left (on tablet, desktop)
     if (windowWidth > 630) {
       camera.position.setX(Math.min(-30 + (120 / windowHeight) * currentScroll, 30));
+      // reduce opacity
+      if (recent.getBoundingClientRect().top - windowHeight < 0) {
+        canvas.style.opacity = `${Math.max(20, 100 - Math.abs(recent.getBoundingClientRect().top - windowHeight) / 15)}%`;
+      } else {
+        canvas.style.opacity = "100%";
+      }
+
+      // scene rotates depending on scroll direction
+      if (prevScroll > currentScroll) {
+        scrollType = "UP";
+      } else {
+        scrollType = "DOWN";
+      }
+
+      setTimeout(() => {
+        scrollType = "";
+      }, 100);
     } else {
       camera.position.setX(0);
       canvas.style.opacity = "50%";
     }
 
-    // reduce opacity
-    if (recent.getBoundingClientRect().top - windowHeight < 0) {
-      canvas.style.opacity = `${Math.max(20, 100 - Math.abs(recent.getBoundingClientRect().top - windowHeight) / 15)}%`;
-    } else {
-      canvas.style.opacity = "100%";
-    }
-
-    // scene rotates depending on scroll direction
-    if (prevScroll > currentScroll) {
-      scrollType = "UP";
-    } else {
-      scrollType = "DOWN";
-    }
-
-    setTimeout(() => {
-      scrollType = "";
-    }, 100);
   }
 
   setup();
