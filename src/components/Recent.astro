@@ -12,7 +12,7 @@ const posts = await Astro.glob("../pages/blog/*.md");
 const mostRecent = posts.sort(comparePosts).slice(0, 3);
 ---
 
-<div id="recent" class="pt-20 my-40">
+<div id="recent" class="pt-32 sm:my-40">
   <p class="text-transparent bg-clip-text bg-amethyst mb-4">Recently.</p>
   <div class="grid md:grid-cols-3 gap-8">
     {mostRecent.map((post) => <Card post={post} />)}

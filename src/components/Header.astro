@@ -4,7 +4,7 @@ const { headerTitle } = Astro.props;
 
 <div
   id="header"
-  class="fixed top-0 flex w-full h-40 items-center justify-center border-b-tertiary/50 transition-[height] duration-300 select-none z-40"
+  class="fixed top-0 flex w-full h-20 items-center justify-center border-b-tertiary/50 transition-[height] duration-300 select-none z-40"
 >
   <div class="container flex justify-between">
     <div class="flex items-center justify-start space-x-12">
@@ -18,7 +18,7 @@ const { headerTitle } = Astro.props;
       </a>
       <h2 id="animatedTitle" class="hidden lg:block text-2xl opacity-0 transition-opacity duration-300">{headerTitle}</h2>
     </div>
-    <div id="menu" class="flex items-center space-x-6">
+    <div id="menu" class="flex items-center space-x-6 text-lg">
       <a href="/#activities" class="hidden sm:block tracking-wider">
         <p>Activities</p>
       </a>
@@ -29,8 +29,8 @@ const { headerTitle } = Astro.props;
         <p>Blog</p>
       </a>
       <a
-        id="join"
-        href="/#join"
+        id="join-link"
+        href="/#newsletter"
         class="nounderline tracking-wider px-2 font-medium rounded-md bg-accentDark text-accent hover:shadow-accent-small transition-shadow duration-300"
       >
         <p>Join</p>
@@ -40,7 +40,7 @@ const { headerTitle } = Astro.props;
 </div>
 
 <style>
-  #join:hover {
+  #join-link:hover {
     text-decoration-color: transparent;
   }
 </style>
