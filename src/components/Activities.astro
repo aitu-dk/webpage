@@ -1,13 +1,32 @@
 ---
+interface Activity {
+  title: string,
+  description: string
+}
+const activities: Activity[] = [
+  {
+    title: "Reading",
+    description: "Together, we read and discuss one AI research paper every week."
+  },
+  {
+    title: "Projects",
+    description: "We work on hands-on coding projects and real-world case studies."
+  },
+  {
+    title: "Talks",
+    description: "We host insightful talks given by experts from academia and industry."
+  },
+
+]
 ---
 
-<div id="activities" class="flex w-full flex-col items-end leading-relaxed text-right py-20">
-  <p class="text-transparent bg-clip-text bg-amethyst mt-8">Reading.</p>
-  <p id="reading" class="text-3xl md:text-6xl text-gray-400 md:w-3/5">Together, we read and discuss one AI research paper every week.</p>
-  <p class="text-transparent bg-clip-text bg-amethyst mt-8">Projects.</p>
-  <p id="projects" class="text-3xl md:text-6xl text-gray-400 md:w-3/5">We work on hands-on coding projects and case studies every month.</p>
-  <p class="text-transparent bg-clip-text bg-amethyst mt-8">Talks.</p>
-  <p id="talks" class="text-3xl md:text-6xl text-gray-400 md:w-3/5">We host insightful talks from researchers and practitioners.</p>
+<div id="activities" class="flex w-full flex-col items-end leading-relaxed text-right pt-32">
+  {activities.map((activity: Activity) => {
+    return (
+      <p class="first:mt-0 mt-10 text-transparent bg-clip-text bg-amethyst-right">{activity.title}.</p>
+      <p id={activity.title.toLowerCase()} class="text-3xl md:text-6xl text-gray-400 md:w-3/5">{activity.description}</p>
+    )
+  })
 </div>
 
 <script>
