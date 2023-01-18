@@ -1,7 +1,36 @@
 ---
 ---
 
-<div class="h-screen flex flex-col justify-center sm:w-1/2">
-  <h1 class="text-6xl sm:text-7xl md:text-8xl tracking-wider text-transparent bg-clip-text bg-amethyst font-black">AI@ITU</h1>
-  <p class="mt-2 text-3xl :text-4xl">That's AITU. We are a group of students with a special interest in AI.</p>
+<div class="h-screen flex flex-col justify-center">
+  <h1 id="title" class="text-6xl sm:text-7xl md:text-6xl tracking-wider text-transparent bg-clip-text bg-amethyst-bottom font-black py-2">Artificial Intelligence at the IT University of Copenhagen</h1>
+  <p id="subtitle" class="mt-2 text-secondary text-3xl md:text-4xl font-extralight w-1/2"><img src="/assets/aitu.png" width={45} class="inline mb-1 mr-1"/><strong class="text-primary font-logo">AITU</strong> connects the brightest minds in ML from the IT University of Copenhagen.</p>
 </div>
+
+<style>
+  @keyframes animation {
+    from  {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 100%;
+    }
+  }
+
+  #title,
+  #subtitle {
+    opacity: 0;
+    transform: translatey(10px);
+    animation-name: animation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  #title {
+    animation-delay: 1s;
+  }
+  #subtitle {
+    animation-delay: 1.4s;
+  }
+</style>
