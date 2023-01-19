@@ -1,5 +1,5 @@
 ---
-import Card from "./Card.astro";
+import CardPreview from "./CardPreview.astro";
 
 function comparePosts(postA: any, postB: any) {
   if (new Date(postA.frontmatter.date) < new Date(postB.frontmatter.date)) {
@@ -13,11 +13,11 @@ const mostRecent = posts.sort(comparePosts).slice(0, 3);
 ---
 
 <div id="recent" class="pt-32 sm:my-40">
-  <p class="text-transparent bg-clip-text bg-amethyst mb-4">Recently.</p>
+  <p class="text-transparent bg-clip-text bg-amethyst-right mb-4">Recent.</p>
   <div class="grid md:grid-cols-3 gap-8">
-    {mostRecent.map((post) => <Card post={post} />)}
+    {mostRecent.map((post) => <CardPreview post={post} />)}
   </div>
   <div class="flex items-center justify-center mt-10">
-    <a href="/blog" class="text-accent">See all blog posts</a>
+    <a href="/blog" class="text-transparent bg-clip-text bg-amethyst-right hover:text-accent hover:underline">See all blog posts</a>
   </div>
 </div>
