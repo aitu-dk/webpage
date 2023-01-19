@@ -3,24 +3,23 @@ interface Props {
   post: any;
 }
 
-const { file } = Astro.props.post;
+const { frontmatter, file } = Astro.props.post;
 const slug = file.split("/").slice(-1).at(0).split(".").at(0);
-const { title, imgSrc, minutesRead, date } = Astro.props.post.frontmatter;
+const { title, description, author, imgSrc, minutesRead, date } = frontmatter;
 ---
 
 <a
   href={`/blog/${slug}`}
-  class="bg-black border-[0.5px] border-tertiary hover:shadow-accent hover:decoration-transparent rounded-lg transition-shadow duration-300"
+  class="flex items-center w-full h-32 rounded-lg p-2 pr-6 bg-background-secondary border-[0.5px] border-tertiary hover:shadow-accent hover:decoration-transparent transition-shadow duration-300"
 >
-  <div class="h-80 flex flex-col items-center">
-    <img src={imgSrc} alt={imgSrc?.split("/").slice(-1).at(-1)} class="h-3/5 w-full object-cover rounded-t-lg" />
-    <div class="flex-1 flex flex-col items-center justify-center">
-      <h1 class="text-center text-3xl my-2">{title}</h1>
-      <div class="flex items-center justify-center space-x-2">
-        <p class="font-thin text-tertiary">
-          {new Date(date.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}
-        </p>
-        <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">{minutesRead}</p>
+    <div class="w-full h-full flex items-center space-x-6">
+      <img src={imgSrc} class="h-28 w-28 object-cover rounded-lg"/>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-center sm:justify-between w-full h-full">
+        <div class="max-w-xl">
+          <h1 class="leading-tight text-lg sm:text-2xl line-clamp-3 sm:line-clamp-1">{title}</h1>
+          <p class="hidden sm:block mt-1 text-secondary font-light leading-snug sm:line-clamp-2">{description}</h1>
+        </div>
+        <p class="text-sm mt-2 px-1 w-fit font-medium bg-accent/20 text-accent rounded-md">{minutesRead}</p>
       </div>
     </div>
   </div>
