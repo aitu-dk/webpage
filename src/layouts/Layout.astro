@@ -17,11 +17,18 @@ import Footer from "../components/Footer.astro";
     <meta name="description" content={description} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:image" content="/assets/aitubanner.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image"></meta>
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="generator" content={Astro.generator} />
   </head>
   <body class="flex flex-col min-h-screen items-center selection:bg-accent/30 selection:text-primary">
     <Header headerTitle={headerTitle} />
@@ -85,22 +92,3 @@ import Footer from "../components/Footer.astro";
     }
   </style>
 </html>
-
-<script>
-  /*
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      console.log(document.location.href);
-      if (document.location.href !== "/") {
-        document.location.href = "/";
-      }
-
-      // @ts-ignore
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  });
-  */
-</script>
