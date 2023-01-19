@@ -1,6 +1,6 @@
 ---
 title: Hello, World
-description: We are launching our website!
+description: AITU is an official student organisation at ITU + Website Launch!
 author: Mika Senghaas
 date: 01/16/2023
 imgSrc: /assets/aitubanner.png
