@@ -9,6 +9,7 @@ module.exports = {
         accentDark: "#1f1025",
         accentLight: "#cda7dd",
         background: "#000000",
+        "background-secondary": "#101010",
         primary: "#ffffff",
         secondary: "#adb5bd",
         tertiary: "#6c757d",
@@ -21,7 +22,7 @@ module.exports = {
       // custom gradient
       backgroundImage: {
         // https://uigradients.com
-        "amethyst-top": "linear-gradient(to top, #9d50bb, #6e48aa)",
+        "amethyst-bottom": "linear-gradient(to bottom, #9d50bb, #6e48aa)",
         "amethyst-right": "linear-gradient(to right, #9d50bb, #6e48aa)",
         "aitu": "linear-gradient(to right, #552383, #88BCE9)",
       },
@@ -32,5 +33,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ]
 };
