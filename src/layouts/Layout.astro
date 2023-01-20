@@ -39,39 +39,41 @@ import Footer from "../components/Footer.astro";
   </body>
 
   <style is:global>
-    :global(:root) {
-      accent: #9a4fba;
-      background: #000000;
-      primary: #ffffff;
-      secondary: #adb5bd;
-      tertiary: #6c757d;
+    :root {
+      --accent: #9a4fba;
+      --accent-dark: #1f1025;
+      --accent-light: #cda7dd;
+      --background: #000000;
+      --background-secondary: #101010;
+      --primary: #ffffff;
+      --secondary: #adb5bd;
+      --tertiary: #6c757d;
+      --border: #3B424D;
     }
+
+    ::selection {
+      background: var(--accent-dark);
+    }
+
     html {
-      background-color: black;
+      background-color: var(--background);
     }
+
     body {
-      color: white;
+      color: var(--primary);
       line-height: 2;
-    }
-    body::selection {
-      color: var(--accent);
-      background-color: var(--accent);
     }
 
     a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-decoration-color: transparent;
       text-underline-offset: 4px;
-      transition: text-decoration-color 300ms;
     }
 
     a:hover {
-      text-decoration-color: var(--accent);
+      text-decoration: underline;
     }
 
-    nounderline:hover {
-      text-decoration-color: transparent;
+    .nounderline:hover {
+      text-decoration: none;
     }
 
     .container {

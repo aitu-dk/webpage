@@ -7,14 +7,15 @@ module.exports = {
     extend: {
       // custom colours
       colors: {
-        accent: "#9a4fba",
-        accentDark: "#1f1025",
-        accentLight: "#cda7dd",
-        background: "#000000",
-        "background-secondary": "#101010",
-        primary: "#ffffff",
-        secondary: "#adb5bd",
-        tertiary: "#6c757d",
+        "accent": "var(--accent)",
+        "accent-dark": "var(--accent-dark)",
+        "accent-light": "var(--accent-light)",
+        "background": "var(--background)",
+        "background-secondary": "var(--background-secondary)",
+        "primary": "var(--primary)",
+        "secondary": "var(--secondary)",
+        "tertiary": "var(--tertiary)",
+        "border": "var(--border)",
       },
       // custom fonts
       fontFamily: {

@@ -1,6 +1,8 @@
 ---
 import Layout from "./Layout.astro";
-const { title, description, minutesRead, author, date } = Astro.props.frontmatter;
+import Badge from "../components/Badge.astro"
+
+const { title, description, minutesRead, author, published } = Astro.props.frontmatter;
 ---
 
 <Layout title={`${title} | AITU`} headerTitle={title} description={description}>
@@ -13,9 +15,11 @@ const { title, description, minutesRead, author, date } = Astro.props.frontmatte
     </div>
     <div class="flex items-center space-x-2 font-thin text-tertiary mt-2">
       <p>
-        Published <strong>{new Date(date.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" })}</strong>
+        Published <strong>{new Date(published.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" })}</strong>
         <p>/</p>
-      <p class="px-1 text-sm font-medium bg-accent/20 text-accent rounded-md">{minutesRead}</p>
+      <Badge>
+        <p class="text-sm">{minutesRead}</p>
+      </Badge>
       </p>
     </div>
     <article class="my-20 max-w-4xl mx-auto">
