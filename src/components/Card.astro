@@ -5,22 +5,16 @@ interface Props {
 
 const { frontmatter, file } = Astro.props.post;
 const slug = file.split("/").slice(-1).at(0).split(".").at(0);
-const { title, description, author, imgSrc, minutesRead, date } = frontmatter;
+const { title, description, image, published } = frontmatter;
 ---
 
-<a
-  href={`/blog/${slug}`}
-  class="flex items-center w-full h-32 rounded-lg p-2 pr-6 bg-background-secondary border-[0.5px] border-tertiary hover:shadow-accent hover:decoration-transparent transition-shadow duration-300"
->
-    <div class="w-full h-full flex items-center space-x-6">
-      <img src={imgSrc} class="h-28 w-28 object-cover rounded-lg"/>
-      <div class="flex flex-col sm:flex-row sm:items-center justify-center sm:justify-between w-full h-full">
-        <div class="max-w-xl">
-          <h1 class="leading-tight text-lg sm:text-2xl line-clamp-3 sm:line-clamp-1">{title}</h1>
-          <p class="hidden sm:block mt-1 text-secondary font-light leading-snug sm:line-clamp-2">{description}</h1>
-        </div>
-        <p class="text-sm mt-2 px-1 w-fit font-medium bg-accent/20 text-accent rounded-md">{minutesRead}</p>
-      </div>
+<a href={`/blog/${slug}`} class="group nounderline w-full first:border-0 border-t border-border py-4 pr-2">
+  <div class="flex space-x-4">
+    <img src={image} alt={image} class="hidden sm:block h-32 rounded-lg"/>
+    <div>
+      <h2 class="text-primary text-2xl font-semibold line-clamp-1 group-hover:underline" >{title}</h2>
+      <p class="text-secondary font-light leading-snug line-clamp-3 my-2">{description}</p>
+      <p class="text-sm text-tertiary font-extralight">Published <strong class="text-secondary font-extralight">{new Date(published.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}</strong></p>
     </div>
   </div>
-</a>
+</div>
