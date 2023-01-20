@@ -1,17 +1,19 @@
 ---
+import Badge from "./Badge.astro";
+const anchorLinks: string[] = [ "activities", "recent", "newsletter" ]
 const { headerTitle } = Astro.props;
 ---
 
 <div
   id="header"
-  class="fixed top-0 flex w-full h-20 items-center justify-center border-b-tertiary/50 transition-[height] duration-300 select-none z-40"
+  class="fixed top-0 flex w-full h-20 items-center justify-center border-b border-border transition-[height] duration-300 select-none z-40"
 >
   <div class="container flex justify-between">
     <div class="flex items-center justify-start space-x-12">
       <a id="logo" href="/" class="group relative">
         <img src="/assets/aitu.png" height={60} width={60} />
         <p
-          class="opacity-0 absolute bg-accentDark text-accent text-center font-medium rounded-md mx-auto left-0 right-0 group-hover:opacity-100 transition-opacity duration-300"
+          class="opacity-0 absolute bg-accent-dark text-accent text-center font-medium rounded-md mx-auto left-0 right-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           Home
         </p>
@@ -19,22 +21,23 @@ const { headerTitle } = Astro.props;
       <h2 id="animatedTitle" class="hidden lg:block text-2xl opacity-0 transition-opacity duration-300">{headerTitle}</h2>
     </div>
     <div id="menu" class="flex items-center space-x-6">
-      <a href="/#activities" class="hidden sm:block tracking-wider">
-        <p>Activities</p>
+      {
+        anchorLinks.map((link: string) => {
+          return (
+            <a id={`${link}Link`} href={`/#${link}`} class="hidden sm:block nounderline text-secondary hover:text-primary tracking-wider">
+              <p>{link.at(0)?.toUpperCase() + link.slice(1)}</p>
+            </a>
+          )        })
+      }
+      <a id="blogLink" href="/blog" class="text-secondary hover:text-primary no-underline tracking-wider">
+        <div class="flex items-center space-x-1">
+          <p>Blog</p>
+          <img src="/assets/external.svg" class="fill-white inline-block w-4" />
+        </div>
       </a>
-      <a href="/#recent" class="hidden sm:block tracking-wider">
-        <p>Recent</p>
-      </a>
-      <a href="/blog" class="tracking-wider">
-        <p>Blog</p>
-      </a>
-      <a
-        id="join-link"
-        href="/#newsletter"
-        class="nounderline tracking-wider px-2 font-medium rounded-md bg-accentDark text-accent hover:shadow-accent-small transition-shadow duration-300"
-      >
-        <p>Join</p>
-      </a>
+      <Badge id="joinLink">
+        <a href="/join" class="nounderline">Join</a>
+      </Badge>
     </div>
   </div>
 </div>
@@ -48,8 +51,27 @@ const { headerTitle } = Astro.props;
 <script>
   let windowWidth = window.innerWidth;
 
+  // header
   const header = document.getElementById("header")!;
+
+  // animated title
   const animatedTitle: HTMLElement = document.getElementById("animatedTitle")!;
+
+  // link animation
+  const activities: HTMLElement = document.getElementById('activities')!;
+  const activitiesLink: HTMLElement = document.getElementById('activitiesLink')!;
+
+  const recent: HTMLElement = document.getElementById('recent')!;
+  const recentLink: HTMLElement = document.getElementById('recentLink')!;
+
+  const newsletter: HTMLElement = document.getElementById('newsletter')!;
+  const newsletterLink: HTMLElement = document.getElementById('newsletterLink')!;
+
+  const blogLink: HTMLElement = document.getElementById('blogLink')!;
+
+  const sections: HTMLElement[] = [ activities, recent, newsletter ]
+  const links:HTMLElement[] = [ activitiesLink, recentLink, newsletterLink ]
+
 
   function animateHeader() {
     if (window.scrollY > 100) {
@@ -77,18 +99,51 @@ const { headerTitle } = Astro.props;
     }
   }
 
+  function animateLinks() {
+    const buffer = 300;
+    let sectionIdInView: number = -1;
+    let closestToBuffer: number = -20000000;
+    sections.forEach((section: HTMLElement, i: number) => {
+      let top = section?.getBoundingClientRect().top
+      if (top < buffer && top > closestToBuffer) {
+        closestToBuffer = top;
+        sectionIdInView = i;
+      }
+    })
+
+    links.forEach((_: HTMLElement, i: number) => {
+      if (i == sectionIdInView) {
+        links[i].classList.add('text-white');
+      } else {
+        links[i].classList.remove('text-white');
+      }
+    })
+  }
+
+  function handleRoute() {
+    if (document.URL.includes('blog')) {
+      blogLink.classList.add('text-primary');
+      blogLink.classList.remove('text-secondary');
+    } else {
+      blogLink.classList.add('text-secondary');
+      blogLink.classList.remove('text-primary');
+    };
+  }
+
   function handleScroll() {
     animateHeader();
     animatedHeaderTitle();
+    animateLinks();
   }
 
   function handleResize() {
     windowWidth = window.innerWidth;
-    console.log(windowWidth);
   }
 
   animateHeader();
   animatedHeaderTitle();
+  animateLinks();
+  handleRoute();
   document.addEventListener("scroll", handleScroll);
   document.addEventListener("resize", handleResize);
 </script>
