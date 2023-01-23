@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="404 | AITU" description="Something went wrong...">
-  <div class="flex flex-col mt-36 md:mt-52 items-center justify-center">
-    <img src="/assets/404.svg" width={320}/>
-    <h1 class="text-center text-4xl font-black mt-4">Looks like a 404</h1>
-    <p class="text-center text-xl text-secondary font-light mt-4">Something went wrong here.<br/>Go back <a href="/" class="text-accent">home</a>.</p>
+  <div class="h-full flex flex-col items-center justify-center">
+    <img src="/assets/404.svg" class="w-40 md:w-80"/>
+    <h1 class="text-center text-4xl font-black mt-4">Looks like a <strong class="text-transparent bg-clip-text bg-amethyst-right">404</strong></h1>
+    <p class="text-center text-lg text-secondary font-light mt-4">Something went wrong here...<br/>Go back <strong><a href="/" class="text-primary">home</a></strong>.</p>
   </div>
 </Layout>
