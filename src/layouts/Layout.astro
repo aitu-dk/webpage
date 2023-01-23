@@ -1,9 +1,4 @@
 ---
-export interface Props {
-  title: string;
-  description: string;
-  headerTitle?: string;
-}
 const { title, headerTitle, description } = Astro.props;
 
 import Header from "../components/Header.astro";
@@ -18,11 +13,11 @@ import Footer from "../components/Footer.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-
-    <meta property="og:image" content="https://webpage-dun.vercel.app/assets/aitubanner.png" />
+    <meta property="og:image" content="https://www.aitu.group/assets/aitubanner.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image"></meta>
     <meta name="theme-color" content="#000000" />
+
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -30,67 +25,171 @@ import Footer from "../components/Footer.astro";
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body class="flex flex-col min-h-screen items-center selection:bg-accent/30 selection:text-primary">
+  <body>
     <Header headerTitle={headerTitle} />
-    <div class="container flex-1">
+    <div class="container flex-1 pt-40">
       <slot />
     </div>
     <Footer />
   </body>
-
-  <style is:global>
-    :root {
-      --accent: #9a4fba;
-      --accent-dark: #1f1025;
-      --accent-light: #cda7dd;
-      --background: #000000;
-      --background-secondary: #101010;
-      --primary: #ffffff;
-      --secondary: #adb5bd;
-      --tertiary: #6c757d;
-      --border: #3B424D;
-    }
-
-    ::selection {
-      background: var(--accent-dark);
-    }
-
-    html {
-      background-color: var(--background);
-    }
-
-    body {
-      color: var(--primary);
-      line-height: 2;
-    }
-
-    a {
-      text-underline-offset: 4px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .nounderline:hover {
-      text-decoration: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 72rem;
-      padding-left: 20px;
-      padding-right: 20px;
-      margin: 0 auto;
-    }
-
-    .full-width {
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-    }
-  </style>
 </html>
+
+<style is:global>
+  :root {
+    --accent: #9a4fba;
+    --accent-dark: #1f1025;
+    --accent-light: #cda7dd;
+    --background: #000000;
+    --background-secondary: #101010;
+    --primary: #ffffff;
+    --secondary: #adb5bd;
+    --tertiary: #6c757d;
+    --border: #3B424D;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+
+  html {
+    background-color: var(--background);
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--primary);
+    line-height: 2;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 300ms;
+  }
+
+  a:hover {
+    text-decoration-color: var(--color);
+  }
+
+  .nounderline:hover {
+    text-decoration-color: transparent;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 72rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+  .full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  article h2,
+  article h3 {
+    color: white;
+    margin-top: 2rem;
+  }
+
+  article h2 {
+    font-size: 32px;
+  }
+
+  article h3 {
+    font-size: 24px;
+  }
+
+  article p
+  article li {
+    color: #adb5bd;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  article p {
+    margin: 0.25rem 0;
+  }
+
+  article a {
+    color: #9a4fba;
+  }
+
+  article hr {
+    border-top: 0.5px solid #adb5bd;
+  }
+
+  article strong {
+    color: white;
+    font-weight: 400;
+  }
+
+  article blockquote {
+    background-color: #101010;
+    border-left: 5px solid #9a4fba;
+    padding-left: 10px;
+    padding: 10px 0 10px 20px;
+  }
+
+  article p > code {
+    font-size: 90%;
+    color: #9a4fba;
+    background-color: #1f1025;
+    border-radius: 10px;
+    padding: 2px 5px;
+  }
+
+  article pre {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+  }
+
+  article img {
+    margin: 1rem auto;
+    border-radius: 20px;
+  }
+
+  article ol,
+  article ul {
+    margin: 0.5rem 0;
+  }
+  article ul li {
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+  }
+
+  article ol li {
+    display: list-item;
+    list-style-type: decimal;
+    margin-left: 30px;
+  }
+
+  /* sm breakpoint */
+  @media (min-width: 640px) {
+    article h2 {
+      font-size: 38px;
+    }
+
+    article h3 {
+      font-size: 28px;
+    }
+
+    article p,
+    article li {
+      font-size: 20px;
+    }
+  }
+</style>
