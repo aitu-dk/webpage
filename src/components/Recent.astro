@@ -13,8 +13,8 @@ const mostRecent = posts.sort(comparePosts).slice(0, 3);
 ---
 
 <div id="recent" class="pt-32 sm:my-40">
-  <p class="text-transparent bg-clip-text bg-amethyst-right mb-4">Recent.</p>
-  <div class="grid grid-cols-1">
+  <p class="text-transparent bg-clip-text bg-amethyst-right">Recent.</p>
+  <div class="grid grid-cols-2 gap-2 mt-4">
     {mostRecent.map((post) => <Card post={post} />)}
   </div>
   <div class="flex items-center justify-center mt-10">

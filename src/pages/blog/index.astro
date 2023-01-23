@@ -23,7 +23,7 @@ const sorted = posts.sort(comparePosts);
         talks.
       </p>
     </div>
-    <div class="mt-14 grid grid-cols-1">
+    <div class="mt-14 grid grid-cols-1 gap-y-2">
       {sorted.map((post) => <Card post={post} />)}
     </div>
   </main>

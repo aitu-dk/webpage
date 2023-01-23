@@ -8,7 +8,7 @@ const slug = file.split("/").slice(-1).at(0).split(".").at(0);
 const { title, description, image, published } = frontmatter;
 ---
 
-<a href={`/blog/${slug}`} class="group nounderline w-full py-4 pr-2 first:border-0 border-t border-border">
+<a href={`/blog/${slug}`} class="group nounderline w-full p-4 rounded-lg border border-background-secondary hover:border-border transition-colors duration-500">
   <div class="flex space-x-4">
     <img src={image} alt={image} class="hidden sm:block h-32 rounded-lg"/>
     <div>
