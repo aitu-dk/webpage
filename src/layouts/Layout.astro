@@ -111,9 +111,9 @@ import Footer from "../components/Footer.astro";
     font-size: 24px;
   }
 
-  article p
+  article p,
   article li {
-    color: #adb5bd;
+    color: var(--secondary);
     font-weight: 300;
     font-size: 18px;
   }
@@ -131,13 +131,13 @@ import Footer from "../components/Footer.astro";
   }
 
   article strong {
-    color: white;
+    color: var(--primary);
     font-weight: 400;
   }
 
   article blockquote {
-    background-color: #101010;
-    border-left: 5px solid #9a4fba;
+    background-color: var(--background-secondary);
+    border-left: 5px solid var(--accent);
     padding-left: 10px;
     padding: 10px 0 10px 20px;
   }
