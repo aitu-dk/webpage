@@ -1,12 +1,13 @@
 ---
 import Badge from "./Badge.astro";
 const anchorLinks: string[] = [ "activities", "recent", "newsletter" ]
+
 const { headerTitle } = Astro.props;
 ---
 
 <div
   id="header"
-  class="fixed top-0 flex w-full h-20 items-center justify-center border-b border-border transition-[height] duration-300 select-none z-40"
+  class="fixed top-0 flex w-full h-40 items-center justify-center border-b border-transparent duration-500 select-none z-40"
 >
   <div class="container flex justify-between">
     <div class="flex items-center justify-start space-x-12">
@@ -18,18 +19,18 @@ const { headerTitle } = Astro.props;
           Home
         </p>
       </a>
-      <h2 id="animatedTitle" class="hidden lg:block text-2xl opacity-0 transition-opacity duration-300">{headerTitle}</h2>
+      <h2 id="animatedTitle" class="hidden lg:block text-2xl translate-y-4 opacity-0 transition-all">{headerTitle}</h2>
     </div>
     <div id="menu" class="flex items-center space-x-6">
       {
         anchorLinks.map((link: string) => {
           return (
-            <a id={`${link}Link`} href={`/#${link}`} class="hidden sm:block nounderline text-secondary hover:text-primary tracking-wider">
+            <a id={`${link}Link`} href={`/#${link}`} class="nounderline hidden sm:block text-secondary hover:text-primary transition-colors duration-300 tracking-wider">
               <p>{link.at(0)?.toUpperCase() + link.slice(1)}</p>
             </a>
           )        })
       }
-      <a id="blogLink" href="/blog" class="text-secondary hover:text-primary no-underline tracking-wider">
+      <a id="blogLink" href="/blog" class="nounderline text-secondary hover:text-primary transition-colors tracking-wider">
         <div class="flex items-center space-x-1">
           <p>Blog</p>
           <img src="/assets/external.svg" class="fill-white inline-block w-4" />
@@ -70,33 +71,35 @@ const { headerTitle } = Astro.props;
   const blogLink: HTMLElement = document.getElementById('blogLink')!;
 
   const sections: HTMLElement[] = [ activities, recent, newsletter ]
-  const links:HTMLElement[] = [ activitiesLink, recentLink, newsletterLink ]
+  const links: HTMLElement[] = [ activitiesLink, recentLink, newsletterLink ]
 
 
   function animateHeader() {
-    if (window.scrollY > 100) {
-      header.classList.remove("h-40");
-      header.classList.add("h-20");
-      header.classList.add("backdrop-blur-md");
-      header.classList.add("border-b");
+    if (window.scrollY > 50) {
+      header.classList.remove('h-40');
+      header.classList.add('h-20');
+      header.classList.add('backdrop-blur-md');
+      header.classList.add('border-border');
+      header.classList.remove('border-transparent');
     } else {
-      header.classList.remove("h-20");
-      header.classList.add("h-40");
-      header.classList.remove("backdrop-blur-md");
-      header.classList.remove("border-b");
+      header.classList.remove('h-20');
+      header.classList.add('h-40');
+      header.classList.remove('backdrop-blur-md');
+      header.classList.remove('border-border');
+      header.classList.add('border-transparent');
     }
   }
 
-  function animatedHeaderTitle() {
+  function animateBlogTitle() {
     if (windowWidth > 630) {
-      if (window.scrollY > 200) {
-        animatedTitle.style.opacity = "100%";
+      if (window.scrollY > 300) {
+        animatedTitle.classList.add("opacity-100");
+        animatedTitle.classList.remove("translate-y-4");
       } else {
-        animatedTitle.style.opacity = "0%";
+        animatedTitle.classList.remove("opacity-100");
+        animatedTitle.classList.add("translate-y-4");
       }
-    } else {
-      animatedTitle.style.opacity = "0%";
-    }
+    } 
   }
 
   function animateLinks() {
@@ -113,9 +116,9 @@ const { headerTitle } = Astro.props;
 
     links.forEach((_: HTMLElement, i: number) => {
       if (i == sectionIdInView) {
-        links[i].classList.add('text-white');
+        links[i].classList.remove('text-secondary');
       } else {
-        links[i].classList.remove('text-white');
+        links[i].classList.add('text-secondary');
       }
     })
   }
@@ -132,7 +135,7 @@ const { headerTitle } = Astro.props;
 
   function handleScroll() {
     animateHeader();
-    animatedHeaderTitle();
+    animateBlogTitle();
     animateLinks();
   }
 
@@ -141,7 +144,7 @@ const { headerTitle } = Astro.props;
   }
 
   animateHeader();
-  animatedHeaderTitle();
+  animateBlogTitle();
   animateLinks();
   handleRoute();
   document.addEventListener("scroll", handleScroll);
