@@ -73,6 +73,20 @@ const { title, description, minutesRead, author, published } = Astro.props.front
       padding: 10px 0 10px 20px;
     }
 
+    article :global(p) > :global(code) {
+      font-size: 90%;
+      color: #9a4fba;
+      background-color: #1f1025;
+      border-radius: 10px;
+      padding: 2px 5px;
+    }
+
+    article :global(pre) {
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+    }
+
     article :global(img) {
       margin: 1rem auto;
       border-radius: 20px;

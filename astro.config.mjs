@@ -10,6 +10,10 @@ import { remarkReadingTime } from './remark-reading-time.mjs';
 export default defineConfig({
   integrations: [tailwind()],
   markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true
+    },
     remarkPlugins: [remarkReadingTime],
     extendDefaultPlugins: true,
   }
