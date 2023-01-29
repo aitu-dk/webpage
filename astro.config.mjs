@@ -8,6 +8,7 @@ import { remarkReadingTime } from './remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://aitu.group",
   integrations: [tailwind()],
   markdown: {
     shikiConfig: {
