@@ -9,7 +9,7 @@ const { title, description, image, published } = frontmatter;
 ---
 
 <a href={`/blog/${slug}`} class="group nounderline w-full p-4 rounded-lg border border-background-secondary hover:border-border transition-colors duration-500">
-  <div class="flex space-x-4">
+  <div class="flex md:space-x-4">
     <img src={image} alt={image} class="hidden sm:block h-32 rounded-lg"/>
     <div>
       <h2 class="text-primary text-2xl font-semibold line-clamp-1" >{title}</h2>
