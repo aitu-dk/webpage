@@ -50,6 +50,31 @@ All newly static images should be compressed to a size of _max. 300KB_ and be in
 
 The `src` directory contains all source code, mostly .astro files which include JSX-like HTML syntax, (Tailwind-)CSS, and Java/Typescript support. The layout component holds two base layouts, that apply global styles. All styles are wrapped in the `Layout.astro` component and all blog posts are additionally wrapped in the `BlogLayout.astro` component. The pages component configures all available routes. By default, there are just three routes `/`, `/join`, and `/blog`. All individual blog articles are stored as Markdown files, see the _Writing a Blog Post section_ for details.
 
+## 🧞 Contributing
+Before the start, make sure you have installed [Github CLI](https://github.com/cli/cli#installation) and [Commitizen CLI](https://github.com/commitizen/cz-cli). If you want to contribute to this project, i.e. add blog articles (see more details in the section below), fix bugs or improve functionality, please fork this repository 
+
+```bash
+gh repo fork aitu-dk/webpage
+```
+
+To develop your change, create a new branch:
+
+```bash
+git branch -b <new-branch>
+```
+
+Make sure to also use the Commitizen for every commit on the branch
+
+```bash
+git cz
+```
+
+Once you are finished developing the feature, open a pull request to the `main` branch. Use the following command and follow the interactive prompt.
+
+```bash
+gh pr create
+```
+
 ## 🗒️ Writing a Blog Post
 
 ### Clone/Pull Most Recent Version
@@ -97,26 +122,6 @@ _Make sure to include a descriptive alt tag for increased visibility._
 If you have never authored a blog post before, just writing your name in the `author` metadata field will not magically make an image of you appear. In order for this to work, you will need to add your very own avatar into the `public/authors` directory. Note, that the naming of the file is critically important, since Astro is internally traversing the author meta tag (lowercasing and making spaces to dashes) and searches for a match in the `public/authors` directory. This means the following for adding an author image.
 
 > `author: Mika Senghaas` -> `/public/authors/mika-senghaas.png`
-
-## 🧞 Contributing
-
-If you want to contribute to this project, i.e. add blog articles, fix bugs or improve functionality, please fork this repository 
-
-```bash
-gh repo fork aitu-dk/webpage
-```
-
-To develop your change, create a new branch with following [Commitizen](https://github.com/commitizen/cz-cli) guidelines. Make sure to also use the Commitizen for every commit on the branch.
-
-```bash
-git branch -b <new-branch>
-```
-
-Once you are finished developing the feature, open a pull request to the `main` branch. Use the following command and follow the interactive prompt.
-
-```bash
-gh pr create
-```
 
 ✅ Done. Thanks for making this project better!
 
