@@ -26,7 +26,13 @@
   "devDependencies": {
     "@types/react": "^18.0.26",
     "@types/three": "^0.148.0",
+    "cz-conventional-changelog": "^3.3.0",
     "prettier": "^2.8.3",
     "prettier-plugin-astro": "^0.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
