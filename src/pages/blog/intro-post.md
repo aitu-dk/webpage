@@ -1,7 +1,9 @@
 ---
 title: AITU's first meeting! 🎉
 description: We are official! AITU is officially registered as a student organisation at ITU. In this post we talk about everything from the organisation's idea and mission, and provide some behind-the-scenes into the foundational work in the two months before semester start.
-author: Ludek Cizinsky
+authors:
+  - Ludek Cizinsky
+  - Mika Senghaas
 published: 02/01/2023
 
 image: /assets/aitubanner.png

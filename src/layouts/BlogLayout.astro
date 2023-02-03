@@ -1,28 +1,42 @@
 ---
 import Layout from "./Layout.astro";
-import Badge from "../components/Badge.astro"
+import Badge from "../components/Badge.astro";
+import Author from "../components/Author.astro";
 
-const { title, description, minutesRead, author, published } = Astro.props.frontmatter;
+const { title, description, minutesRead, authors, published } =
+  Astro.props.frontmatter;
 ---
 
 <Layout title={`${title} | AITU`} headerTitle={title} description={description}>
   <div class="mt-40 max-w-4xl mx-auto">
     <a href="/blog" class="text-sm text-accent">Back</a>
-    <h1 id="title" class="text-4xl sm:text-5xl lg:text-7xl font-medium my-6">{title}</h1>
-    <div class="flex items-center space-x-2">
-      <img src={`/authors/${author.toLowerCase().replaceAll(" ", "-")}.png`} class="w-7 h-7 rounded-full" />
-      <p class="text-xl tracking-wider text-secondary">{author}</p>
+    <h1 id="title" class="text-4xl sm:text-5xl lg:text-7xl font-medium my-6">
+      {title}
+    </h1>
+    <div
+      id="authors"
+      class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4"
+    >
+      {authors.map((author: string) => <Author author={author} />)}
     </div>
     <div class="flex items-center space-x-2 font-thin text-tertiary mt-2">
-      <p>
-        Published <strong>{new Date(published.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" })}</strong>
+      <p class="text-sm sm:text-md">
+        Published <strong
+          >{
+            new Date(published.replace(/-/g, "/")).toLocaleString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }</strong
+        >
         <p>/</p>
-      <Badge>
-        <p class="text-sm">{minutesRead}</p>
-      </Badge>
+        <Badge>
+          <p class="text-xs sm:text-md">{minutesRead}</p>
+        </Badge>
       </p>
     </div>
-    <article class="my-20 max-w-4xl mx-auto">
+    <article class="my-10 sm:my-20 max-w-4xl mx-auto">
       <slot />
     </article>
   </div>
