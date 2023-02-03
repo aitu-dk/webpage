@@ -47,6 +47,15 @@ import Footer from "../components/Footer.astro";
   </body>
 </html>
 
+<script>
+  // enable web analytics via vercel
+  import { inject } from "@vercel/analytics";
+
+  // @ts-ignore
+  globalThis.process = { env: { NODE_ENV: import.meta.env.MODE } };
+  inject();
+</script>
+
 <style is:global>
   :root {
     --accent: #9a4fba;
