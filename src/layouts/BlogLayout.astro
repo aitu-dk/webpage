@@ -8,7 +8,7 @@ const { title, description, minutesRead, authors, published } =
 ---
 
 <Layout title={`${title} | AITU`} headerTitle={title} description={description}>
-  <div class="mt-40 max-w-4xl mx-auto">
+  <div class="mt-40 max-w-3xl mx-auto">
     <a href="/blog" class="text-sm text-accent">Back</a>
     <h1 id="title" class="text-4xl sm:text-5xl lg:text-7xl font-medium my-6">
       {title}
@@ -35,9 +35,9 @@ const { title, description, minutesRead, authors, published } =
           <p class="text-xs sm:text-md">{minutesRead}</p>
         </Badge>
       </p>
+      <article class="my-10">
+        <slot />
+      </article>
     </div>
-    <article class="my-10 sm:my-20 max-w-4xl mx-auto">
-      <slot />
-    </article>
   </div>
 </Layout>

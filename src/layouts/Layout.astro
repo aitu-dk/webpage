@@ -13,18 +13,31 @@ import Footer from "../components/Footer.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:image" content="https://www.aitu.group/assets/aitubanner.png" />
+    <meta
+      property="og:image"
+      content="https://www.aitu.group/assets/aitubanner.png"
+    />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image"></meta>
-    <meta name="theme-color" content="#000000" />
+    <meta name="twitter:card" content="summary_large_image" /><meta
+      name="theme-color"
+      content="#000000"
+    /><link rel="icon" href="/favicon.ico" /><link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    /><link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link
+      rel="mask-icon"
+      href="/safari-pinned-tab.svg"
+      color="#000000"
+    /><link rel="manifest" href="/site.webmanifest" /></head
+  >
 
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
-    <link rel="manifest" href="/site.webmanifest" />
-  </head>
   <body>
     <Header headerTitle={headerTitle} />
     <div class="container flex-1 pt-40">
@@ -44,7 +57,7 @@ import Footer from "../components/Footer.astro";
     --primary: #ffffff;
     --secondary: #adb5bd;
     --tertiary: #6c757d;
-    --border: #3B424D;
+    --border: #3b424d;
   }
 
   ::selection {
@@ -120,6 +133,7 @@ import Footer from "../components/Footer.astro";
 
   article p {
     margin: 0.25rem 0;
+    text-align: justify;
   }
 
   article a {
@@ -127,7 +141,8 @@ import Footer from "../components/Footer.astro";
   }
 
   article hr {
-    border-top: 0.5px solid #adb5bd;
+    border-top: 0.5px solid var(--border);
+    margin-bottom: 0.5rem;
   }
 
   article strong {
@@ -180,16 +195,16 @@ import Footer from "../components/Footer.astro";
   /* sm breakpoint */
   @media (min-width: 640px) {
     article h2 {
-      font-size: 38px;
+      font-size: 36px;
     }
 
     article h3 {
-      font-size: 28px;
+      font-size: 26px;
     }
 
     article p,
     article li {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 </style>
