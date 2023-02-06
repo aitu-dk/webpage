@@ -14,7 +14,7 @@ const { headerTitle } = Astro.props;
       <a id="logo" href="/" class="group relative">
         <img src="/assets/aitu.png" height={60} width={60} />
         <p
-          class="opacity-0 absolute bg-accent-dark text-accent text-center font-medium rounded-md mx-auto left-0 right-0 group-hover:opacity-100 transition-opacity duration-300"
+          class="opacity-0 absolute bg-accent-dark text-accent text-sm text-center font-medium rounded-md mx-auto left-0 right-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           Home
         </p>
@@ -33,7 +33,7 @@ const { headerTitle } = Astro.props;
             <a
               id={`${link}Link`}
               href={`/#${link}`}
-              class="nounderline hidden sm:block text-secondary hover:text-primary transition-colors duration-300 tracking-wider"
+              class="text-sm sm:text-base nounderline hidden sm:block text-secondary hover:text-primary transition-colors duration-300 tracking-wider"
             >
               <p>{link.at(0)?.toUpperCase() + link.slice(1)}</p>
             </a>
@@ -45,12 +45,9 @@ const { headerTitle } = Astro.props;
         href="/blog"
         class="nounderline text-secondary hover:text-primary transition-colors tracking-wider"
       >
-        <div class="flex items-center space-x-1">
-          <p>Blog</p>
-          <img src="/assets/external.svg" class="fill-white inline-block w-4" />
-        </div>
+        <p>Blog</p>
       </a>
-      <Badge id="joinLink">
+      <Badge id="joinLink" hover>
         <a href="/join" class="nounderline">Join</a>
       </Badge>
     </div>
