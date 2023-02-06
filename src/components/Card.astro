@@ -1,20 +1,53 @@
 ---
+import Badge from "./Badge.astro";
+import AuthorList from "./AuthorList.astro";
 interface Props {
   post: any;
+  centered?: boolean;
 }
 
-const { frontmatter, file } = Astro.props.post;
+const { post, centered } = Astro.props;
+const { frontmatter, file } = post;
+
 const slug = file.split("/").slice(-1).at(0).split(".").at(0);
-const { title, description, image, published } = frontmatter;
 ---
 
-<a href={`/blog/${slug}`} class="group nounderline w-full p-4 rounded-lg border border-background-secondary hover:border-border transition-colors duration-500">
-  <div class="flex md:space-x-4">
-    <img src={image} alt={image} class="hidden sm:block h-32 rounded-lg"/>
-    <div>
-      <h2 class="text-primary text-2xl font-semibold line-clamp-1" >{title}</h2>
-      <p class="text-secondary font-light leading-snug line-clamp-3 my-2">{description}</p>
-      <p class="text-sm text-tertiary font-extralight">Published <strong class="text-secondary font-extralight">{new Date(published.replace(/-/g, "/")).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}</strong></p>
+<a href={`/blog/${slug}`} class="group nounderline rounded-lg">
+  <div class="flex flex-col sm:flex-row sm:space-x-10 sm:items-center">
+    <div
+      class={`w-full h-[200px] max-w-[400px] flex 
+      will-change-transform items-center justify-center rounded-lg overflow-hidden object-cover`}
+    >
+      <img
+        src={frontmatter.image}
+        alt={frontmatter.image}
+        class="group-hover:scale-105 transition-transform"
+      />
+    </div>
+    <div class={`flex ${centered ? "flex-1" : ""} flex-col py-6`}>
+      <div class="flex space-x-1 items-center">
+        <Badge>
+          <p class="text-sm uppercase">
+            {frontmatter.format}
+          </p>
+        </Badge>
+        <p class="text-tertiary">
+          · {
+            new Date(frontmatter.published.replace(/-/g, "/")).toLocaleString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }
+            )
+          }
+        </p>
+      </div>
+      <h1 class="text-primary text-3xl font-medium leading-snug my-2">
+        {frontmatter.title}
+      </h1>
+      <AuthorList authors={frontmatter.authors} />
     </div>
   </div>
-</div>
+</a>
