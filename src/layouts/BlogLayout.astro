@@ -14,12 +14,12 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
   headerTitle={frontmatter.title}
   description={frontmatter.description}
 >
-  <div class="mt-40 max-w-3xl mx-auto">
+  <div class="max-w-3xl mx-auto mt-40">
     <a href="/blog" class="text-sm text-accent">Back</a>
-    <h1 id="title" class="text-3xl sm:text-5xl lg:text-6xl font-medium my-6">
+    <h1 id="title" class="my-6 text-3xl font-medium sm:text-5xl lg:text-6xl">
       {frontmatter.title}
     </h1>
-    <div class="w-full flex items-center space-x-1 my-2">
+    <div class="flex items-center w-full my-2 space-x-1">
       <p class="text-md text-secondary">
         Published
         {

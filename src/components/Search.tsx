@@ -66,10 +66,9 @@ export default function SearchBar({ searchList }: Props) {
     <>
       <label className="relative block">
         <input
-          className="my-4 block w-full max-w-3xl rounded-lg  
-        bg-background-secondary p-2
-        placeholder:text-opacity-75 
-        focus:border-accent focus:outline-none"
+          className="block w-full max-w-3xl my-4 rounded-lg  
+ bg-background-secondary p-2
+ placeholder:text-opacity-75 focus:border-accent focus:outline-none"
           placeholder="Filter for anything..."
           type="text"
           name="search"
@@ -89,7 +88,7 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       ) : (
         <>
-          <div className="text-secondary mb-8">
+          <div className="mb-8 text-secondary">
             Found {searchResults?.length}
             {searchResults?.length && searchResults?.length === 1
               ? " result"

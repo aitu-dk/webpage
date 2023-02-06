@@ -11,7 +11,7 @@ export default function Card({ frontmatter, centered }: Props) {
   return (
     <a
       href={`/blog/${frontmatter.slug}`}
-      className="group nounderline rounded-lg"
+      className="rounded-lg group nounderline"
     >
       <div className="flex flex-col sm:flex-row sm:space-x-10 sm:items-center">
         <div
@@ -25,7 +25,7 @@ export default function Card({ frontmatter, centered }: Props) {
           />
         </div>
         <div className={`flex ${centered ? "flex-1" : ""} flex-col py-6`}>
-          <div className="flex space-x-1 items-center">
+          <div className="flex items-center space-x-1">
             <Badge>
               <p className="text-sm uppercase">{frontmatter.format}</p>
             </Badge>
@@ -40,7 +40,7 @@ export default function Card({ frontmatter, centered }: Props) {
               })}
             </p>
           </div>
-          <h1 className="text-primary text-3xl font-medium leading-snug my-2">
+          <h1 className="my-2 text-3xl font-medium leading-snug text-primary">
             {frontmatter.title}
           </h1>
           <AuthorList authors={frontmatter.authors} />

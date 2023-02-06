@@ -20,11 +20,11 @@ const activities: Activity[] = [
 ]
 ---
 
-<astro-activities data-message={activities} id="activities" class="flex w-full flex-col items-end leading-relaxed text-right pt-32">
+<astro-activities data-message={activities} id="activities" class="flex flex-col items-end w-full pt-32 leading-relaxed text-right">
   {activities.map((activity: Activity) => {
     return (
-      <p class="first:mt-0 mt-10 text-transparent bg-clip-text bg-amethyst-right">{activity.title}.</p>
-      <p id={activity.title.toLowerCase()} class="text-5xl md:text-6xl text-gray-400 md:w-3/5 transition-colors duration-300">{activity.description}</p>
+      <p class="mt-10 text-transparent first:mt-0 bg-clip-text bg-amethyst-right">{activity.title}.</p>
+      <p id={activity.title.toLowerCase()} class="text-5xl text-gray-400 md:text-6xl md:w-3/5 transition-colors duration-300">{activity.description}</p>
     )
   })
 </astro-activities>

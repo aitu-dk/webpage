@@ -10,10 +10,10 @@ export default function AuthorList({ authors }: Props) {
         <img
           src={`/authors/${author.toLowerCase().replaceAll(" ", "-")}.png`}
           alt={`Image of ${author}`}
-          className="w-7 h-7 first:-ml-0 -ml-3 rounded-full"
+          className="-ml-3 rounded-full w-7 h-7 first:-ml-0"
         />
       ))}
-      <p className="text-md text-secondary tracking-wider truncate px-2">
+      <p className="px-2 tracking-wider truncate text-md text-secondary">
         {authors.join(", ")}
       </p>
     </div>
