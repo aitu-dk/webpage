@@ -17,13 +17,14 @@ const sorted = posts.sort(comparePosts);
   <main>
     <div class="mt-10">
       <a href="/" class="text-sm text-accent">Back</a>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-medium my-6">Blog</h1>
-      <p class="text-secondary font-light sm:text-lg md:text-xl md:w-3/4">
-        In the AITU blog we write about insightful discussion in our reading groups, reflections on coding projects, as well as reflection on hosted
+      <h1 class="text-3xl sm:text-4xl font-medium my-6">Blog</h1>
+      <p class="text-secondary font-light text-lg md:w-3/4">
+        In the AITU blog we write about insightful discussion in our reading
+        groups, reflections on coding projects, as well as reflection on hosted
         talks.
       </p>
     </div>
-    <div class="mt-14 grid grid-cols-1 gap-y-2">
+    <div class="mt-14 flex flex-col space-y-16">
       {sorted.map((post) => <Card post={post} />)}
     </div>
   </main>
