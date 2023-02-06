@@ -119,101 +119,72 @@ import Footer from "../components/Footer.astro";
     margin-right: -50vw;
   }
 
+  article h1,
   article h2,
   article h3 {
-    color: white;
-    margin-top: 2rem;
+    @apply text-primary;
+  }
+  article h1 {
+    @apply text-3xl sm:text-5xl;
   }
 
   article h2 {
-    font-size: 32px;
+    @apply text-2xl sm:text-4xl;
   }
 
   article h3 {
-    font-size: 24px;
+    @apply text-xl sm:text-2xl;
+  }
+
+  article p {
+    @apply my-1 text-justify;
   }
 
   article p,
   article li {
-    color: var(--secondary);
-    font-weight: 300;
-    font-size: 18px;
-  }
-
-  article p {
-    margin: 0.25rem 0;
-    text-align: justify;
-  }
-
-  article a {
-    color: #9a4fba;
+    @apply text-secondary text-lg font-light sm:leading-relaxed sm:text-xl;
   }
 
   article hr {
-    border-top: 0.5px solid var(--border);
-    margin-bottom: 0.5rem;
+    @apply border-t-[1px] border-border mb-2;
   }
 
   article strong {
-    color: var(--primary);
-    font-weight: 400;
+    @apply text-primary font-normal;
   }
 
   article blockquote {
-    background-color: var(--background-secondary);
-    border-left: 5px solid var(--accent);
-    padding-left: 10px;
-    padding: 10px 0 10px 20px;
+    @apply bg-background-secondary border-l-4 border-accent px-3 py-2 my-2;
   }
 
   article p > code {
-    font-size: 90%;
-    color: #9a4fba;
-    background-color: #1f1025;
-    border-radius: 10px;
-    padding: 2px 5px;
+    @apply text-[85%] text-accent bg-accent-dark rounded-lg p-1;
   }
 
   article pre {
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 10px;
-  }
-
-  article img {
-    margin: 1rem auto;
-    border-radius: 20px;
+    @apply p-4 my-4 rounded-lg;
   }
 
   article ol,
   article ul {
-    margin: 0.5rem 0;
+    @apply my-2;
   }
   article ul li {
-    display: list-item;
-    list-style-type: disc;
-    margin-left: 30px;
+    @apply list-item list-disc ml-[30px];
   }
 
   article ol li {
-    display: list-item;
-    list-style-type: decimal;
-    margin-left: 30px;
+    @apply list-item list-decimal ml-[30px];
   }
 
-  /* sm breakpoint */
-  @media (min-width: 640px) {
-    article h2 {
-      font-size: 36px;
-    }
-
-    article h3 {
-      font-size: 26px;
-    }
-
-    article p,
-    article li {
-      font-size: 18px;
-    }
+  article h2,
+  article h3 {
+    @apply mt-8 mb-2;
+  }
+  article a {
+    color: #9a4fba;
+  }
+  article img {
+    @apply my-4 rounded-lg;
   }
 </style>
