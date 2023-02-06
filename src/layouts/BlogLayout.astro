@@ -2,37 +2,46 @@
 import Layout from "./Layout.astro";
 import Badge from "../components/Badge.astro";
 import AuthorList from "../components/AuthorList.astro";
-import Author from "../components/Author.astro";
+import TagList from "../components/TagList.astro";
 
-const { title, description, minutesRead, authors, published } =
-  Astro.props.frontmatter;
+import type { Frontmatter } from "../utils/types";
+
+const frontmatter: Frontmatter = Astro.props.frontmatter;
 ---
 
-<Layout title={`${title} | AITU`} headerTitle={title} description={description}>
+<Layout
+  title={`${frontmatter.title} | AITU`}
+  headerTitle={frontmatter.title}
+  description={frontmatter.description}
+>
   <div class="mt-40 max-w-3xl mx-auto">
     <a href="/blog" class="text-sm text-accent">Back</a>
-    <h1 id="title" class="text-4xl sm:text-5xl lg:text-7xl font-medium my-6">
-      {title}
+    <h1 id="title" class="text-3xl sm:text-5xl lg:text-6xl font-medium my-6">
+      {frontmatter.title}
     </h1>
     <div class="w-full flex items-center space-x-1 my-2">
       <p class="text-md text-secondary">
         Published
         {
-          new Date(published.replace(/-/g, "/")).toLocaleString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
+          new Date(frontmatter.published.replace(/-/g, "/")).toLocaleString(
+            "en-US",
+            {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }
+          )
         }
       </p>
       <p class="text-md text-secondary">·</p>
       <Badge>
-        <p class="text-sm">{minutesRead}</p>
+        <p class="text-sm">{frontmatter.minutesRead}</p>
       </Badge>
     </div>
-    <AuthorList authors={authors} />
+    <AuthorList authors={frontmatter.authors} />
     <article class="my-10">
       <slot />
     </article>
+    <TagList tags={frontmatter.tags} />
   </div>
 </Layout>

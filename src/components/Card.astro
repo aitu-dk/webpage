@@ -1,15 +1,16 @@
 ---
 import Badge from "./Badge.astro";
 import AuthorList from "./AuthorList.astro";
+import type { Frontmatter } from "../utils/types";
 interface Props {
   post: any;
   centered?: boolean;
 }
 
-const { post, centered } = Astro.props;
-const { frontmatter, file } = post;
+const { post, centered }: Props = Astro.props;
+const frontmatter: Frontmatter = post.frontmatter;
 
-const slug = file.split("/").slice(-1).at(0).split(".").at(0);
+const slug = post.file.split("/").slice(-1).at(0).split(".").at(0);
 ---
 
 <a href={`/blog/${slug}`} class="group nounderline rounded-lg">
@@ -19,8 +20,8 @@ const slug = file.split("/").slice(-1).at(0).split(".").at(0);
       will-change-transform items-center justify-center rounded-lg overflow-hidden object-cover`}
     >
       <img
-        src={frontmatter.image}
-        alt={frontmatter.image}
+        src={frontmatter.image.src}
+        alt={frontmatter.image.alt}
         class="group-hover:scale-105 transition-transform"
       />
     </div>
