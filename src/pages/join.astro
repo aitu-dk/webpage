@@ -4,19 +4,28 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Join Us | AITU" description="AITU Blog">
   <main>
-    <div class="mt-10">
+    <div class="mt-10 max-w-4xl">
       <a href="/" class="text-sm text-accent">Back</a>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-medium my-6">Join Us!</h1>
-      <p class="text-secondary font-light sm:text-xl md:w-3/4">
-        To become a member of our organization, kindly email us at <a href="mailto:hello@aitu.group" class="text-primary">hello@aitu.group</a> and share your reasons for joining. Include, for example,
-        <ul class="text-secondary sm:text-xl font-light my-2">
-          <li class="list-disc ml-6">your background and prior experience in machine learning,</li>
-          <li class="list-disc ml-6">what you are studying at ITU,</li>
-          <li class="list-disc ml-6">and your passion for continuous learning and community involvement in the AI field</li>
-        </ul>
+      <h1 class="text-3xl sm:text-4xl font-medium my-6">Join Us!</h1>
+      <p class="text-secondary font-light text-lg">
+        Joining our organisation is simple: Simply show up to our next meeting.
       </p>
-      <p class="text-secondary font-light mt-4 sm:text-xl md:w-3/4">
-        We are looking forward to hear from you and will get back shortly! 📫
+      <blockquote
+        class="bg-background-secondary text-lg border-l-4 border-accent px-4 py-2 my-4"
+      >
+        📅 Thursday, 6-8PM @ Novo Nordisk Innovation Hub, ITU
+      </blockquote>
+      <p class="text-secondary font-light text-lg my-2">
+        We recommend to <strong>write to us</strong> in advance of the meeting. We
+        will add you to our internal Notion and Slack channels, so that you can get
+        acquainted with the organisation and know which paper we are reading next.
       </p>
+      <p class="text-secondary font-light text-lg my-2">
+        Kindly email us at
+        <a href="mailto:hello@aitu.group" class="text-primary"
+          >hello@aitu.group</a
+        > 📥. We are looking forward to hear from you and will get back shortly!
+      </p>
+    </div>
   </main>
 </Layout>
