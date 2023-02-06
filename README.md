@@ -51,6 +51,8 @@ All newly static images should be compressed to a size of _max. 300KB_ and be in
 The `src` directory contains all source code, mostly .astro files which include JSX-like HTML syntax, (Tailwind-)CSS, and Java/Typescript support. The layout component holds two base layouts, that apply global styles. All styles are wrapped in the `Layout.astro` component and all blog posts are additionally wrapped in the `BlogLayout.astro` component. The pages component configures all available routes. By default, there are just three routes `/`, `/join`, and `/blog`. All individual blog articles are stored as Markdown files, see the _Writing a Blog Post section_ for details.
 
 ## 🧞 Contributing
+
+
 Before the start, make sure you have installed [Github CLI](https://github.com/cli/cli#installation) and [Commitizen CLI](https://github.com/commitizen/cz-cli). If you want to contribute to this project, i.e. add blog articles (see more details in the section below), fix bugs or improve functionality, please fork this repository 
 
 ```bash
@@ -87,15 +89,27 @@ To see the local version of your repository, spin up a local server using `astro
 
 Now you can start working on your blogpost. Create a new file `<new-blogpost>.md` in the directory `src/pages/blog`. The first thing you wanna do is to add frontmatter to your blogarticle. As of now, the webpage does not provide a lot of error handling, so not providing the expected meta data about a post is likely to cause the site to crash. Below you will find the meta data for our very first blog article, feel free to copy it and then adjust with the correct information.
 
+_Note: The file `src/utils/types.ts` defines a type `Frontmatter`. See it to know the precise types of all the fields._
+
 ```md
 ---
-title: Hello, World
-description: AITU is an official student organisation at ITU + Website Launch!
-author: Mika Senghaas
-published: 01/16/2023
-
-image: /assets/aitubanner.png
 layout: ../../layouts/BlogLayout.astro
+slug: intro-post
+title: AITU's First Meeting! 🎉
+description: 
+  We are official! AITU is officially registered as a student organisation at ITU. In this post we talk about everything from the organisation's idea and mission, and provide some behind-the-scenes into the foundational work in the two months before semester start.
+authors:
+  - Ludek Cizinsky
+  - Mika Senghaas
+format: blog
+tags:
+  - welcome
+  - aitu
+  - first-meeting
+image: 
+  src: /assets/aitubanner.png
+  alt: The official AITU Banner
+published: 02/01/2023
 ---
 ```
 
