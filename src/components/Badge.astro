@@ -1,8 +1,18 @@
 ---
-const { id } = Astro.props;
+interface Props {
+  id?: string;
+  hover?: boolean;
+}
+const { id, hover = false } = Astro.props;
 ---
 
-<div data-message={JSON.stringify(Astro.props)} id={id}  class="no-underline tracking-wider px-2 font-medium rounded-md bg-accent-dark text-accent hover:shadow-accent-small cursor-pointer transition-shadow duration-300" >
+<div
+  data-message={JSON.stringify(Astro.props)}
+  id={id}
+  class={`no-underline tracking-wider text-accent bg-accent-dark px-1 font-medium rounded-lg ${
+    hover ? "hover:shadow-accent-small transition-shadow" : ""
+  }`}
+>
   <slot />
 </div>
 
