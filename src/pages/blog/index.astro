@@ -1,6 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/Card.astro";
+import Layout from "@/layouts/Layout.astro";
+import Search from "@/components/Search";
+import type { Frontmatter } from "@utils/types";
 
 function comparePosts(postA: any, postB: any) {
   if (new Date(postA.frontmatter.date) < new Date(postB.frontmatter.date)) {
@@ -10,7 +11,10 @@ function comparePosts(postA: any, postB: any) {
 }
 
 const posts = await Astro.glob("../../pages/blog/*.md");
-const sorted = posts.sort(comparePosts);
+/* @ts-ignore */
+const sortedPostFrontmatter: Frontmatter[] = posts.map(
+  (post) => post.frontmatter
+);
 ---
 
 <Layout title="Blog | AITU" description="AITU Blog">
@@ -24,8 +28,6 @@ const sorted = posts.sort(comparePosts);
         talks.
       </p>
     </div>
-    <div class="mt-14 flex flex-col space-y-16">
-      {sorted.map((post) => <Card post={post} />)}
-    </div>
+    <Search searchList={sortedPostFrontmatter} client:load />
   </main>
 </Layout>

@@ -7,6 +7,7 @@ export type Image = {
 
 export type Frontmatter = {
   layout: string;
+  slug: string;
   title: string;
   description: string;
   authors: Author[];

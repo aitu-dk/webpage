@@ -1,5 +1,6 @@
 ---
-import Card from "./Card.astro";
+import Card from "@components/Card";
+import type { Frontmatter } from "@utils/types";
 
 function comparePosts(postA: any, postB: any) {
   if (new Date(postA.frontmatter.date) < new Date(postB.frontmatter.date)) {
@@ -26,7 +27,8 @@ const mostRecent = posts.sort(comparePosts).slice(0, 3);
     of selected papers from our reading group.
   </p>
   <div class="flex flex-col items-center space-y-10 mt-20">
-    {mostRecent.map((post) => <Card post={post} centered />)}
+    {/* @ts-ignore */}
+    {mostRecent.map((post) => <Card frontmatter={post.frontmatter} centered />)}
   </div>
   <div class="flex items-center justify-center mt-10">
     <a

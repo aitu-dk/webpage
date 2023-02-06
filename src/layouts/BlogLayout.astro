@@ -1,10 +1,10 @@
 ---
-import Layout from "./Layout.astro";
-import Badge from "../components/Badge.astro";
-import AuthorList from "../components/AuthorList.astro";
-import TagList from "../components/TagList.astro";
+import Layout from "@layouts/Layout.astro";
+import Badge from "@/components/Badge";
+import AuthorList from "@/components/AuthorList";
+import TagList from "@/components/TagList.astro";
 
-import type { Frontmatter } from "../utils/types";
+import type { Frontmatter } from "@/utils/types";
 
 const frontmatter: Frontmatter = Astro.props.frontmatter;
 ---
