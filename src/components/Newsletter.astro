@@ -1,17 +1,25 @@
 ---
 ---
 
-<div id="newsletter" class="flex flex-col justify-center items-center pt-32 sm:my-40 text-center">
-  <h1 class="text-2xl md:text-6xl text-center">Join the
-    <strong class="text-transparent bg-clip-text bg-amethyst-right">Newsletter</strong>
+<div id="newsletter" class="pt-32 sm:mt-40">
+  <h2 class="text-3xl sm:text-5xl font-medium sm:text-center">
+    Join our
+    <span class="text-transparent bg-clip-text bg-amethyst-right"
+      >Newsletter</span
+    >
     📬
-  </h1>
-  <p class="mt-4 max-w-3xl text-center text-secondary text-md md:text-2xl leading-relaxed font-light">
-    In our newsletter we reflect on insightful readings, completed projects and summarise the take-aways from external talks. <i>
+  </h2>
+  <p
+    class="mt-4 mx-auto max-w-2xl text-justify text-secondary text-md sm:text-xl leading-relaxed font-light"
+  >
+    In our newsletter we reflect on insightful readings, completed projects and
+    summarise the take-aways from external talks. <i>
       You can expect around two emails per month.</i
     >
   </p>
-  <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:space-x-2 w-full max-w-3xl mx-auto my-14">
+  <div
+    class="flex flex-col md:flex-row items-center md:items-start justify-center md:space-x-2 w-full max-w-3xl mx-auto my-14"
+  >
     <div class="flex-1 w-full">
       <input
         id="email"
@@ -19,7 +27,9 @@
         type="email"
         class="w-full bg-transparent md:text-lg border-b border-tertiary hover:border-accent focus:border-accent focus:outline-none placeholder:text-secondary"
       />
-      <label class="block mt-1 text-sm text-left text-tertiary">Enter a valid email address.</label>
+      <label class="block mt-1 text-sm text-left text-tertiary"
+        >Enter a valid email address.</label
+      >
     </div>
     <button
       id="signup"
@@ -27,17 +37,22 @@
       >Sign Up</button
     >
   </div>
-  <p id="response" class="text-sm text-secondary md:text-md opacity-0 w-full max-w-3xl h-8 transition-opacity duration-300"></p>
+  <p
+    id="response"
+    class="text-sm text-secondary md:text-md opacity-0 w-full max-w-3xl h-8 transition-opacity duration-300"
+  >
+  </p>
 </div>
 
 <script>
-  const email: HTMLInputElement = document.getElementById("email")!;
+  const email: HTMLElement = document.getElementById("email")!;
   const signup: HTMLElement = document.getElementById("signup")!;
   const response: HTMLElement = document.getElementById("response")!;
 
   const emptyMessage: string = "Please enter an email.";
   const invalidMessage: string = "Please enter a valid email.";
-  const validMessage: string = "Thank you for signing up! You will receive a confirmation email shortly.";
+  const validMessage: string =
+    "Thank you for signing up! You will receive a confirmation email shortly.";
 
   function validateEmail(mail: string) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {

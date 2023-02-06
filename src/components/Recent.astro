@@ -13,11 +13,26 @@ const mostRecent = posts.sort(comparePosts).slice(0, 3);
 ---
 
 <div id="recent" class="pt-32 sm:my-40">
-  <p class="text-transparent bg-clip-text bg-amethyst-right">Recent.</p>
-  <div class="grid grid-cols-2 gap-2 mt-4">
-    {mostRecent.map((post) => <Card post={post} />)}
+  <h2 class="text-3xl sm:text-5xl font-medium sm:text-center">
+    <strong class="text-transparent bg-clip-text bg-amethyst-right"
+      >Recently</strong
+    > @ AITU
+  </h2>
+  <p
+    class="mt-4 mx-auto max-w-2xl text-justify text-secondary text-md sm:text-xl leading-relaxed font-light"
+  >
+    In our blog we write about news in the organisation, summarise insightful
+    discussion, events and talks that we host, as well post technical summaries
+    of selected papers from our reading group.
+  </p>
+  <div class="flex flex-col items-center space-y-10 mt-20">
+    {mostRecent.map((post) => <Card post={post} centered />)}
   </div>
   <div class="flex items-center justify-center mt-10">
-    <a href="/blog" class="text-transparent bg-clip-text bg-amethyst-right hover:text-accent hover:underline">See all blog posts</a>
+    <a
+      href="/blog"
+      class="text-transparent bg-clip-text bg-amethyst-right hover:text-accent hover:underline"
+      >See all blog posts</a
+    >
   </div>
 </div>
