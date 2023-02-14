@@ -35,11 +35,11 @@ Welcome to the second blog post of AITU ✋. After our first post, we received a
 
 <br/>
 
-**😕 Challenges.** While there has been immense success of generative models in the fields such as NLP (ChatGPT) or Computer Vision (DALL-E), the text-to-audio filed introduces many new challenges. 
+**😕 Challenges.** While there has been immense success of generative models in the fields such as NLP (ChatGPT) or Computer Vision (DALL-E), the text-to-audio field introduces many new challenges. 
 
-1. **Describing audio is hard**. Try listening to a couple of the generated audio samples on [Google's Public Research Release](https://google-research.github.io/seanet/musiclm/examples/) without looking at the prompt and come up with your own prompt. You will find that this is an incredibly difficult task to do - especially for non-musicians. Describing audio accuracy requires expert knowledge of music features. Ordinary people simply lack vocabulary to describe music.
+1. **Describing audio is hard**. Try listening to a couple of the generated audio samples on [Google's Public Research Release](https://google-research.github.io/seanet/musiclm/examples/) without looking at the prompt and come up with your own prompt. You will find that this is an incredibly difficult task to do - especially for non-musicians. Describing audio accurately requires expert knowledge of music features. Ordinary people simply lack vocabulary to describe music.
 2. **Temporal Dimension**. A description of an image is restricted to what you see at one point in time. Music adds a temporal dimension, which means that accurate text descriptions also have to capture potential changes in music features over time. The longer the audio, the harder it gets to write a concise matching text.
-3. **Lack of Data**. Lastly, the text-to-audio field is heavily understudied in comparison to big AI research areas like computer vision or natural language processing. Researchers are lacking large-scale, high-quality datasets, benchmarks and evaluation metrics. Therefore, the Google Research Team had to get create with MusicLM.
+3. **Lack of Data**. Lastly, the text-to-audio field is heavily understudied in comparison to big AI research areas like computer vision or natural language processing. Researchers are lacking large-scale, high-quality datasets, benchmarks and evaluation metrics. Therefore, the Google Research Team had to get come up with their own evaluation metric as well as dataset.
 
 <br/>
 
