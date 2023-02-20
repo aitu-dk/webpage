@@ -24,7 +24,7 @@ export default function Card({ frontmatter, centered }: Props) {
             className="group-hover:scale-105 transition-transform"
           />
         </div>
-        <div className={`flex ${centered ? "flex-1" : ""} flex-col py-6`}>
+        <div className={`flex flex-col py-6`}>
           <div className="flex items-center space-x-1">
             <Badge>
               <p className="text-sm uppercase">{frontmatter.format}</p>
