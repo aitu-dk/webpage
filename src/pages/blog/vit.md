@@ -44,13 +44,13 @@ Welcome, and thanks for tuning into this week's AITU blog post 🙌. With again 
 
 ![High-Level Architecture of ViT](/posts/vit-architecture.png)
 
-First, the input image is split into fixed-sized patches. Therefore, you can imagine each patch as **three-dimensional** matrix. However, Transformers expects the input tokens to be **one-dimensional**. Thus, the three-dimensional matrix is **flattened** into a one-dimensional vector. Yes, that's right - despite all this **information loss**, ViT still managed to become SOTA in image classification. 🤯 The flattened vector is then projected via **Linear** layer to a  continuous-dense vector representation. In addition, each of these **patch embeddings** is concatenated with learned **positional embedding** to give the model information about where the patch was initially extracted from. Finally, a special embedding token is added before all the patch embeddings. Its purpose will be explained in a second.
+First, the input image is split into fixed-sized patches. Therefore, you can imagine each patch as a **three-dimensional** matrix. However, Transformers expects the input tokens to be **one-dimensional**. Thus, the three-dimensional matrix is **flattened** into a one-dimensional vector. Yes, that's right - despite all this **information loss**, ViT still managed to become SOTA in image classification. 🤯 The flattened vector is then projected via a **Linear** layer to a  continuous-dense vector representation. In addition, each of these **patch embeddings** is concatenated with a learned **positional embedding** to give the model information about where the patch was initially extracted from. Finally, a special embedding token is added before all the patch embeddings. Its purpose will be explained in a second.
 
-Since each patch should be able to attend over all the other patches, the patch embeddings are passed through multiple layers of Transformer **Encoder** blocks. (If **Decoder** was used, then each patch would be able to attend only over the previous patches) Finally, to make the prediction, ViT uses only the special embedding token, fed through shallow multi-layer perceptron (a.k.a. simple neural network), which outputs the most likely class of the object in the input image.
+Since each patch should be able to attend over all the other patches, the patch embeddings are passed through multiple layers of Transformer **Encoder** blocks (if **Decoder** was used, then each patch would be able to attend only over the previous patches). Finally, to make the prediction, ViT uses only the special embedding token, fed through shallow multi-layer perceptron (a.k.a. simple neural network), which outputs the most likely class of the object in the input image.
 
 <br/>
 
-**🎈 Results.** The efficiency in training and inference of the Transformer architecture on modern hardware (GPUs/ TPUs) allowed Google to train their ViTs on enormous datasets. (14M - 300M images) Although the model fails to model some of the features inherent to image data, ViT set new state-of-the-art performances on various benchmarks for image classification. The below table shows three versions of their ViT against two of the previous SOTA models, which are [ResNet](https://arxiv.org/abs/1512.03385) and [Noisy Student](https://arxiv.org/abs/1911.04252). As can be seen, ViT performs best across all benchmarks with less training effort.
+**🎈 Results.** The efficiency in training and inference of the Transformer architecture on modern hardware (GPUs/ TPUs) allowed Google to train their ViTs on enormous datasets (14M - 300M images). Although the model fails to model some of the features inherent to image data, ViTs set new SOTA performances on various benchmarks for image classification. The below table shows three versions of their ViT against two of the previous SOTA models, which are [ResNet](https://arxiv.org/abs/1512.03385) and [Noisy Student](https://arxiv.org/abs/1911.04252). As can be seen, ViT performs best across all benchmarks with less training effort.
 
 ![ViT Performance on Common Benchmarks](/posts/vit-performance.png)
 
@@ -67,8 +67,7 @@ Since each patch should be able to attend over all the other patches, the patch 
 <br/>
 
 **🤌 Keep it Simple.** One thing about ViT we found especially remarkable: The researcher's self-proclaimed goal was to "_apply the standard Transformer architecture directly to images, with the fewest possible modifications_." This led to a model that, at its core, was not designed to handle image data (and its inherent features, like the strong local correlation of pixels). Our group was surprised how a model, inferior in capturing some of the intrinsic properties of its input data, still outperformed many of the most powerful convolutional neural networks specifically designed for image data. The takeaway from this is beautifully summarised by the research team:
-
->  Large-Scale Training trumps Inductive Bias
+**"Large-Scale Training Trumps Inductive Bias"**.
 
 <br/>
 
