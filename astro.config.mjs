@@ -9,6 +9,9 @@ import { remarkReadingTime } from './remark-reading-time.mjs';
 // https://astro.build/config
 import react from "@astrojs/react";
 
+// https://docs.astro.build/en/guides/integrations-guide/vercel/
+import vercel from '@astrojs/vercel/static';
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://aitu.group",
@@ -20,5 +23,9 @@ export default defineConfig({
     },
     remarkPlugins: [remarkReadingTime],
     extendDefaultPlugins: true
-  }
+  },
+  output: 'static',
+  adapter: vercel({
+    analytics: true
+  })
 });
