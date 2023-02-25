@@ -13,7 +13,7 @@ tags:
   - generative-ai
   - google
 image: 
-  src: /posts/musiclm-group.png
+  src: /posts/music-lm/group.png
   alt: Group photo of AITU
 published: 02/13/2023
 ---
@@ -23,7 +23,7 @@ Welcome to the second blog post of AITU ✋. After our first post, we received a
 
 <br/>
 
-![AITU second meeting group photo](/posts/musiclm-group.png)
+![AITU second meeting group photo](/posts/music-lm/group.png)
 
 <br/>
 
@@ -45,7 +45,7 @@ Welcome to the second blog post of AITU ✋. After our first post, we received a
 
 **🧠 Building on previous papers.** Striving for consistent, high-quality audio output over long periods of time required a novel approach. The main innovation of the architecture is to model both **acoustic tokens** and **semantic tokens**. The MusicLM architecture is based on several previous research papers, puzzling together three large, pre-trained models into a single architecture:
 
-![MusicLM map of previous papers](/posts/musiclm.png)
+![MusicLM map of previous papers](/posts/music-lm/background.png)
 
 The individual components are:
 
@@ -59,7 +59,7 @@ Note, that **SoundStream** and **w2v-BERT** have already been combined into an a
 
 **👩‍🔬 Glueing things together.** Let's talk about how these papers are combined. The figure below taken from the original paper visualises the training procedure.
 
-![MusicLM training](/posts/musiclm-training.png)
+![MusicLM training](/posts/music-lm/training.png)
 
 First, notice that during training, only audio data is needed. This is significant since the model does not need text-audio pairs during training. As such, MusicLM was trained on large audio-only datasets.
 Architecture-wise, MusicLM is a **hierarchical** sequence-to-sequence model consisting of two layers:
@@ -69,7 +69,7 @@ Architecture-wise, MusicLM is a **hierarchical** sequence-to-sequence model cons
 
 Given these learned layers, new audio can be generated according to the inference procedure depicted below.
 
-![MusicLM inference](/posts/musiclm-infer.png)
+![MusicLM inference](/posts/music-lm/inference.png)
 
 First, the text description is translated into MuLan `text` tokens. Based on these, `semantic` tokens are predicted using the trained semantic model. Finally, the concatenation of both MuLan tokens and semantic tokens is used for predicting `acoustic tokens`. The `acoustic` tokens are then decoded to actual audio output using SoundStream's decoder.
 
