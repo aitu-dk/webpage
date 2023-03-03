@@ -3,7 +3,9 @@ import Card from "@components/Card";
 import type { Frontmatter } from "@utils/types";
 
 function comparePosts(postA: any, postB: any) {
-  if (new Date(postA.frontmatter.date) < new Date(postB.frontmatter.date)) {
+  const frontmatterA : Frontmatter = postA.frontmatter
+  const frontmatterB : Frontmatter = postB.frontmatter
+  if (new Date(frontmatterA.published) < new Date(frontmatterB.published)) {
     return 1;
   }
   return -1;
