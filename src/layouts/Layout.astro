@@ -1,5 +1,11 @@
 ---
-const { title, headerTitle, description } = Astro.props;
+interface Props {
+  title: string;
+  headerTitle: string;
+  description: string;
+  ogImage?: string;
+}
+const { title, headerTitle, description, ogImage }: Props = Astro.props;
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -15,7 +21,9 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <meta
       property="og:image"
-      content="https://www.aitu.group/assets/aitubanner.png"
+      content={ogImage
+        ? ogImage
+        : "https://www.aitu.group/assets/aitubanner.png"}
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" /><meta
