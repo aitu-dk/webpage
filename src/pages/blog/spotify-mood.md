@@ -5,6 +5,7 @@ title: 🎵 Spotify Lyrics-Mood Association Analysis
 description: 
 authors:
   - Krzysztof Parocki
+  - Mika Senghaas
 format: blog
 tags:
   - spotify
@@ -17,12 +18,13 @@ image:
 published: 03/16/2023
 ---
 
-Hey there! 👋 This week, we read a very recent paper published by **Spotify Research**, trying to understand how different parts of a song,  lyrics and acoustics, impact our perception of mood. 😟 😀 😨
+Hey there! 👋 This week, we read a the recently published paper [The Contribution of Lyrics and Acoustics to Collaborative Understanding of Mood](https://ojs.aaai.org/index.php/ICWSM/article/view/19326/19098) by Spotify Research. The paper tries to understand how different parts of a song, namely lyrics and acoustics, impact our perception of mood. 😟 😀 😨
 
-The paper asks four separate research questions to break down the relationship, with two standing out the most: 
-> "Can training a lyrics-based model (...) produce accurate mood associations? And how much do lyrics contribute to moods compared to acoustics?"
+The paper asks four separate research questions to break down the relationship, with two standing out the most:
 
-<br />
+> Can training a lyrics-based model (...) produce accurate mood associations?
+
+> How much do lyrics contribute to moods compared to acoustics?"
 
 The problem is not as simple as it might seem. Defining mood is highly subjective, and there are times when lyrics and acoustics don't match. It has been found that lyrics are crucial to sad songs, but moods like "chill" and "relax" are almost exclusively dictated by acoustics. And that's not all... both of those things can happen at the same time!
 
@@ -30,7 +32,7 @@ The problem is not as simple as it might seem. Defining mood is highly subjectiv
 
 *"Somebody that I used to know"* is the best example of this duality. While the lyrics are sad and heartbreaking, the song is often included in chill and relax playlists due to its pleasant acoustics. 🎸
 
-The paper *"The Contribution of Lyrics and Acoustics to Collaborative Understanding of Mood"* tackles this issue by allowing multiple moods to describe a song (in fact,  it allows each song to have 287 moods). It also uses a huge dataset of Spotify users' playlists and... transformers. After all, how can we have innovation without transformers nowadays, right? 😅
+The researchers at Spotify tackle this issue by allowing multiple moods to describe a song (in fact,  it allows each song to have 287 moods). It also uses a huge dataset of Spotify users' playlists and, of course, Transformers. After all, how can we have innovation without transformers nowadays, right? 😅 Let's see what the Swedes came up with 👇
 
 ## 📻 The Impact of Lyrics and Acoustics on Mood
 
@@ -38,21 +40,23 @@ The paper *"The Contribution of Lyrics and Acoustics to Collaborative Understand
 
 <br />
 
-📌 **Background.** The task of mood prediction is not new. It was already introduced in 2007, but it was limited only to acoustics at that time. Then, in 2010, the first models using a simple Bag-of-Words approach emerged, significantly outperforming acoustics in prediction. In 2018, [Delbouys et al.](https://www.researchgate.net/publication/327763630_Music_Mood_Detection_Based_On_Audio_And_Lyrics_With_Deep_Neural_Net) made use of audio features together with lyrics, but, most importantly, they also used the most advanced approaches to process text known at that time  - **GRU, LSTM and Convolutional Networks**. This makes the paper by Spotify Research the first one to use transformer-based architecture for the task of mood prediction.
+📌 **Background.** The task of mood prediction is not new. It was already introduced in 2007, but it was limited to acoustics at that time. Then, in 2010, the first models using a simple bag-of-words (BoW) approach emerged, significantly outperforming previous work. In 2018, [Delbouys et al.](https://www.researchgate.net/publication/327763630_Music_Mood_Detection_Based_On_Audio_And_Lyrics_With_Deep_Neural_Net) made use of audio features together with lyrics, but, most importantly, they also used the most advanced approaches to process text known at that time  - **GRUs, LSTMs and Convolutional Networks**. This makes the paper by Spotify Research the first one to use transformer-based architecture for the task of mood prediction at scale.
 
 <br />
 
-📝 **Data Collection.** Before a model can be trained, it needs data. In this paper, the data processing process was far from trivial. First, the authors defined 287 mood descriptors (*"chill", "sad", "happy", "fantasize"*, etc.), and classified 1 million songs to those descriptors.
+📝 **Data Collection.** Before a model can be trained, it needs data. The researcher were aiming for a dataset of significant song-mood pairs. The authors defined **287** potential mood descriptors (like *chill*, *sad*, *happy*, etc.) and wanted to analyse as many songs as possible to make the analysis maximally robust.
 
-That's a good time to start wondering... how do you label 1 million songs using almost 300 classes?!
+As you can imagine, creating such a dataset manually is a huge annotation task, as it requires manually annotating each song to almost 300 mood description. Not only would this take forever, it is also difficult to associate a song to 300 moods, as it is highly subjective. So, how did they collect the data?
 
 ![Mood Labels](/posts/spotify-mood/labels.gif)
 
-The answer is: **you don't**. Spotify Research used its database of almost 4 billion playlists to scrape playlists with titles and descriptions containing words matching the mood descriptors. Then, they assigned the found mood descriptor(s) to all songs in the playlist, ending up with around 1 million songs for evaluation.
+Luckily, it's Spotify, the world's biggest music streaming platform, doing this research project. Their user data unlocks methods of data collection that nobody else could possibly do. To build their dataset of song-mood pairs they used a **wisdom of crowd** approach by scraping their entire user database of **4 billion** playlists.
 
-The next step was a calculation of how often the songs from the playlists co-occurred with the pre-defined moods. To ensure the co-occurrence is not random, the authors calculated **Pointwise Mutual Information (PMI)**, which is a measure of association. The intuition behind the metric is that it quantifies how much more (or less) a song and a mood co-occur than we would expect if they were completely independent.
+They used the title and description that users give their playlists to associate all songs in the playlist with these moods. Yes, that's right, you're *Calm* playlist was used in this research project. And yes, that's right if you have a heavy metal song in there, it would have landed in their dataset with a label *calm*.
 
-When plotting the empirical distribution of the PMI score (in fact a normalised version, but we are not going to get into that) of every song-mood pair, it became quite clear that most songs and moods are not associated strongly negatively or positively. The authors set the threshold to 0.1 for both negative and positive scores and considered only the song-mood pairs beyond this threshold for the further analysis. After filtering, they ended up with around 2 million (song, mood) tuples for training (*Remember these are song-mood pairs, not songs*). Given that there were 1 million songs at the beginning, there were 287 times as many tuples to filter.
+It's clear that this is not were the story ends, as the initial scrape is full of noisy song-mood associations. To ensure that co-occurrence of songs and moods are statistically significant, the researchers calculated **Pointwise Mutual Information (PMI)**, which is a measure of association. The intuition behind the metric is that it quantifies how much more (or less) a song and a mood co-occur than we would expect if they were completely independent. At this point every song and mood pair got a PMI score, which can be interpreted as a metric of association correlation.
+
+When plotting the empirical distribution of these scores (in fact a normalised version, but we are not going to get into that) of every song-mood pair, it became quite clear that most songs and moods are not associated strongly negatively or positively. The authors filtered all song-mood pairs with a threshold of ±0.1, which means that only songs with a PMI score below -0.1 or above 0.1 were considered for further analysis. After filtering, they ended up with around 2 million (song, mood) pairs for training.
 
 ![Histogram of Normalised PMI Scores](/posts/spotify-mood/bnpmi.png)
 
@@ -82,7 +86,7 @@ They also trained a baseline model, which converted the lyrics into **Bag-of-Wor
 
 <br />
 
-🎹 **Acoustics Model.** For the acoustics model, the authors used the Spotify API to extract continuous features representing the instrumental layer of songs and used a Logistic Regression model for each mood to predict whether it is there or not. This approach is very similar to the lyrics BoW baseline. *This poses a serious limitation.* The performance of transformer-based approaches to process lyrics is not directly comparable with scores obtained for acoustics that used a much simpler model. The only comparable score is the one obtained by the model based on BoW.
+🎹 **Acoustics Model.** For the acoustics model, the authors used the Spotify API to extract continuous features representing the instrumental layer of songs and used a Logistic Regression model for each mood to predict whether it is there or not. This approach is very similar to the lyrics BoW baseline. **This poses a serious limitation.** The performance of transformer-based approaches to process lyrics is not directly comparable with scores obtained for acoustics that used a much simpler model. The only comparable score is the one obtained by the model based on BoW.
 
 ![Acoustic Features](/posts/spotify-mood/acoustic_features.png)
 
