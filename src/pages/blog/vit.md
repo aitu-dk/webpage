@@ -6,7 +6,7 @@ description:
 authors:
   - Mika Senghaas
   - Ludek Cizinsky
-format: blog
+format: paper
 tags:
   - computer-vision
   - transformers

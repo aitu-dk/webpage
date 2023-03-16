@@ -7,7 +7,7 @@ description:
 authors:
   - Ludek Cizinsky
   - Mika Senghaas
-format: blog
+format: event
 tags:
   - welcome
   - aitu

@@ -6,7 +6,7 @@ description: In our second meeting, we explored the space of audio generation fr
 authors:
   - Ludek Cizinsky
   - Mika Senghaas
-format: blog
+format: paper
 tags:
   - music-generation
   - text-to-audio

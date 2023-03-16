@@ -6,7 +6,7 @@ description:
 authors:
   - Krzysztof Parocki
   - Mika Senghaas
-format: blog
+format: paper
 tags:
   - spotify
   - transformers

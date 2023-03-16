@@ -6,7 +6,7 @@ description:
 authors:
   - Marcel Rosier
   - Ludek Cizinsky
-format: blog
+format: paper
 tags:
   - reinforcement-learning
   - games

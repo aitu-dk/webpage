@@ -6,7 +6,7 @@ description:
 authors:
   - Lukas Rasocha 
   - Ludek Cizinsky
-format: blog
+format: paper
 tags:
   - pcg
   - large-language-models
