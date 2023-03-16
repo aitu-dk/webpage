@@ -13,6 +13,7 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
   title={`${frontmatter.title} | AITU`}
   headerTitle={frontmatter.title}
   description={frontmatter.description}
+  ogImage={frontmatter.image.src}
 >
   <div class="max-w-3xl mx-auto mt-40">
     <a href="/blog" class="text-sm text-accent">Back</a>
