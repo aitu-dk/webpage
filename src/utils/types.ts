@@ -1,5 +1,10 @@
-export type Author = "Mika Senghaas" | "Ludek Cizinsky";
-export type Format = "Blog" | "Deep Dive AI";
+export type Author =
+  | "Mika Senghaas"
+  | "Ludek Cizinsky"
+  | "Lukas Rasocha"
+  | "Krzysztof Parocki"
+  | "Marcel Rosier";
+export type Format = "Paper" | "Event" | "Deep Dive";
 export type Image = {
   src: string;
   alt: string;
