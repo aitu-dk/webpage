@@ -12,9 +12,12 @@ tags:
   - welcome
   - aitu
   - first-meeting
-image: 
+ogImage: 
   src: /assets/aitubanner.png
-  alt: The official AITU Banner
+  alt: The AITU Banner
+banner: 
+  src: /assets/aitubanner.png
+  alt: The AITU Banner
 published: 02/01/2023
 ---
 

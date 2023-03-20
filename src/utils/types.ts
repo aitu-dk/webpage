@@ -17,7 +17,8 @@ export type Frontmatter = {
   description: string;
   authors: Author[];
   format: Format;
-  image: Image;
+  ogImage: Image;
+  banner: Image;
   tags: string[];
   published: string;
   minutesRead: string;

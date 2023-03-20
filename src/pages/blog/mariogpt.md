@@ -11,7 +11,10 @@ tags:
   - pcg
   - large-language-models
   - transformers
-image: 
+ogImage: 
+  src: /posts/mariogpt/mario.webp
+  alt: MarioGPT 
+banner: 
   src: /posts/mariogpt/mario.webp
   alt: MarioGPT 
 published: 03/01/2023

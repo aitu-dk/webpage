@@ -12,7 +12,10 @@ tags:
   - transformers
   - nlp
   - data-analysis
-image: 
+ogImage: 
+  src: /posts/spotify-mood/title.jpg
+  alt: Spotify Mood Association
+banner: 
   src: /posts/spotify-mood/title.jpg
   alt: Spotify Mood Association
 published: 03/16/2023

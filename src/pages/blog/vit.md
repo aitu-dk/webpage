@@ -12,7 +12,10 @@ tags:
   - transformers
   - training-at-scale
   - google
-image: 
+ogImage: 
+  src: /posts/vit/cover.png
+  alt: Vision Transformers
+banner: 
   src: /posts/vit/cover.png
   alt: Vision Transformers
 published: 02/20/2023

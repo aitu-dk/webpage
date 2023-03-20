@@ -10,7 +10,10 @@ format: paper
 tags:
   - reinforcement-learning
   - games
-image:
+ogImage:
+  src: /posts/atari-deep-rl/atari.jpg
+  alt: Atari
+banner:
   src: /posts/atari-deep-rl/atari.jpg
   alt: Atari
 published: 03/08/2023

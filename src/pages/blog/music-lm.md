@@ -12,7 +12,10 @@ tags:
   - text-to-audio
   - generative-ai
   - google
-image: 
+ogImage: 
+  src: /posts/music-lm/group.png
+  alt: Group photo of AITU
+banner: 
   src: /posts/music-lm/group.png
   alt: Group photo of AITU
 published: 02/13/2023
