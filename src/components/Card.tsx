@@ -19,8 +19,8 @@ export default function Card({ frontmatter, centered }: Props) {
       will-change-transform items-center justify-center rounded-lg overflow-hidden object-cover`}
         >
           <img
-            src={frontmatter.image.src}
-            alt={frontmatter.image.alt}
+            src={frontmatter.ogImage.src}
+            alt={frontmatter.ogImage.alt}
             className="group-hover:scale-105 transition-transform"
           />
         </div>
