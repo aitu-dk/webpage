@@ -17,12 +17,12 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
 >
   <div
     id="banner"
-    class="fixed top-[160px] w-screen left-1/2 -translate-x-1/2 overflow-y-hidden transition-all duration-500"
+    class="absolute top-[160px] w-screen left-1/2 -translate-x-1/2 overflow-y-hidden transition-all duration-500"
   >
     <img
       src={frontmatter.banner.src}
       alt={frontmatter.banner.alt}
-      class="w-full h-[400px] object-cover parallax"
+      class="w-full h-[400px] object-cover"
     />
   </div>
   <div class="max-w-3xl mx-auto mt-[400px]">
@@ -58,40 +58,3 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
     <TagList tags={frontmatter.tags} />
   </div>
 </Layout>
-
-<script>
-  const banner = document.getElementById("banner")!;
-  //If element is in viewport, set its position
-  window.addEventListener("scroll", parallax);
-  window.addEventListener("scroll", animateBanner);
-
-  function animateBanner() {
-    if (window.scrollY > 0) {
-      banner.classList.remove("top-[160px]");
-      banner.classList.add("top-[80px]");
-    } else {
-      banner.classList.add("top-[160px]");
-      banner.classList.remove("top-[80px]");
-    }
-  }
-
-  function throttle(fn: any, wait: number) {
-    var time = Date.now();
-    return function () {
-      if (time + wait - Date.now() < 0) {
-        fn();
-        time = Date.now();
-      }
-    };
-  }
-
-  function parallax() {
-    var scrolled = window.pageYOffset;
-    var parallaxElements = document.querySelectorAll(".parallax");
-
-    parallaxElements.forEach((element: Element) => {
-      var coords = scrolled * 0.9 + "px";
-      (element as HTMLElement).style.transform = "translateY(-" + coords + ")";
-    });
-  }
-</script>
