@@ -17,7 +17,7 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
 >
   <div
     id="banner"
-    class="absolute top-[160px] w-screen left-1/2 -translate-x-1/2 overflow-y-hidden"
+    class="fixed top-[160px] w-screen left-1/2 -translate-x-1/2 overflow-y-hidden transition-all duration-500"
   >
     <img
       src={frontmatter.banner.src}
@@ -60,8 +60,20 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
 </Layout>
 
 <script>
+  const banner = document.getElementById("banner")!;
   //If element is in viewport, set its position
   window.addEventListener("scroll", parallax);
+  window.addEventListener("scroll", animateBanner);
+
+  function animateBanner() {
+    if (window.scrollY > 0) {
+      banner.classList.remove("top-[160px]");
+      banner.classList.add("top-[80px]");
+    } else {
+      banner.classList.add("top-[160px]");
+      banner.classList.remove("top-[80px]");
+    }
+  }
 
   function throttle(fn: any, wait: number) {
     var time = Date.now();
@@ -78,8 +90,8 @@ const frontmatter: Frontmatter = Astro.props.frontmatter;
     var parallaxElements = document.querySelectorAll(".parallax");
 
     parallaxElements.forEach((element: Element) => {
-      var coords = scrolled * 0.6 + "px";
-      (element as HTMLElement).style.transform = "translateY(" + coords + ")";
+      var coords = scrolled * 0.9 + "px";
+      (element as HTMLElement).style.transform = "translateY(-" + coords + ")";
     });
   }
 </script>
