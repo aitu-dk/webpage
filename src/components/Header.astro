@@ -1,6 +1,6 @@
 ---
 import Badge from "@components/Badge";
-const anchorLinks: string[] = ["activities", "recent", "newsletter"];
+const anchorLinks: string[] = ["activities", "paper-archive", "events"];
 
 const { headerTitle } = Astro.props;
 ---
@@ -35,7 +35,14 @@ const { headerTitle } = Astro.props;
               href={`/#${link}`}
               class="hidden text-sm tracking-wider sm:text-base nounderline sm:block text-secondary hover:text-primary transition-colors duration-300"
             >
-              <p>{link.at(0)?.toUpperCase() + link.slice(1)}</p>
+              <p>
+                {link
+                  .split("-")
+                  .map((subword: string) => {
+                    return subword.at(0)?.toUpperCase() + subword.slice(1);
+                  })
+                  .join(" ")}
+              </p>
             </a>
           );
         })
@@ -74,17 +81,16 @@ const { headerTitle } = Astro.props;
   const activitiesLink: HTMLElement =
     document.getElementById("activitiesLink")!;
 
-  const recent: HTMLElement = document.getElementById("recent")!;
-  const recentLink: HTMLElement = document.getElementById("recentLink")!;
+  const papers: HTMLElement = document.getElementById("paper-archive")!;
+  const papersLink: HTMLElement = document.getElementById("paper-archiveLink")!;
 
-  const newsletter: HTMLElement = document.getElementById("newsletter")!;
-  const newsletterLink: HTMLElement =
-    document.getElementById("newsletterLink")!;
+  const events: HTMLElement = document.getElementById("events")!;
+  const eventsLink: HTMLElement = document.getElementById("eventsLink")!;
 
   const blogLink: HTMLElement = document.getElementById("blogLink")!;
 
-  const sections: HTMLElement[] = [activities, recent, newsletter];
-  const links: HTMLElement[] = [activitiesLink, recentLink, newsletterLink];
+  const sections: HTMLElement[] = [activities, papers, events];
+  const links: HTMLElement[] = [activitiesLink, papersLink, eventsLink];
 
   function animateHeader() {
     if (window.scrollY > 0) {

@@ -1,8 +1,8 @@
 ---
 interface Props {
   title: string;
-  headerTitle: string;
   description: string;
+  headerTitle?: string;
   ogImage?: string;
 }
 const { title, headerTitle, description, ogImage }: Props = Astro.props;
