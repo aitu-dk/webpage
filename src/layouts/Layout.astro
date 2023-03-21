@@ -1,8 +1,8 @@
 ---
 interface Props {
   title: string;
-  headerTitle: string;
   description: string;
+  headerTitle?: string;
   ogImage?: string;
 }
 const { title, headerTitle, description, ogImage }: Props = Astro.props;
@@ -23,7 +23,7 @@ import Footer from "../components/Footer.astro";
       property="og:image"
       content={ogImage
         ? ogImage
-        : "https://www.aitu.group/assets/aitubanner.png"}
+        : "https://www.aitu.group/assets/aitubanner.jpg"}
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" /><meta

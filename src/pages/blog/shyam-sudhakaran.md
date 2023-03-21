@@ -10,8 +10,11 @@ tags:
   - meeting
   - faq
   - mario-gpt
-image: 
-  src: /posts/shyam-sudhakaran/ogImage.png
+ogImage: 
+  src: /posts/shyam-sudhakaran/ogImage.jpg
+  alt: Shyam Sudhakaran
+banner: 
+  src: /posts/shyam-sudhakaran/banner.jpg
   alt: Shyam Sudhakaran
 published: 03/19/2023
 ---

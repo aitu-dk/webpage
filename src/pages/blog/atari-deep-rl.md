@@ -10,8 +10,11 @@ format: paper
 tags:
   - reinforcement-learning
   - games
-image:
-  src: /posts/atari-deep-rl/atari.jpg
+ogImage:
+  src: /posts/atari-deep-rl/ogImage.jpg
+  alt: Atari
+banner:
+  src: /posts/atari-deep-rl/banner.jpg
   alt: Atari
 published: 03/08/2023
 ---
@@ -52,20 +55,20 @@ The more important question, however, is **how we teach** the network to output 
 
 Going back to our sample from the replay buffer, the question is, what is `yhat` in this case, and what is the corresponding `y`? Let's start with the prediction `yhat`. We feed our DQN (representing the Q-function) with the **previous state** and select the total reward that corresponds to the **action taken**. The ground truth value `y` is then the sum of the **reward obtained** and the total reward estimate produced by a **target DQN** based on the **next state**. Target DQN is simply a copy of the trained DQN. The copy is made every `C` updates. This technique helps to stabilize the training and prevent the Q-network from overestimating the Q-values. Finally, the figure below puts nicely all things together and should give you idea how all the pieces described fit together.
 
-<img src="/posts/atari-deep-rl/algorithm.png" alt="Pseudo code for the training algorithm" style="display:block;margin-left:auto;margin-right:auto;width:100%"/>
+<img src="/posts/atari-deep-rl/algorithm.jpg" alt="Pseudo code for the training algorithm" style="display:block;margin-left:auto;margin-right:auto;width:100%"/>
 
 <br>
 
 🏗️ **Model architecture**. The DQN architecture is surprisingly simple by today's standards. It takes an 84 × 84 × 4 image produced by a preprocessing function, which involves downsampling, cropping, grayscale conversion, and stacking 4 frames. The image is then fed through two convolutional and two linear layers with ReLU's in between. The number of output neurons corresponds to the number of valid actions, which varies between 4 and 18 for the evaluated corpus of games (Figure adapted from [here](https://github.com/msinto93/DQN_Atari)).
 
-<img src="/posts/atari-deep-rl/model.jpeg" alt="Model architecture" style="display:block;margin-left:auto;margin-right:auto;width:100%"/>
+<img src="/posts/atari-deep-rl/model.jpg" alt="Model architecture" style="display:block;margin-left:auto;margin-right:auto;width:100%"/>
 
 <br>
 
 
 🤯 **Results.** The model outperforms SOTA methods on **6 out of 7** games tested. (the bottom table) Further, it can even beat human players in three of them. (upper table) This is especially impressive considering that previous SOTA approaches used highly game-specific information to make predictions, while the Deep Q Network learns from nothing but the pixel input. Notably, humans are superior to the model in games that have a longer playing time. Intuitively, this makes sense, given that the core task of the network is to approximate the Q function that returns the estimated reward until the end of the game, which becomes more difficult with increasing game length.
 
-<img src="/posts/atari-deep-rl/results.png" alt="Results table" style="display:block;margin-left:auto;margin-right:auto;width:100%"/>
+<img src="/posts/atari-deep-rl/results.jpg" alt="Results table" style="display:block;margin-left:auto;margin-right:auto;width:100%"/>
 
 <br>
 

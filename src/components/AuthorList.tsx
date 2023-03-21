@@ -8,7 +8,7 @@ export default function AuthorList({ authors }: Props) {
     <div className="flex items-center">
       {authors.map((author: Author) => (
         <img
-          src={`/authors/${author.toLowerCase().replaceAll(" ", "-")}.png`}
+          src={`/authors/${author.toLowerCase().replaceAll(" ", "-")}.jpg`}
           alt={`Image of ${author}`}
           className="-ml-3 rounded-full w-7 h-7 first:-ml-0"
         />

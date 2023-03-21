@@ -12,9 +12,12 @@ tags:
   - text-to-audio
   - generative-ai
   - google
-image: 
-  src: /posts/music-lm/group.png
-  alt: Group photo of AITU
+ogImage: 
+  src: /posts/music-lm/ogImage.jpg
+  alt: Generative AI composing music
+banner: 
+  src: /posts/music-lm/banner.jpg
+  alt: Generative AI composing music
 published: 02/13/2023
 ---
 
@@ -23,7 +26,7 @@ Welcome to the second blog post of AITU ✋. After our first post, we received a
 
 <br/>
 
-![AITU second meeting group photo](/posts/music-lm/group.png)
+![AITU second meeting group photo](/posts/music-lm/group.jpg)
 
 <br/>
 
@@ -45,7 +48,7 @@ Welcome to the second blog post of AITU ✋. After our first post, we received a
 
 **🧠 Building on previous papers.** Striving for consistent, high-quality audio output over long periods of time required a novel approach. The main innovation of the architecture is to model both **acoustic tokens** and **semantic tokens**. The MusicLM architecture is based on several previous research papers, puzzling together three large, pre-trained models into a single architecture:
 
-![MusicLM map of previous papers](/posts/music-lm/background.png)
+![MusicLM map of previous papers](/posts/music-lm/background.jpg)
 
 The individual components are:
 
@@ -59,7 +62,7 @@ Note, that **SoundStream** and **w2v-BERT** have already been combined into an a
 
 **👩‍🔬 Glueing things together.** Let's talk about how these papers are combined. The figure below taken from the original paper visualises the training procedure.
 
-![MusicLM training](/posts/music-lm/training.png)
+![MusicLM training](/posts/music-lm/training.jpg)
 
 First, notice that during training, only audio data is needed. This is significant since the model does not need text-audio pairs during training. As such, MusicLM was trained on large audio-only datasets.
 Architecture-wise, MusicLM is a **hierarchical** sequence-to-sequence model consisting of two layers:
@@ -69,7 +72,7 @@ Architecture-wise, MusicLM is a **hierarchical** sequence-to-sequence model cons
 
 Given these learned layers, new audio can be generated according to the inference procedure depicted below.
 
-![MusicLM inference](/posts/music-lm/inference.png)
+![MusicLM inference](/posts/music-lm/inference.jpg)
 
 First, the text description is translated into MuLan `text` tokens. Based on these, `semantic` tokens are predicted using the trained semantic model. Finally, the concatenation of both MuLan tokens and semantic tokens is used for predicting `acoustic tokens`. The `acoustic` tokens are then decoded to actual audio output using SoundStream's decoder.
 
@@ -83,7 +86,7 @@ First, the text description is translated into MuLan `text` tokens. Based on the
 
 **🪫 Lack of domain data.** Compared to other fields, such as NLP or Computer Vision, there is a lack of large-scale and high-quality text-to-audio data. MusicLM shows a possible workaround by using MuLan joint text and audio embeddings. In addition, as part of the MusicLM paper, a new evaluation text-audio dataset called **MusicCaps** has been released. Kudos to the Google team for making this open-source and advancing resources in the text-to-audio community.
 
-**🧪 Creative evaluation.** Evaluating generative AI is difficult in all domains, because there is not one single “gold” output. Therefore, the Google research team had to get creative to contrast MusicLM with previous work. They used public models that give scores for the quality of music (FAD score), use classifiers that predict a class label given audio inputs and compare the resulting distributions of class labels between the original audio and generated audio using KL divergence and even used the good-old subjective human voting approach, where they would simply ask experts, which  of two audio clips is better output given the text prompt. Overall, it seems that there is work to be done and that the field lacks common benchmarks and metrics.
+**🧪 Creative evaluation.** Evaluating generative AI is difficult in all domains because there is not one single “gold” output. Therefore, the Google research team had to get creative to contrast MusicLM with previous work. They used public models that give scores for the quality of music (FAD score), use classifiers that predict a class label given audio inputs and compare the resulting distributions of class labels between the original audio and generated audio using KL divergence and even used the good-old subjective human voting approach, where they would simply ask experts, which of two audio clips is better output given the text prompt. Overall, it seems that there is work to be done and that the field lacks common benchmarks and metrics.
 
 ### 📣 Stay in touch
 

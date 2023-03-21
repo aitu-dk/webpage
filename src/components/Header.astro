@@ -1,13 +1,13 @@
 ---
 import Badge from "@components/Badge";
-const anchorLinks: string[] = ["activities", "recent", "newsletter"];
+const anchorLinks: string[] = ["activities", "paper-archive", "events"];
 
 const { headerTitle } = Astro.props;
 ---
 
 <div
   id="header"
-  class="fixed top-0 z-40 flex items-center justify-center w-full h-40 border-b border-transparent select-none duration-500"
+  class="fixed top-0 z-40 flex items-center justify-center w-full h-40 border-b border-transparent bg-black/70 select-none duration-500"
 >
   <div class="container flex justify-between">
     <div class="flex items-center justify-start space-x-[110px]">
@@ -35,7 +35,14 @@ const { headerTitle } = Astro.props;
               href={`/#${link}`}
               class="hidden text-sm tracking-wider sm:text-base nounderline sm:block text-secondary hover:text-primary transition-colors duration-300"
             >
-              <p>{link.at(0)?.toUpperCase() + link.slice(1)}</p>
+              <p>
+                {link
+                  .split("-")
+                  .map((subword: string) => {
+                    return subword.at(0)?.toUpperCase() + subword.slice(1);
+                  })
+                  .join(" ")}
+              </p>
             </a>
           );
         })
@@ -74,20 +81,19 @@ const { headerTitle } = Astro.props;
   const activitiesLink: HTMLElement =
     document.getElementById("activitiesLink")!;
 
-  const recent: HTMLElement = document.getElementById("recent")!;
-  const recentLink: HTMLElement = document.getElementById("recentLink")!;
+  const papers: HTMLElement = document.getElementById("paper-archive")!;
+  const papersLink: HTMLElement = document.getElementById("paper-archiveLink")!;
 
-  const newsletter: HTMLElement = document.getElementById("newsletter")!;
-  const newsletterLink: HTMLElement =
-    document.getElementById("newsletterLink")!;
+  const events: HTMLElement = document.getElementById("events")!;
+  const eventsLink: HTMLElement = document.getElementById("eventsLink")!;
 
   const blogLink: HTMLElement = document.getElementById("blogLink")!;
 
-  const sections: HTMLElement[] = [activities, recent, newsletter];
-  const links: HTMLElement[] = [activitiesLink, recentLink, newsletterLink];
+  const sections: HTMLElement[] = [activities, papers, events];
+  const links: HTMLElement[] = [activitiesLink, papersLink, eventsLink];
 
   function animateHeader() {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 0) {
       header.classList.remove("h-40");
       header.classList.add("h-20");
       header.classList.add("backdrop-blur-md");
@@ -104,7 +110,7 @@ const { headerTitle } = Astro.props;
 
   function animateBlogTitle() {
     if (windowWidth > 630) {
-      if (window.scrollY > 300) {
+      if (window.scrollY > window.innerHeight / 1.5) {
         animatedTitle.classList.add("opacity-100");
         animatedTitle.classList.remove("translate-y-4");
       } else {

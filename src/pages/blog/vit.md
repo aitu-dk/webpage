@@ -12,8 +12,11 @@ tags:
   - transformers
   - training-at-scale
   - google
-image: 
-  src: /posts/vit/cover.png
+ogImage: 
+  src: /posts/vit/ogImage.jpg
+  alt: Vision Transformers
+banner: 
+  src: /posts/vit/banner.jpg
   alt: Vision Transformers
 published: 02/20/2023
 ---
@@ -22,7 +25,7 @@ Welcome, and thanks for tuning into this week's AITU blog post 🙌. With again 
 
 <br/>
 
-![Discussing Vision Transformers](/posts/vit/group.png)
+![Discussing Vision Transformers](/posts/vit/group.jpg)
 
 <br/>
 
@@ -42,7 +45,7 @@ Welcome, and thanks for tuning into this week's AITU blog post 🙌. With again 
 
 **🏗️ The Architecture.** The research team at Google set out to "_[...] apply the Transformer architecture to images with the fewest possible modifications_". A Transformer block expects a sequence of embedded tokens as an input sequence. Thus, the key question was how to extract a one-dimensional sequence of tokens from a two-dimensional image. ViT propose the following translation, which is also shown in the visualisation taken from the paper. 👇
 
-![High-Level Architecture of ViT](/posts/vit/architecture.png)
+![High-Level Architecture of ViT](/posts/vit/architecture.jpg)
 
 First, the input image is split into fixed-sized patches. Therefore, you can imagine each patch as a **three-dimensional** matrix. However, Transformers expects the input tokens to be **one-dimensional**. Thus, the three-dimensional matrix is **flattened** into a one-dimensional vector. Yes, that's right - despite all this **information loss**, ViT still managed to become SOTA in image classification. 🤯 The flattened vector is then projected via a **Linear** layer to a  continuous-dense vector representation. In addition, each of these **patch embeddings** is concatenated with a learned **positional embedding** to give the model information about where the patch was initially extracted from. Finally, a special embedding token is added before all the patch embeddings. Its purpose will be explained in a second.
 
@@ -52,7 +55,7 @@ Since each patch should be able to attend over all the other patches, the patch 
 
 **🎈 Results.** The efficiency in training and inference of the Transformer architecture on modern hardware (GPUs/ TPUs) allowed Google to train their ViTs on enormous datasets (14M - 300M images). Although the model fails to model some of the features inherent to image data, ViTs set new SOTA performances on various benchmarks for image classification. The below table shows three versions of their ViT against two of the previous SOTA models, which are [ResNet](https://arxiv.org/abs/1512.03385) and [Noisy Student](https://arxiv.org/abs/1911.04252). As can be seen, ViT performs best across all benchmarks with less training effort.
 
-![ViT Performance on Common Benchmarks](/posts/vit/performance.png)
+![ViT Performance on Common Benchmarks](/posts/vit/performance.jpg)
 
 <br/>
 
