@@ -3,25 +3,24 @@ layout: ../../layouts/BlogLayout.astro
 slug: intro-post
 title: AITU's First Meeting! 🎉
 description: 
-  We are official! AITU is officially registered as a student organisation at ITU. In this post we talk about everything from the organisation's idea and mission, and provide some behind-the-scenes into the foundational work in the two months before semester start.
+  We are official! AITU is officially registered as a student organisation at ITU. In this post, we talk about everything from the organisation's idea and mission and provide some behind-the-scenes into the foundational work in the two months before the semester start.
 authors:
   - Ludek Cizinsky
   - Mika Senghaas
 format: event
 tags:
   - welcome
-  - aitu
   - first-meeting
 ogImage: 
-  src: /assets/aitubanner.png
+  src: /posts/intro-post/ogImage.jpg
   alt: The AITU Banner
 banner: 
-  src: /assets/aitubanner.png
+  src: /posts/intro-post/banner.jpg
   alt: The AITU Banner
 published: 02/01/2023
 ---
 
-Hey everyone and welcome to the first ever **AITU** blog post 🚀. Today marks the day of our very first meeting - and we couldn't be more excited. In this small post we want to explain some of the thoughts behind the founding of the organisation, as well as provide some behind-the-scenes into the foundational work that has been done and the vision for what is laying ahead.
+Hey everyone and welcome to the first-ever **AITU** blog post 🚀. Today marks the day of our very first meeting - and we couldn't be more excited. In this small post, we want to explain some of the thoughts behind the founding of the organisation, as well as provide some behind-the-scenes into the foundational work that has been done and the vision for what is laying ahead.
 
 ### 🧑‍🚀 How it all started
 
