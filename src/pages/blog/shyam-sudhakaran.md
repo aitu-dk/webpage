@@ -11,10 +11,10 @@ tags:
   - faq
   - mario-gpt
 ogImage: 
-  src: /posts/shyam-sudhakaran/ogImage.png
+  src: /posts/shyam-sudhakaran/ogImage.jpg
   alt: Shyam Sudhakaran
 banner: 
-  src: /posts/shyam-sudhakaran/banner.png
+  src: /posts/shyam-sudhakaran/banner.jpg
   alt: Shyam Sudhakaran
 published: 03/19/2023
 ---
