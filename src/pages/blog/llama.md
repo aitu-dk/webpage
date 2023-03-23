@@ -11,10 +11,10 @@ tags:
   - transformers
   - nlp
 ogImage: 
-  src: /posts/llama/ogImage.png
+  src: /posts/llama/ogImage.jpg
   alt: A Llama in the Library 
 banner: 
-  src: /posts/llama/banner.png
+  src: /posts/llama/banner.jpg
   alt: A Llama in the Library 
 published: 03/23/2023
 ---
@@ -41,7 +41,7 @@ What does this mean? Well, the released LLMs are chosen in a way, such that they
 
 📚 **Pre-training data.** LLaMA was trained solely on **publicly available** datasets, including Wikipedia, Books, and Stack Exchange. The complete overview can be seen in the figure below.
 
-![Pre-training data overview](/posts/llama/pretraining-data.png)
+![Pre-training data overview](/posts/llama/pretraining-data.jpg)
 
 Each dataset was carefully preprocessed to ensure **high-quality input** data. For instance, only highly ranked answers from Stack Exchange were chosen. Additionally, high-quality sources, such as books, were shown more often (see the number of epochs) than lower-quality ones. Finally, it is important to pause for a moment and appreciate the fact that we have been able to gather such a vast amount of data over the **past 20 years**. Without this data, LLMs would not be possible. 👏
 
@@ -66,11 +66,11 @@ Although these are important improvements, AI researcher [Yannic Kilcher](https:
 
 💪 **Training:** Model sizes range from **6.7B** to **65.2B**, using standard 32-bit float. Therefore, loading the model into memory requires **26.8GB** to **260GB**! However, with **quantisation** (reducing all weights and activations in the model to a smaller data type), it is possible to run the smallest model on a Raspberry Pi. 🤯 The figure below provides an overview of all the models.
 
-![Models overview](/posts/llama/models-overview.png)
+![Models overview](/posts/llama/models-overview.jpg)
 
 The models were trained on **2048 A100 GPUs** with 80GB of RAM, and a processing capacity of 380 tokens/sec/GPU. Despite this, training the largest model for 1.4T tokens still took 21 days. The authors of the paper argue that releasing the model to the public balances out the CO2 emissions produced. 😅 Finally, the figure below shows the training curves. While inspecting the training curves, we noticed that all loss curves were still visibly decreasing, indicating that the models were still learning. This suggests that there is even more room for improvement. 💫
 
-![Loss curves of the models](/posts/llama/training-curves.png)
+![Loss curves of the models](/posts/llama/training-curves.jpg)
 
 <br/>
 
