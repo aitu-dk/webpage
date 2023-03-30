@@ -19,7 +19,6 @@ banner:
   alt: AGI
 published: 03/31/2023
 ---
-
 Hello and welcome to our weekly blog post! 🙌 This week we take a look into yet another recently published [paper](https://arxiv.org/abs/2302.14045) called **Language Is Not All You Need: Aligning Perception with Language Models**. 🙉🙈🙊 The paper introduces an architecture that is able to perceive two modalities, or in other words, multimodal large language model (MLLM) called **Kosmos-1**, which is, as the authors claim, a necessary step towards **Artificial General Intelligence (AGI)**.
 
 <br/>
@@ -35,43 +34,43 @@ Hello and welcome to our weekly blog post! 🙌 This week we take a look into ye
 <br/>
 
 ### 🏗 Architecture
+
 ---
 
 Now the question is, how do we communicate inputs that are inheritely **different** to the same model architecture? 🧩 The authors directly applied the idea from another [paper](https://arxiv.org/pdf/2206.06336.pdf) from Microsoft which proposes to use Language Models as a **general-purpose-interface** to other various foundation models. In other words, LLM is being used as a main module to which other perception modules that are trained to handle different specific modals are docked.
 
-
-![General Purpose Interface](/posts/multimodal/general-purpose-interface.png)
-
+![/posts/multimodal/general-purpose-interface.png](/posts/multimodal/general-purpose-interface.png)
 
 **Note:** Kosmos-1 as of now can handle "only" images and textual input
 
 <br/>
 
-More specifically, to transform an image to a form that can be understood by the **general-purpose-interface** (Transformer Decoder), they used **visual transformers (ViT)** which we discussed in more detail in our last month's [blog post](https://www.aitu.group/blog/vit). After obtaining the image **embeddings** from the **perception module (ViT)**, they are directly used together with **text** and special **tags** as an input in the following form: 
+More specifically, to transform an image to a form that can be understood by the **general-purpose-interface** (Transformer Decoder), they used **visual transformers (ViT)** which we discussed in more detail in our last month's [blog post](https://www.aitu.group/blog/vit). After obtaining the image **embeddings** from the **perception module (ViT)**, they are directly used together with **text** and special **tags** as an input in the following form:
 
-![Input examples to General Purpose Interface](/posts/multimodal/input.png)
+![/posts/multimodal/input.png](/posts/multimodal/input.png)
 
 <br/>
 
 ### 📊 Evaluation
+
 ---
 
-The model was evaluated using a lots of different techniques, the most interesting out of them was the evaluation of its **fluid reasoing** ability of humans.
+The model was evaluated using a lots of different techniques, the most interesting out of them was the evaluation of its **fluid reasoning** ability of humans.
 
-> *“the capacity to think logically and solve problems in novel situations, independent of acquired knowledge”*
+> “the capacity to think logically and solve problems in novel situations, independent of acquired knowledge”
+> 
 
 For this test they used a method well known in the field of Neuroscience called **Raven’s Progressive Matrices** 🐦 which is one of the most common tests to evaluate nonverbal reasoning of humans (also sometimes used as a measurement for IQ). Given eight images presented in a **3 × 3 matrix**, the task is
 to identify the following element from six similar candidates.
 
-
-![Raven's IQ test](/posts/multimodal/raventest.png)
+![/posts/multimodal/raventest.png](/posts/multimodal/raventest.png)
 
 Even though the model didn't achieve outstanding results (only a slight improvement over a random choice), it is still exciting to see how far we have gotten, from simple **accuracy tests** to difficult techniques that are used to evaluate **IQ's** of humans.
 
-
-![Raven's IQ test results](/posts/multimodal/result.png)
+![/posts/multimodal/result.png](/posts/multimodal/result.png)
 
 ### 🔮 Key Takeaways
+
 ---
 
 - 🧠 Necessary step towards **AGI**
@@ -82,9 +81,8 @@ Even though the model didn't achieve outstanding results (only a slight improvem
 
 Let me finish this blog post with a quote from a very excited AI enthusiast:
 
-> *“Like an AI will understand the "concept" of anything so much better, so much deeper, if it knows a representation of that concept in multiple modals. We're in the future man!”*
-
-
+> “Like an AI will understand the "concept" of anything so much better, so much deeper, if it knows a representation of that concept in multiple modals. We're in the future man!”
+> 
 
 ### 📣 Stay in touch
 
