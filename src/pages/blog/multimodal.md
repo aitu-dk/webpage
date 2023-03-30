@@ -74,9 +74,9 @@ Even though the model didn't achieve outstanding results (only a slight improvem
 ---
 
 - 🧠 Necessary step towards **AGI**
-- 🧐 Enables **LLMs** to acquire common sense knowledge
-- 🤏 Compared to current LLMs, **Kosmos-1** is quite small with **1.6 B** parameters
+- 🧐 Multi-modality enables **LLMs** to acquire common sense knowledge
 - 🦸 LLM as **general purpose interfaces** serve as a universal task layer
+- 🤏 Compared to current LLMs, **Kosmos-1** is quite small with **1.6 B** parameters
 - 📈 A lot of room for improvements by scaling up the model and adding more **perception modules**
 
 Let me finish this blog post with a quote from a very excited AI enthusiast:
