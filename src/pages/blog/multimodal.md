@@ -8,10 +8,11 @@ authors:
   - Mika Senghaas
 format: paper
 tags:
-  - transformer
-  - agi
   - multimodality
-  - nlp
+  - transformer
+  - microsoft
+  - gpt-4
+  - agi
 ogImage:
   src: /posts/multimodal/agi.jpeg
   alt: AGI
@@ -27,7 +28,7 @@ Aligning Perception with Language Models](https://arxiv.org/abs/2302.14045)
 introduces **Kosmos-1**, a **multimodal large language model (MLLM)**, that is
 capable of understanding both image and natural language (or a mix of them). It
 is an exciting new development in the world of large language models (LLMs) that
-some belief to be a possible path towards generally intelligent systems (AGI)
+some believe to be a possible path towards generally intelligent systems (AGI)
 🧠.
 
 We are excited to share the core ideas behind the architecture, as well as our 
@@ -106,14 +107,14 @@ of different modalities._
 <br/>
 
 Let's look at some concrete prompts that **Kosmos-1** with its two perception
-modules can answer (Figure 2). Before feeding a prompt into the model, the 
+modules can answer (Figure 2). Before feeding a prompt into the model, the
 prompt is pre-processed to denote, which modality is used. Text prompt are
-surrounded by the special tokens `<s>` and `<\s>`, and image prompts are surrounded
-by the special tokens `<image>` and `<\image>`. Next, the data encapsulated by
-the respective special tokens is fed into the respective perception module. The
-vector representations of the text and image are then concatenated, together
-with the special tokens, are then fed into a single transformer decoder, which
-produces text in an autoregressive manner.
+surrounded by the special tokens `<s>` and `<\s>`, and image prompts are
+surrounded by the special tokens `<image>` and `<\image>`. Next, the data
+encapsulated by a set of special tokens is fed into the respective perception
+module. The vector representations of the text, images and special tokens are
+then concatenated and fed into a single transformer decoder, which produces text
+in an autoregressive manner.
 
 ![/posts/multimodal/input.png](/posts/multimodal/input.png)
 
@@ -123,16 +124,17 @@ text and text-image prompts._
 <br/>
 
 The Microsoft team was able to produce some pretty impressive results (Figure 3)
-and previewed potential applications of multi-modal models, like
-chatbot-interfaces which also understand images and logical reasoning tasks like
-the Raven's Progressive Matrices test. The fact that there is a market for these
-kind of models it underlined by the long-awaited release of
-[GPT-4](https://openai.com/gpt-4) by OpenAI,
-which also features a multimodal architecture (although the multi-modal model
-is not yet available to the public).
+and previewed potential applications of multi-modal models. The fact that there
+is a market for these kind of models it underlined by the long-awaited release
+of [GPT-4](https://openai.com/gpt-4) by OpenAI, which also features a multimodal
+architecture (although the multi-modal model is not yet available to the
+public).
 
 
 ![/posts/multimodal/example.png](/posts/multimodal/example.png)
+
+**Figure 3**: _Some examples of outputs from Kosmos-1. The model can handle pure
+text and text-image prompts._
 
 ### 📊 Evaluation
 
@@ -142,8 +144,8 @@ Kosmos-1 was evaluated using a lot of different techniques. Too many for us to
 cover in this blog post. However, one particularly striking one was  the
 **Raven's Progressive Matrices** 🐦 test.
 
-It is a well-known tools in the field of neuroscience to measure **fluid
-reasoning** abilities in humans. The test consists of a series of **3x3
+It is a well-known tool in the field of neuroscience to measure **fluid
+reasoning** abilities of humans. The test consists of a series of **3x3
 matrices** with one **missing element**. The task is to identify the missing
 element from a set of six candidates (Figure 4).
 
@@ -183,7 +185,7 @@ promising direction to explore.
 more than a guessing game at this point. However, it is an interesting and
 thought-provoking exercise. Hypothesising about a future with generally
 intelligent systems is so complex, that we cannot start thinking about its
-implications early enough. Reading papers like this one is a great way to
+implications early enough. Reading papers like this one is a great way to start.
 
 🚧 **Architecture.** Architecturally, the proposed model is modular and relies
 on the fact that we already have a lot of different perception models that
@@ -193,8 +195,9 @@ Concatenating those is presumed to be enough to build a multi-modal model.
 📈 **Future Work.** It was evident when reading the paper that there is still a
 lot of room for improvement in this domain. Kosmos-1 is lacking truly large
 scale, high-quality cross-modal data sets, alignment techniques and more. GPT-4
-by OpenAI seems further judging their initial announcement of the model, but
-they not released any details on the training or alignment procedure.
+by OpenAI seems more advanced judging their initial announcement of the model,
+but much of it is speculative, as their model is not yet public and OpenAI has
+not shared details about the model's training procedure.
 
 ### 📣 Stay in touch
 
