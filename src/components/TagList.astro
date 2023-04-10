@@ -8,7 +8,7 @@ interface Props {
 const { tags } = Astro.props;
 ---
 
-<div class="flex space-x-2">
+<div class="flex flex-wrap">
   {
     tags.map((tag: string) => (
       <Badge>

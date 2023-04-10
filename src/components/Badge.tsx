@@ -10,7 +10,7 @@ export default function Badge({ id, hover, children }: Props) {
   return (
     <div
       id={id}
-      className={`no-underline tracking-wider text-accent bg-accent-dark px-1 font-medium rounded-lg ${
+      className={`m-0.5 no-underline tracking-wider text-accent bg-accent-dark px-1 font-medium rounded-lg ${
         hover ? "hover:shadow-accent-small transition-shadow" : ""
       }`}
     >
