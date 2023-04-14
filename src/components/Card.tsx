@@ -8,7 +8,6 @@ type Props = {
 };
 
 export default function Card({ frontmatter, centered }: Props) {
-  console.log(frontmatter)
   return (
     <a
       href={`/blog/${frontmatter.slug}`}
