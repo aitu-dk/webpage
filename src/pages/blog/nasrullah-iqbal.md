@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 slug: nasrullah-iqbal
-title: Nasrullah Iqbal on the History of AI
+title: Nasrullah Iqbal on the History and Future of AI
 description: 
   Nasrullah Iqbal was awarded with a master's degree in artificial
   intelligence back in 2006. As a veteran in the field, we were honoured 
