@@ -233,7 +233,7 @@ can see the pseudo-code for the full algorithm below:
 
 <br />
 
-![Lion](/public/posts/lion/lion.png)
+![Lion](/posts/lion/lion.png)
 
 _Figure 3: Pseudo-Code for Lion._
 
