@@ -38,14 +38,14 @@ range of tasks.
 
 Our group was fascinated with how the research team at Google derived the new
 optimisation algorithm and we are excited to share our thoughts with you. Let's
-get started! k
+get started! 🦁
 
 ### 💡 Gradient-Descent Based Optimisation
 
 ---
 
 Before we dive into the details of the Lion algorithm, let's first recap the
-core idea of optimisation. Optimisation theory is a branch of mathematics that
+core idea of optimisation: Optimisation theory is a branch of mathematics that
 is concerned with one specific question:
 
 > How do we find the values of a function that minimises/ maximises the value
@@ -241,16 +241,26 @@ _Figure 3: Pseudo-Code for Lion._
 
 ---
 
-<br/>
-
 **🧠 Neuro-Evolution.** Evolutionary search and gradient-descent are both
 optimisation techniques. On a meta-level, it is fascinating to see that we use
 one (evolutionary search) to improve the other (gradient-based update rules).
-This interesting subfield is referred to as **neuro-evolution**.
+This interesting subfield is referred to as neuro-evolution.
+
+**🌳 Biomimicry.** Science taking inspiration from nature is a common pattern
+that we have seen many times before (e.g. neural network architecture).
+However, employing the evolution principle to algorithm discovery was new and 
+fascinating to read about.
 
 **🦁 Lion.** Lion is a new optimisation algorithm that was discovered through
 the use of evolutionary search. It is a simple and effective algorithm that
-outperforms AdamW on a variety of tasks.
+outperforms state-of-the-art algorithm AdamW on a variety of tasks.
+
+**📈 Compound Effect.** Even tiny improvements in core building blocks of
+neural networks and their training (optimisation algorithms, matrix
+multiplication, etc.) have the potential to have a large impact on the overall 
+performance of the network. Lion is one example of this. Minor changes in the
+update rule lead to improvements in downstream performance of up to 2% on some 
+tasks.
 
 ### 📣 Stay in touch
 
