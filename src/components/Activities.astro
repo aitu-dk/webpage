@@ -1,75 +1,93 @@
 ---
 interface Activity {
-  title: string,
-  description: string
+  title: string;
+  description: string;
 }
 const activities: Activity[] = [
   {
-    title: "Reading",
-    description: "Together, we read and discuss one AI research paper every week."
+    title: "Reading Group",
+    description: "Read and discuss an AI research paper every week.",
   },
   {
-    title: "Labs",
-    description: "We work on hands-on coding projects and real-world case studies."
+    title: "Community Events",
+    description: "Connect with like minded AI enthusiasts.",
   },
   {
-    title: "Talks",
-    description: "We host insightful talks given by experts from academia and industry."
+    title: "Speaker Series",
+    description: "Learn from talks by experts from academia and industry.",
   },
-
-]
+];
 ---
 
-<astro-activities data-message={activities} id="activities" class="flex flex-col items-end w-full pt-32 leading-relaxed text-right">
-  {activities.map((activity: Activity) => {
-    return (
-      <p class="mt-10 text-transparent first:mt-0 bg-clip-text bg-amethyst-right">{activity.title}.</p>
-      <p id={activity.title.toLowerCase()} class="text-5xl text-gray-400 md:text-6xl md:w-3/5 transition-colors duration-300">{activity.description}</p>
-    )
-  })
-</astro-activities>
-
-<script>
-  // get relevant divs
-  const activities = document.getElementById("activities")!;
-  const reading = document.getElementById("reading")!;
-  const projects = document.getElementById("labs")!;
-  const talks = document.getElementById("talks")!;
-
-  // get global styles
-  const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary');
-  const tertiary = getComputedStyle(document.documentElement).getPropertyValue('--tertiary');
-
-  let windowHeight : number;
-
-  function handleResize() {
-    windowHeight = window.innerHeight;
+<astro-activities
+  data-message={activities}
+  id="activities"
+  class="flex flex-col items-end w-full pt-32 leading-relaxed text-right"
+>
+  {
+    activities.map((activity: Activity) => {
+      return (
+        <>
+          <p class="mt-10 text-3xl text-transparent first:mt-0 bg-clip-text bg-amethyst-right">
+            {activity.title}.
+          </p>
+          <p
+            id={activity.title.toLowerCase()}
+            class="mt-2 text-4xl text-gray-400 md:text-5xl md:w-3/5 transition-colors duration-300"
+          >
+            {activity.description}
+          </p>
+        </>
+      );
+    })
   }
 
-  function handleScroll() {
-    const { top, height } = activities.getBoundingClientRect();
+  <script>
+    // get relevant divs
+    const activities = document.getElementById("activities")!;
+    const reading = document.getElementById("reading")!;
+    const projects = document.getElementById("labs")!;
+    const talks = document.getElementById("talks")!;
 
-    const pixelsIntoViewport = windowHeight / 2 - top;
-    if (pixelsIntoViewport <= height / 3) {
-      // first
-      reading.style.color = primary ;
-      projects.style.color = tertiary;
-      talks.style.color = tertiary;
-    } else if (pixelsIntoViewport >= (2 * height) / 3) {
-      // last
-      reading.style.color = tertiary;
-      projects.style.color = tertiary;
-      talks.style.color = primary;
-    } else {
-      // middle
-      reading.style.color = tertiary;
-      projects.style.color = primary;
-      talks.style.color = tertiary;
+    // get global styles
+    const primary = getComputedStyle(document.documentElement).getPropertyValue(
+      "--primary"
+    );
+    const tertiary = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--tertiary");
+
+    let windowHeight: number;
+
+    function handleResize() {
+      windowHeight = window.innerHeight;
     }
-  }
 
-  handleResize();
-  handleScroll();
-  document.addEventListener("scroll", handleScroll);
-  document.addEventListener("resize", handleResize);
-</script>
+    function handleScroll() {
+      const { top, height } = activities.getBoundingClientRect();
+
+      const pixelsIntoViewport = windowHeight / 2 - top;
+      if (pixelsIntoViewport <= height / 3) {
+        // first
+        reading.style.color = primary;
+        projects.style.color = tertiary;
+        talks.style.color = tertiary;
+      } else if (pixelsIntoViewport >= (2 * height) / 3) {
+        // last
+        reading.style.color = tertiary;
+        projects.style.color = tertiary;
+        talks.style.color = primary;
+      } else {
+        // middle
+        reading.style.color = tertiary;
+        projects.style.color = primary;
+        talks.style.color = tertiary;
+      }
+    }
+
+    handleResize();
+    handleScroll();
+    document.addEventListener("scroll", handleScroll);
+    document.addEventListener("resize", handleResize);
+  </script>
+</astro-activities>
