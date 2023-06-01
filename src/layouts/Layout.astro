@@ -23,7 +23,7 @@ import Footer from "../components/Footer.astro";
       property="og:image"
       content={ogImage
         ? ogImage
-        : "https://www.aitu.group/assets/aitubanner.jpg"}
+        : "https://www.bliss.berlin/assets/bliss-banner.jpg"}
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" /><meta
@@ -66,9 +66,9 @@ import Footer from "../components/Footer.astro";
 
 <style is:global>
   :root {
-    --accent: #9a4fba;
-    --accent-dark: #1f1025;
-    --accent-light: #cda7dd;
+    --accent: #cb2d3e;
+    --accent-dark: #3c0909;
+    --accent-light: #ef473a;
     --background: #000000;
     --background-secondary: #101010;
     --primary: #ffffff;
@@ -152,7 +152,6 @@ import Footer from "../components/Footer.astro";
   article li {
     @apply text-secondary text-lg font-light sm:leading-relaxed sm:text-xl;
   }
-
   article hr {
     @apply border-t-[1px] border-border mb-2;
   }
@@ -197,6 +196,6 @@ import Footer from "../components/Footer.astro";
   }
 
   .excalidraw {
-    filter: invert(100%) hue-rotate(180deg)
+    filter: invert(100%) hue-rotate(180deg);
   }
 </style>

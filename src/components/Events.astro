@@ -18,16 +18,24 @@ const mostRecent = events.sort(comparePosts).slice(0, 3);
 
 <div id="events" class="pt-32 sm:my-40">
   <strong
-    class="text-3xl sm:text-5xl text-transparent bg-clip-text bg-amethyst-right"
+    class="text-3xl sm:text-5xl text-transparent bg-clip-text bg-red-right"
   >
     Events
   </strong>
   <p
     class="max-w-2xl mt-4 font-light leading-relaxed text-secondary text-md sm:text-xl"
   >
-    We host a variety of events throughout the year, including expert talks ,
-    hands-on workshops, as well as competitions and hackathons. In our blog we
-    summarise the most memorable experiences.
+    We meet <strong class="text-primary"
+      >every Tuesday at 7 pm in <a
+        href="https://www.google.com/maps/place/WiWi-Cafe/@52.511762,13.3250431,15z/data=!4m6!3m5!1s0x47a851e4412c1173:0x615246b7255baead!8m2!3d52.511762!4d13.3250431!16s%2Fg%2F11fd_q2_27?entry=ttu"
+        >WiWi Cafe @TU Berlin</a
+      ></strong
+    >. Here, we have either a speaker event or a community event on a weekly
+    alternating basis. For the speaker events, we invite a machine learning
+    researcher to give a presentation on a specific research topic. The
+    community events can range from small hackathons to workshops or anything
+    you can imagine. After the events we stay together, have a cold drink, and
+    talk about machine learning or anything else. :)
   </p>
   <div class="flex flex-col mt-20 space-y-10">
     {/* @ts-ignore */}
@@ -36,7 +44,7 @@ const mostRecent = events.sort(comparePosts).slice(0, 3);
   <div class="flex items-center justify-center mt-10">
     <a
       href="/blog"
-      class="text-transparent bg-clip-text bg-amethyst-right hover:text-accent hover:underline"
+      class="text-transparent bg-clip-text bg-red-right hover:text-accent hover:underline"
       >Browse All Events in Blog</a
     >
   </div>

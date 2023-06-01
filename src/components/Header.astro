@@ -1,6 +1,11 @@
 ---
 import Badge from "@components/Badge";
-const anchorLinks: string[] = ["activities", "paper-archive", "events"];
+const anchorLinks: string[] = [
+  "activities",
+  "events",
+  "reading-group",
+  "partners",
+];
 
 const { headerTitle } = Astro.props;
 ---
@@ -12,7 +17,7 @@ const { headerTitle } = Astro.props;
   <div class="container flex justify-between">
     <div class="flex items-center justify-start space-x-[110px]">
       <a id="logo" href="/" class="relative group">
-        <img src="/assets/aitu.png" height={60} width={60} />
+        <img src="/assets/bliss-logo.png" height={80} width={80} />
         <p
           class="absolute left-0 right-0 mx-auto text-sm font-medium text-center opacity-0 bg-accent-dark text-accent rounded-md group-hover:opacity-100 transition-opacity duration-300"
         >
@@ -81,16 +86,19 @@ const { headerTitle } = Astro.props;
   const activitiesLink: HTMLElement =
     document.getElementById("activitiesLink")!;
 
-  const papers: HTMLElement = document.getElementById("paper-archive")!;
-  const papersLink: HTMLElement = document.getElementById("paper-archiveLink")!;
+  const papers: HTMLElement = document.getElementById("reading-group")!;
+  const papersLink: HTMLElement = document.getElementById("reading-groupLink")!;
 
   const events: HTMLElement = document.getElementById("events")!;
   const eventsLink: HTMLElement = document.getElementById("eventsLink")!;
 
+  const partners: HTMLElement = document.getElementById("partners")!;
+  const partnersLink: HTMLElement = document.getElementById("partnersLink")!;
+
   const blogLink: HTMLElement = document.getElementById("blogLink")!;
 
-  const sections: HTMLElement[] = [activities, papers, events];
-  const links: HTMLElement[] = [activitiesLink, papersLink, eventsLink];
+  const sections: HTMLElement[] = [activities, papers, events, partners];
+  const links: HTMLElement[] = [activitiesLink, papersLink, , partnersLink];
 
   function animateHeader() {
     if (window.scrollY > 0) {
