@@ -1,10 +1,9 @@
 export type Author =
-  | "Mika Senghaas"
-  | "Ludek Cizinsky"
-  | "Lukas Rasocha"
-  | "Krzysztof Parocki"
-  | "Marcel Rosier";
-export type Format = "Paper" | "Event" | "Deep Dive";
+  | "Lorenz Hufe"
+  | "Felix Ringe"
+  | "Jarek Liesen"
+  | "Jan Tiegges";
+export type Format = "Paper" | "Event" | "Announcement";
 export type Image = {
   src: string;
   alt: string;
