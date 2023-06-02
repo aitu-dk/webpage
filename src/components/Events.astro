@@ -13,7 +13,7 @@ function comparePosts(postA: any, postB: any) {
 
 const posts = await Astro.glob("../pages/blog/*.md");
 const events = posts.filter((post) => post.frontmatter.format === "event");
-const mostRecent = events.sort(comparePosts).slice(0, 3);
+const mostRecent = events.sort(comparePosts).slice(0, 1);
 ---
 
 <div id="events" class="pt-32 sm:my-40">
@@ -30,13 +30,12 @@ const mostRecent = events.sort(comparePosts).slice(0, 3);
         href="https://www.google.com/maps/place/WiWi-Cafe/@52.511762,13.3250431,15z/data=!4m6!3m5!1s0x47a851e4412c1173:0x615246b7255baead!8m2!3d52.511762!4d13.3250431!16s%2Fg%2F11fd_q2_27?entry=ttu"
         >WiWi Cafe @TU Berlin</a
       ></strong
-    >. Here, we have either a speaker event or a community event on a weekly
-    alternating basis. For the speaker events, we invite a machine learning
-    researcher to give a presentation on a specific research topic. The
-    community events can range from small hackathons to workshops or anything
-    you can imagine. After the events we stay together, have a cold drink, and
-    talk about machine learning or anything else. :)
+    > for our weekly meetups. We alternate between speaker events, featuring renowned
+    machine learning researchers, and community events like hackathons and workshops.
+    After the events, we unwind with cold drinks and engaging conversations about
+    machine learning and more. Don't miss out on the fun! 😊
   </p>
+  <h3 class="font-semibold text-xl sm:text-3xl mt-20">Upcomming Event</h3>
   <div class="flex flex-col mt-20 space-y-10">
     {/* @ts-ignore */}
     {mostRecent.map((post) => <Card frontmatter={post.frontmatter} centered />)}
