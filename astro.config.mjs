@@ -14,7 +14,7 @@ import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://aitu.group",
+  site: "https://bliss.berlin",
   integrations: [tailwind(), react()],
   markdown: {
     shikiConfig: {

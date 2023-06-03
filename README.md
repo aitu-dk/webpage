@@ -1,7 +1,9 @@
-# AITU Webpage
+# BLISS Webpage
 
-This repository holds the source code for the [AITU
-Website](https://aitu.group).
+This repository holds the source code for the [BLISS
+Website](https://bliss.berlin).
+
+Big thanks to our befriended AI student organisation [AITU](https://aitu.group) team for open-sourcing their webpage code, which served as the foundation of this website.
 
 ## 🌟 Techstack
 
@@ -27,9 +29,9 @@ The project structure broadly follows the default `Astro` file structure:
 /
 ├── public/
 │   ├── authors/
-│   │   └── mika-senghaas.jpg
+│   │   └── jan-tiegges.jpg
 │   ├── posts/
-│   │   ├── intro-post
+│   │   ├── post
 │   │   │   ├── banner.jpg
 │   │   │   ├── ogImage.jpg
 │   │   │   └── ...
@@ -85,7 +87,7 @@ CLI](https://github.com/cli/cli#installation) installed, you can use the
 following command to clone the repository and navigate to the project directory:
 
 ```bash
-gh repo clone aitu-dk/webpage
+gh repo clone bliss-e-v/webpage
 cd webpage
 ```
 
@@ -93,7 +95,7 @@ If you don't have GitHub CLI, feel free to use the following command which uses
 the standard `git` CLI:
 
 ```bash
-git clone https://github.com/aitu-dk/webpage
+git clone https://github.com/bliss-e-v/webpage
 cd webpage
 ```
 
@@ -174,28 +176,22 @@ know the precise types of all the fields._
 ```md
 ---
 layout: ../../layouts/BlogLayout.astro
-slug: intro-post
-title: AITU's First Meeting! 🎉
+slug: first-post
+title: My first blogpost! 🎉
 description: 
-  We are official! AITU is officially registered as a student organisation at
-  ITU. In this post we talk about everything from the organisation's idea and
-  mission, and provide some behind-the-scenes into the foundational work in the
-  two months before semester start.
+  This is a description
 authors:
-  - Ludek Cizinsky
-  - Mika Senghaas
+  - Firstname Lastname
 format: event
 tags:
-  - welcome
-  - aitu
-  - first-meeting
+  - first-posr
 banner: 
-  src: /assets/banner.jpg
-  alt: The AITU Banner
+  src: /assets/path-to-photo.jpg
+  alt: a title photo
 ogImage: 
-  src: /assets/ogImage.jpg
-  alt: The AITU Banner
-published: 02/01/2023
+  src: /assets/path-to-photo.jpg
+  alt: a title photo
+published: 01/01/2023
 ---
 ```
 
@@ -219,9 +215,9 @@ a blog post using Markdown.
 # This is a header
 
 This is a paragraph with some **bold** and _italic_ text. You can also add
-[links](https://www.aitu.dk) and images:
+[links](https://www.bliss.berlin) and images:
 
-![Aitu Logo](/assets/logo.png)
+![BLISS Logo](/assets/logo.png)
 
 You can also add ordered lists:
 1. First
@@ -313,8 +309,3 @@ the following for adding an author image.
 > `author: Mika Senghaas` -> `/public/authors/mika-senghaas.jpg`
 
 ✅ Done. Thanks for making this project better!
-
-## 📬 Feedback and Inquiries
-
-For any inquiries or questions, reach out to
-[mika@aitu.group](mailto:mika@aitu.group).

@@ -24,14 +24,14 @@ module.exports = {
       // custom gradient
       backgroundImage: {
         // https://uigradients.com
-        "amethyst-bottom": "linear-gradient(to bottom, #9d50bb, #6e48aa)",
-        "amethyst-right": "linear-gradient(to right, #9d50bb, #6e48aa)",
-        "aitu": "linear-gradient(to right, #552383, #88BCE9)",
+        "red-bottom": "linear-gradient(to bottom, #cb2d3e, #ef473a)",
+        "red-right": "linear-gradient(to right, #cb2d3e, #ef473a)",
+        "bliss": "linear-gradient(to right, #552383, #88BCE9)",
       },
       // custom box shadow
       boxShadow: {
-        accent: "0 0 20px 5px #9A4FBA",
-        "accent-small": "0 0 10px 3px #9A4FBA",
+        accent: "0 0 20px 5px #cb2d3e",
+        "accent-small": "0 0 10px 3px #cb2d3e",
       },
     },
   },
