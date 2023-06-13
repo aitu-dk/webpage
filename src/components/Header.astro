@@ -1,10 +1,6 @@
 ---
 import Badge from "@components/Badge";
-const anchorLinks: string[] = [
-  "activities",
-  "events",
-  "reading-group"
-];
+const anchorLinks: string[] = ["activities", "events", "reading-group"];
 
 const { headerTitle } = Astro.props;
 ---
@@ -91,13 +87,13 @@ const { headerTitle } = Astro.props;
   const events: HTMLElement = document.getElementById("events")!;
   const eventsLink: HTMLElement = document.getElementById("eventsLink")!;
 
-  const partners: HTMLElement = document.getElementById("partners")!;
-  const partnersLink: HTMLElement = document.getElementById("partnersLink")!;
+  //const partners: HTMLElement = document.getElementById("partners")!;
+  //const partnersLink: HTMLElement = document.getElementById("partnersLink")!;
 
   const blogLink: HTMLElement = document.getElementById("blogLink")!;
 
-  const sections: HTMLElement[] = [activities, papers, events, partners];
-  const links: HTMLElement[] = [activitiesLink, papersLink, , partnersLink];
+  const sections: HTMLElement[] = [activities, papers, events];
+  const links: HTMLElement[] = [activitiesLink, papersLink];
 
   function animateHeader() {
     if (window.scrollY > 0) {
