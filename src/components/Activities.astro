@@ -32,7 +32,7 @@ const activities: Activity[] = [
             {activity.title}.
           </p>
           <p
-            id={activity.title.toLowerCase().replace(/\s/g, "-")}
+            id={"activity-" + activity.title.toLowerCase().replace(/\s/g, "-")}
             class="text-4xl text-gray-400 md:text-5xl md:w-3/5 transition-colors duration-300"
           >
             {activity.description}
@@ -45,9 +45,9 @@ const activities: Activity[] = [
   <script>
     // get relevant divs
     const activities = document.getElementById("activities")!;
-    const reading = document.getElementById("reading-group")!;
-    const projects = document.getElementById("community-events")!;
-    const talks = document.getElementById("speaker-series")!;
+    const reading = document.getElementById("activity-reading-group")!;
+    const projects = document.getElementById("activity-community-events")!;
+    const talks = document.getElementById("activity-speaker-series")!;
 
     // get global styles
     const primary = getComputedStyle(document.documentElement).getPropertyValue(

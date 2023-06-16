@@ -92,8 +92,8 @@ const { headerTitle } = Astro.props;
 
   const blogLink: HTMLElement = document.getElementById("blogLink")!;
 
-  const sections: HTMLElement[] = [activities, papers, events];
-  const links: HTMLElement[] = [activitiesLink, papersLink];
+  const sections: HTMLElement[] = [activities, events, papers];
+  const links: HTMLElement[] = [activitiesLink, eventsLink, papersLink];
 
   function animateHeader() {
     if (window.scrollY > 0) {
