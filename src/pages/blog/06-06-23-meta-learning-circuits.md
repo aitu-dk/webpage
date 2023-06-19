@@ -11,10 +11,10 @@ tags:
   - meta-learning
   - inductive-bias
 ogImage: 
-  src: /posts/06-06-23-meta-learning-circuits/ogImage.png
+  src: /posts/06-06-23-meta-learning-circuits/ogImage.jpg
   alt: Paper Image
 banner: 
-  src: /posts/06-06-23-meta-learning-circuits/banner.png
+  src: /posts/06-06-23-meta-learning-circuits/banner.jpg
   alt: Paper Title
 published: 06/06/2023
 ---
