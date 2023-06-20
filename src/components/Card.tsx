@@ -40,9 +40,9 @@ export default function Card({ frontmatter, centered }: Props) {
               })}
             </p>
           </div>
-          <h1 className="my-2 text-3xl font-medium leading-snug text-primary">
+          <h2 className="my-2 text-3xl font-medium leading-snug text-primary">
             {frontmatter.title}
-          </h1>
+          </h2>
           <AuthorList authors={frontmatter.authors} />
         </div>
       </div>
