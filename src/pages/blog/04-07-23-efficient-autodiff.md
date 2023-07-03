@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 slug: 04-07-23-efficient-autodiff
-title: AI Quiz Night
+title: Efficient and Modular Implicit Differentiation
 description: 
   The biggest advancements in AI are possible due to availability of autograd. This method takes this one step further.
 authors:
