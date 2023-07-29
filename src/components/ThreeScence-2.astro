@@ -1,0 +1,146 @@
+<div id="canvas" class="absolute top-0 left-0 w-screen h-screen md:fixed -z-10">
+</div>
+
+<script type="module">
+  import * as THREE from "https://cdn.skypack.dev/three@0.132.2/build/three.module.js";
+
+  let canvas;
+  let scene;
+  let camera;
+  let renderer;
+  let stars;
+
+  let width;
+  let height;
+
+  let NUM_STARS = 5000;
+  let STAR_SIZE = 0.1;
+  let TWINKLE_SPEED = 0.001;
+  let ROTATE_SPEED = 0.001;
+
+  ////////////
+  // Stars
+  ////////////
+  class Stars {
+    constructor(num) {
+      this.velocities = [];
+      let vertices = new Float32Array(num * 3);
+
+      let geometry = new THREE.BufferGeometry();
+      let material = new THREE.PointsMaterial({
+        size: STAR_SIZE,
+        color: 0xffffff,
+        opacity: 0.8,
+        transparent: true,
+      });
+
+      for (let i = 0; i < num; i++) {
+        vertices[i * 3] = Math.random() * 100 - 50;
+        vertices[i * 3 + 1] = Math.random() * 100 - 50;
+        vertices[i * 3 + 2] = Math.random() * 1000 - 500;
+        this.velocities.push(
+          new THREE.Vector3(
+            Math.random() * 0.1 - 0.05,
+            Math.random() * 0.1 - 0.05,
+            Math.random()
+          )
+        );
+      }
+
+      geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+
+      this.points = new THREE.Points(geometry, material);
+    }
+
+    update() {
+      let numVertices = this.points.geometry.attributes.position.count;
+      for (let i = 0; i < numVertices; ++i) {
+        let vertex = new THREE.Vector3(
+          this.points.geometry.attributes.position.getX(i),
+          this.points.geometry.attributes.position.getY(i),
+          this.points.geometry.attributes.position.getZ(i)
+        );
+        let velocity = this.velocities[i];
+        vertex.add(velocity);
+
+        // Wrapping stars around when they go out of view
+        if (vertex.z < -500) {
+          vertex.z += 1000;
+        }
+        if (vertex.x > 50 || vertex.x < -50) {
+          vertex.x = vertex.x > 50 ? -50 : 50;
+        }
+        if (vertex.y > 50 || vertex.y < -50) {
+          vertex.y = vertex.y > 50 ? -50 : 50;
+        }
+
+        this.points.geometry.attributes.position.setXYZ(
+          i,
+          vertex.x,
+          vertex.y,
+          vertex.z
+        );
+      }
+      this.points.geometry.attributes.position.needsUpdate = true;
+    }
+
+    twinkle() {
+      let numVertices = this.points.geometry.attributes.position.count;
+      for (let i = 0; i < numVertices; ++i) {
+        let opacity =
+          this.points.material.opacity + (Math.random() - 0.5) * TWINKLE_SPEED;
+        opacity = Math.max(0.8, Math.min(1, opacity));
+        this.points.material.opacity = opacity;
+      }
+      this.points.material.needsUpdate = true;
+    }
+  }
+
+  function setup() {
+    // canvas
+    canvas = document.getElementById("canvas");
+    width = canvas.getBoundingClientRect().width;
+    height = canvas.getBoundingClientRect().height;
+
+    // scene
+    scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x000, 20, 1000);
+
+    // camera
+    camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.setY(10);
+    camera.position.setZ(100);
+
+    // renderer
+    renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(width, height);
+
+    // stars
+    stars = new Stars(NUM_STARS);
+    scene.add(stars.points);
+
+    canvas.appendChild(renderer.domElement);
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    stars.update();
+    stars.twinkle();
+    stars.points.rotateX(ROTATE_SPEED);
+    stars.points.rotateY(ROTATE_SPEED);
+    renderer.render(scene, camera);
+  }
+
+  function handleResize() {
+    width = canvas.getBoundingClientRect().width;
+    height = canvas.getBoundingClientRect().height;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  }
+
+  setup();
+  animate();
+
+  addEventListener("resize", handleResize);
+</script>

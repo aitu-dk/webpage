@@ -1,0 +1,59 @@
+---
+import BigButton from "@components/BigButton";
+---
+
+<div class="flex flex-col justify-center items-center h-screen -mt-40">
+  <h1
+    id="title"
+    class="py-1 text-6xl text-center font-black tracking-wider text-transparent md:text-7xl md:w-3/4 bg-clip-text bg-red-bottom"
+  >
+    BLISSathon 2023
+  </h1>
+  <p
+    id="subtitle"
+    class="mt-2 text-2xl text-center font-light leading-snug text-secondary md:text-3xl md:w-3/4"
+  >
+    <strong class="text-primary">Join our 1-day hackathon</strong>
+    to connect with young innovators and develop fun AI-solutions.
+  </p>
+  <div class="mt-8 flex justify-center items-center">
+    <div class="flex items-center mr-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-calendar w-6 h-6 mr-2"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+        ></path>
+      </svg>
+      <span class="text-lg font-medium">October 27, 2023</span>
+    </div>
+    <div class="flex items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        class="w-6 h-6 mr-2"
+        fill="currentColor"
+        ><path
+          d="M18,4.48a8.45,8.45,0,0,0-12,12l5.27,5.28a1,1,0,0,0,1.42,0L18,16.43A8.45,8.45,0,0,0,18,4.48ZM16.57,15,12,19.59,7.43,15a6.46,6.46,0,1,1,9.14,0ZM9,7.41a4.32,4.32,0,0,0,0,6.1,4.31,4.31,0,0,0,7.36-3,4.24,4.24,0,0,0-1.26-3.05A4.3,4.3,0,0,0,9,7.41Zm4.69,4.68a2.33,2.33,0,1,1,.67-1.63A2.33,2.33,0,0,1,13.64,12.09Z"
+        ></path></svg
+      >
+      <span class="text-lg font-medium">TU Berlin</span>
+    </div>
+  </div>
+  <BigButton id="register-button" hover>
+    <a href="https://eventbrite.com" target="_blank" class="nounderline"
+      >Register now</a
+    >
+  </BigButton>
+</div>
+
+<style>
+  #register-button:hover {
+    text-decoration-color: transparent;
+  }
+</style>
