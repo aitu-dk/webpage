@@ -1,4 +1,5 @@
 ---
+import { AddToCalendar } from "@components/AddToCalendar";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -21,26 +22,26 @@ import Layout from "../layouts/Layout.astro";
         class="px-2 my-2 text-lg text-secondary border-l-4 bg-background-secondary border-accent"
       >
         <p class="text-lg">
-          📅 Every Tuesday <br />
-          ⏰ Schedule: <br />
+          📅 Every Tuesday <br />⏰ Schedule: <br />
 
           <li class="px-8">6:00 pm Reading Group</li>
-          <li class="px-8">7:00 pm Speaker Series / Community Event</li>
-
-          📍 Location: <a
+          <li class="px-8">7:00 pm Speaker Series / Community Event</li>📍
+          Location: <a
             href="https://www.google.com/maps/place/WiWi-Cafe/@52.511762,13.3250431,15z/data=!4m6!3m5!1s0x47a851e4412c1173:0x615246b7255baead!8m2!3d52.511762!4d13.3250431!16s%2Fg%2F11fd_q2_27?entry=ttu"
           >
             EB302 Technische Universität Berlin</a
           >
+          <p>
+            <p>Next Meeting:</p>
+            <p><AddToCalendar client:load /></p>
+          </p>
         </p>
       </blockquote>
       <p class="text-lg font-light text-secondary">
-        We are looking forward to seeing you! <br />
-
-        For any requests please <a href="mailto:bliss_berlin@protonmail.com"
-          ><u>send us an email</u></a
+        We are looking forward to seeing you! <br />For any requests please <a
+          href="mailto:bliss_berlin@protonmail.com"><u>send us an email</u></a
         >
       </p>
     </div>
   </main>
-</Layout>
+</Layout>@components/AddToCalendar
