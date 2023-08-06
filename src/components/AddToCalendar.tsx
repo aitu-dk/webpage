@@ -11,7 +11,7 @@ export const AddToCalendar = () => {
             }
         } else {
             day = today.getDay();
-            tuesday_num = today.getDate() - day + (day < 1 ? 1 : 9);
+            tuesday_num = today.getDate() - day + (day < 1 ? 2 : 9);
         }
 
         tuesday = new Date(today.setDate(tuesday_num));
