@@ -5,17 +5,15 @@ export const AddToCalendar = () => {
         var today = new Date(), tuesday, day;
         let tuesday_num: number;
 
-        if (today.getDay() == 2) {
-            if (today.getHours() < 18) {
-                return today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-            }
+        if (today.getDay() == 2 && today.getHours() < 19) {
+            return today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
         } else {
             day = today.getDay();
-            tuesday_num = today.getDate() - day + (day < 1 ? 2 : 9);
+            tuesday_num = today.getDate() - day + (day < 2 ? 2 : 9);
         }
 
         tuesday = new Date(today.setDate(tuesday_num));
-        return tuesday.getFullYear() + "-" + (('0' + (tuesday.getMonth() + 1)).substring(-2)) + "-" + ('0' + tuesday.getDate()).substring(-2);
+        return tuesday.getFullYear() + "-" + (('0' + (tuesday.getMonth() + 1)).slice(-2)) + "-" + ('0' + tuesday.getDate()).slice(-2);
     }
 
     return <AddToCalendarButton
