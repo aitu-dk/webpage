@@ -16,5 +16,5 @@ export const AddToCalendar = () => {
         return tuesday.getFullYear() + "-" + (('0' + (tuesday.getMonth() + 1)).slice(-2)) + "-" + ('0' + tuesday.getDate()).slice(-2);
     }
 
-    return <div>Testing render</div>
+    return <div>{closestTuesday()}</div>
 }
