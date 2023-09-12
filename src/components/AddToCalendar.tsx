@@ -16,10 +16,27 @@ export const AddToCalendar = () => {
         return tuesday.getFullYear() + "-" + (('0' + (tuesday.getMonth() + 1)).slice(-2)) + "-" + ('0' + tuesday.getDate()).slice(-2);
     }
 
+    const getNextEvent = () => {
+        const nextTuesday = closestTuesday();
+
+        /* update these dates for the next semester */
+        const semesterRange = [new Date("2023-10-16"), new Date("2024-02-14")];
+        const firstMeeting = "2023-10-17";
+        const firstMeetingNextSemester = "2024-04-16";
+
+        if (new Date(nextTuesday) < semesterRange[0]) {
+            return firstMeeting;
+        } else if (new Date(nextTuesday) > semesterRange[1]) {
+            return firstMeetingNextSemester;
+        }
+
+        return nextTuesday;
+    }
+
     return <AddToCalendarButton
         name="BLISS Meeting"
         description="Weekly meeting of the Berlin Learning & Intelligent Systems Society"
-        startDate={closestTuesday()}
+        startDate={getNextEvent()}
         startTime="19:00"
         endTime="21:00"
         timeZone="Europe/Berlin"

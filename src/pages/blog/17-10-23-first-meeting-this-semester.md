@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 slug: 17-10-23-first-meeting-this-semester
-title: First meeting WiSe 23/24
+title: Next meeting 17.10.2023
 description: 
     First meeting WiSe 23/24
 authors:
