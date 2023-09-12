@@ -16,17 +16,5 @@ export const AddToCalendar = () => {
         return tuesday.getFullYear() + "-" + (('0' + (tuesday.getMonth() + 1)).slice(-2)) + "-" + ('0' + tuesday.getDate()).slice(-2);
     }
 
-    return <AddToCalendarButton
-        name="BLISS Meeting"
-        description="Weekly meeting of the Berlin Learning & Intelligent Systems Society"
-        startDate={closestTuesday()}
-        startTime="19:00"
-        endTime="21:00"
-        timeZone="Europe/Berlin"
-        location="Erweiterungsbau der Technischen Universität Berlin, EB 302, Str. des 17. Juni 145, 10623 Berlin"
-        recurrence="weekly"
-        options={['Apple', 'Google', 'iCal', 'Microsoft365', 'Outlook.com']}
-        iCalFileName="bliss-meeting"
-        buttonStyle='date'
-    ></AddToCalendarButton>
+    return <div>Testing render</div>
 }
