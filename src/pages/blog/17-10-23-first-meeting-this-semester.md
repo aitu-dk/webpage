@@ -15,7 +15,7 @@ ogImage:
 banner: 
   src: /posts/17-10-23-first-meeting-this-semester/banner.jpg
   alt: Paper Title
-published: 10/14/2023
+published: 10/17/2023
 ---
 We are exited to announce the first talk of this semester by the father of the vision transformer Alexey Dosovitsky of Google Deepmind!
 We look forward to his talk about the concept of the ViT and its inner workings. If you have any questions left open about this technology, this is your chance to get answers first hand!
