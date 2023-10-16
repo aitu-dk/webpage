@@ -1,0 +1,49 @@
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
+
+export const AddToCalendar = () => {
+    const closestTuesday = () => {
+        var today = new Date(), tuesday, day;
+        let tuesday_num: number;
+
+        if (today.getDay() == 2 && today.getHours() < 19) {
+            return today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+        } else {
+            day = today.getDay();
+            tuesday_num = today.getDate() - day + (day < 2 ? 2 : 9);
+        }
+
+        tuesday = new Date(today.setDate(tuesday_num));
+        return tuesday.getFullYear() + "-" + (('0' + (tuesday.getMonth() + 1)).slice(-2)) + "-" + ('0' + tuesday.getDate()).slice(-2);
+    }
+
+    const getNextEvent = () => {
+        const nextTuesday = closestTuesday();
+
+        /* update these dates for the next semester */
+        const semesterRange = [new Date("2023-10-16"), new Date("2024-02-14")];
+        const firstMeeting = "2023-10-17";
+        const firstMeetingNextSemester = "2024-04-16";
+
+        if (new Date(nextTuesday) < semesterRange[0]) {
+            return firstMeeting;
+        } else if (new Date(nextTuesday) > semesterRange[1]) {
+            return firstMeetingNextSemester;
+        }
+
+        return nextTuesday;
+    }
+
+    return <AddToCalendarButton
+        name="BLISS Meeting"
+        description="Weekly meeting of the Berlin Learning & Intelligent Systems Society"
+        startDate={getNextEvent()}
+        startTime="19:00"
+        endTime="21:00"
+        timeZone="Europe/Berlin"
+        location="Erweiterungsbau der Technischen Universität Berlin, EB 302, Str. des 17. Juni 145, 10623 Berlin"
+        recurrence="weekly"
+        options={['Apple', 'Google', 'iCal', 'Microsoft365', 'Outlook.com']}
+        iCalFileName="bliss-meeting"
+        buttonStyle='date'
+    ></AddToCalendarButton>
+}
