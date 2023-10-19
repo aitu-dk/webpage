@@ -22,4 +22,4 @@ We look forward to his talk about the concept of the ViT and its inner workings.
 Stay tuned for all of the new interesting talks and community events planned!
 
 We will be back with the reading group starting on the 24.10.2023.
-To never miss an event, you can add the dates to you calender using the button on the join page!
+To never miss an event, you can add the dates to your calender using the button on the join page!
