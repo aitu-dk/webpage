@@ -12,10 +12,10 @@ tags:
   - reading-group
   - atari
 ogImage: 
-  src: /posts/22-10-23-human-level-control-through-deep-rl/ogImage.jpg
+  src: /posts/22-10-23-human-level-control-through-deep-rl/ogImage.png
   alt: Paper Image
 banner: 
-  src: /posts/22-10-23-human-level-control-through-deep-rl/banner.jpg
+  src: /posts/22-10-23-human-level-control-through-deep-rl/banner.png
   alt: Paper Title
 published: 10/22/2023
 ---
