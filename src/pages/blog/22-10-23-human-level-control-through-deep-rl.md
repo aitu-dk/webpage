@@ -20,3 +20,5 @@ banner:
 published: 10/22/2023
 ---
 Published in 2015, 'Human-level Control through Deep Reinforcement Learning' by Volodymyr Mnih and his team stands as a groundbreaking work, merging deep learning and reinforcement learning through the pioneering DQN (Deep Q-Network) algorithm. This innovation enables machines to learn from raw sensory data and approach human-level decision-making abilities, marking a significant breakthrough in the field of artificial intelligence and the development of intelligent agents capable of navigating intricate environments.
+
+Link to the paper: https://www.deepmind.com/publications/human-level-control-through-deep-reinforcement-learning
