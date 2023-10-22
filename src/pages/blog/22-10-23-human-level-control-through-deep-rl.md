@@ -6,7 +6,7 @@ description:
     Human-level Control through Deep Reinforcement Learning
 authors:
   - Jarek Liesen
-format: event
+format: paper
 tags:
   - reinforcement-learning
   - reading-group
