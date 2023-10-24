@@ -20,3 +20,4 @@ banner:
 published: 10/24/2023
 ---
 This weeks community event will be all about diffusion models. [Jakiw Pidstrigach](https://jakiw.com) will guide you through everything essential for implementing and working those models. This will be a hands-on tutorial for you to follow along. So please bring your laptop and charger.
+This week we will meet in EB317c (Weltraum) for the reading group and the community event!
