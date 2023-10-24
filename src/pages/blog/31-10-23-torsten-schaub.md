@@ -8,9 +8,9 @@ authors:
   - Leo Pinetzki
 format: event
 tags:
-  - diffusion
-  - community event
-  - hands-on
+  - knowledge
+  - speaker event
+  - search problem
 ogImage: 
   src: /posts/31-10-23-torsten-schaub/ogImage.jpg
   alt: Event Image
