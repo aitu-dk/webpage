@@ -7,7 +7,7 @@ const { headerTitle } = Astro.props;
 
 <div
   id="header"
-  class="fixed top-0 z-40 flex items-center justify-center w-full h-40 border-b border-transparent bg-black/70 select-none duration-500"
+  class="fixed top-0 z-40 flex items-center justify-center w-full h-40 border-b border-transparent bg-black/70 select-none duration-500 mr-10 ml-10"
 >
   <div class="container flex justify-between">
     <div class="flex items-center justify-start space-x-[110px]">
@@ -31,7 +31,7 @@ const { headerTitle } = Astro.props;
         {headerTitle}
       </h2>
     </div>
-    <div id="menu" class="flex w-2/3 items-center space-x-6">
+    <div id="menu" class="flex items-center space-x-6">
       {
         anchorLinks.map((link: string) => {
           return (
@@ -59,9 +59,6 @@ const { headerTitle } = Astro.props;
       >
         <p>Blog</p>
       </a>
-      <Badge id="blissathonLink" hover>
-        <a href="/blissathon" class="nounderline">BLISSathon 2023</a>
-      </Badge>
       <Badge id="joinLink" hover>
         <a href="/join" class="nounderline">Join</a>
       </Badge>
