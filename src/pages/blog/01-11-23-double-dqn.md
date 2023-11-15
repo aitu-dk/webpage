@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 slug: 01-11-23-double-dqn
-title: Dueling Network Architectures for Deep Reinforcement Learning
+title: Deep Reinforcement Learning with Double Q-learning
 description: 
-    Dueling Network Architectures for Deep Reinforcement Learning
+    Deep Reinforcement Learning with Double Q-learning
 authors:
   - Jarek Liesen
 format: paper
