@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogLayout.astro
-slug: 21-11-23-event-ai-quiz-night
+slug: 21-11-23-event-ai-quiz-night-2
 title: AI Quiz Night
 description: 
   AI Quiz night
