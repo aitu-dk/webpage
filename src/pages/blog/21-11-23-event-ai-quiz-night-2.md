@@ -5,7 +5,7 @@ title: AI Quiz Night
 description: 
   AI Quiz night
 authors:
-  - Lorenz Hufe
+  - Leo Pinetzki
 format: event
 tags:
   - community-event
@@ -15,7 +15,7 @@ ogImage:
 banner: 
   src: /posts/06-06-23-event-ai-quiz-night/banner.png
   alt: Art
-published: 21/11/2023
+published: 11/21/2023
 ---
 
 Join us for a Quiz Night like no other! Test your smarts and have a blast.
