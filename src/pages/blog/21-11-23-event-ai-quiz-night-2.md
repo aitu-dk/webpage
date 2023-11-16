@@ -22,4 +22,4 @@ Join us for a Quiz Night like no other! Test your smarts and have a blast.
 
 All are welcome, whether you're a trivia wizard or a newbie looking for a fun night out. Bring your friends and soak up the friendly competition! 🤩🎉
 
-Don't miss out on this exciting event that combines knowledge, laughter.
+Don't miss out on this exciting event that combines knowledge and laughter with a competitive touch.
