@@ -5,8 +5,8 @@ title: Hyperparameter optimization and neural architecture search
 description: 
     Aaron Klein - Hyperparameter optimization and neural architecture search
 authors:
-  - Jarek Liesen
-format: paper
+  - Leo Pinetzki
+format: article
 tags:
   - hyperparameter
   - automated learning
