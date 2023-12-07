@@ -6,7 +6,7 @@ description:
     Aaron Klein - Hyperparameter optimization and neural architecture search
 authors:
   - Leo Pinetzki
-format: article
+format: event
 tags:
   - hyperparameter
   - automated learning
