@@ -12,10 +12,10 @@ tags:
   - automated learning
   - architecture search
 ogImage: 
-  src: /posts/12-12-23-hyperparameter/ogImage.png
+  src: /posts/12-12-23-hyperparameter/ogImage.jpg
   alt: Paper Image
 banner: 
-  src: /posts/12-12-23-hyperparameter/banner.png
+  src: /posts/12-12-23-hyperparameter/banner.jpg
   alt: Paper Title
 published: 12/12/2023
 ---
