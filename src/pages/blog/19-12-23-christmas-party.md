@@ -11,10 +11,10 @@ tags:
   - christmas
   - party
 ogImage: 
-  src: /posts/19-12-23-christmas-party/santa.png
+  src: /posts/19-12-23-christmas-party/santa.jpg
   alt: Paper Image
 banner: 
-  src: /posts/19-12-23-christmas-party/santa.png
+  src: /posts/19-12-23-christmas-party/santa.jpg
   alt: Paper Title
 published: 12/19/2023
 ---
