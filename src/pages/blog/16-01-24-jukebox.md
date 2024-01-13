@@ -12,10 +12,10 @@ tags:
   - jukebox
   - openai
 ogImage: 
-  src: /posts/16-01-24-jukebox/ogImage.jpg
+  src: /posts/16-01-24-jukebox/ogImage.png
   alt: Image from paper
 banner: 
-  src: /posts/16-01-24-jukebox/banner.jpg
+  src: /posts/16-01-24-jukebox/banner.png
   alt: Image from paper
 published: 01/16/2024
 ---
