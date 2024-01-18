@@ -12,10 +12,10 @@ tags:
   - audio
   - reading group
 ogImage: 
-  src: /posts/23-01-24-encoded/ogImage.png
+  src: /posts/23-01-24-encodec/ogImage.png
   alt: Paper Image
 banner: 
-  src: /posts/23-01-24-encoded/banner.png
+  src: /posts/23-01-24-encodec/banner.png
   alt: Paper Title
 published: 01/23/2024
 ---
