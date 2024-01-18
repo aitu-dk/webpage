@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogLayout.astro
-slug: 23-01-24-encoded
+slug: 23-01-24-encodec
 title: High Fidelity Neural Audio Compression
 description: 
     High Fidelity Neural Audio Compression
