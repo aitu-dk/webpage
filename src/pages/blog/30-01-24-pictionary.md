@@ -12,10 +12,10 @@ tags:
   - ai applications
   - speaker event
 ogImage: 
-  src: /posts/30-01-24-pictionary/ogImage.png
+  src: /posts/30-01-24-pictionary/ogImage.webp
   alt: Event Image
 banner: 
-  src: /posts/30-01-24-pictionary/banner.png
+  src: /posts/30-01-24-pictionary/banner.webp
   alt: Event Title
 published: 01/30/2024
 ---
