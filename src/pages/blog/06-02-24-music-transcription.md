@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 slug: 06-02-24-music-transcription
-title: MT3: Multi-Task Multitrack Music Transcription
+title: MT3 Multi-Task Multitrack Music Transcription
 description: 
-    MT3: Multi-Task Multitrack Music Transcription
+    MT3 Multi-Task Multitrack Music Transcription
 authors:
   - Julian M Kleber
 format: paper
