@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 slug: 06-02-24-understanding-hidden-representations
-title: Hyperparameter optimization and neural architecture search
+title: Understanding hidden representations for concept-based explanations
 description: 
     Johanna Vielhaben - Understanding hidden representations for concept-based explanations
 
