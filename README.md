@@ -114,7 +114,14 @@ If your `node` version is too low, you can install a recent version through the
 To install the dependencies of the project you need have to install the project
 dependencies. You can choose any package manager of your liking, like `npm`,
 `yarn` or `pnpm`. However, we recommend that you use `yarn` and assume that you
-have it installed for the reet of this walk-through. To 
+have it installed for the reet of this walk-through. To install all the
+dependencies, first add them, 
+
+```bash
+yarn add package.json
+```
+
+and then install them,
 
 ```bash
 yarn install
@@ -125,7 +132,7 @@ the dependencies are installed, you can run the project locally using the
 following command:
 
 ```bash
-astro dev
+yarn astro dev
 ```
 
 This will start a local server on `http://localhost:3000` and you can visit the
