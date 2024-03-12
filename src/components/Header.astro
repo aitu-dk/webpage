@@ -10,7 +10,7 @@ const { headerTitle } = Astro.props;
   class="fixed top-0 z-40 flex items-center justify-center w-full h-40 border-b border-transparent bg-black/70 select-none duration-500 mr-10 ml-10"
 >
   <div class="container flex justify-between">
-    <div class="flex items-center justify-start space-x-[110px]">
+    <div class="flex items-center justify-start space-x-[70px]">
       <a id="logo" href="/" class="relative group">
         <img
           alt="bliss logo"
@@ -34,10 +34,12 @@ const { headerTitle } = Astro.props;
     <div id="menu" class="flex items-center space-x-7">
       <a
         id={`HackathonLink`}
-        href={`/#hackathon`}
+        href={`hackathon.bliss.berlin`}
         class="hidden text-sm tracking-wider sm:text-base nounderline sm:block text-secondary hover:text-primary transition-colors duration-300"
       >
-        <p class="bg-accent-dark text-accent rounded-md px-2">Hackathon</p>
+        <p class="bg-accent-dark text-accent rounded-md px-2 text-lg">
+          Hackathon
+        </p>
       </a>
       {
         anchorLinks.map((link: string) => {
