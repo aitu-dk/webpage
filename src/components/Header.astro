@@ -32,6 +32,13 @@ const { headerTitle } = Astro.props;
       </h2>
     </div>
     <div id="menu" class="flex items-center space-x-6">
+      <a
+        id={`HackathonLink`}
+        href={`/#hackathon`}
+        class="hidden text-sm tracking-wider sm:text-base nounderline sm:block text-secondary hover:text-primary transition-colors duration-300"
+      >
+        <p class="bg-accent-dark text-accent rounded-md">Hackathon</p>
+      </a>
       {
         anchorLinks.map((link: string) => {
           return (
