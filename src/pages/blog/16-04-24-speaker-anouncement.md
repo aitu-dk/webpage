@@ -10,7 +10,7 @@ format: event
 tags:
   - community-event
 ogImage: 
-  src: /posts/16-04-24-speaker-anouncement/sumsem24.png
+  src: /posts/16-04-24-speaker-anouncement/sumsem24.jpg
   alt: Art
 banner: 
   src: /posts/16-04-24-speaker-anouncement/sumsem24.jpg
