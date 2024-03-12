@@ -17,5 +17,5 @@ banner:
   alt: Art
 published: 04/16/2024
 ---
-
+[Secure your ticket now!](https://www.meetup.com/bliss-speaker-series/)
 ![Summer Semester 2024 Speaker Series](/posts/16-04-24-speaker-anouncement/sumsem24.jpg)
