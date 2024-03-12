@@ -8,7 +8,7 @@ authors:
   - Leo Pinetzki
 format: event
 tags:
-  - community-event
+  - speaker-series
 ogImage: 
   src: /posts/16-04-24-speaker-anouncement/sumsem24.jpg
   alt: Art
