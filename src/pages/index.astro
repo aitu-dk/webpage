@@ -2,21 +2,21 @@
 import Layout from "../layouts/Layout.astro";
 import ThreeScence from "../components/ThreeScence.astro";
 import Landing from "../components/Landing.astro";
-import Activities from "../components/Activities.astro";
 import Papers from "../components/Papers.astro";
-import Events from "../components/Events.astro";
+import SpeakerSeries from "@components/SpeakerSeries.astro";
+import Banner from "@components/Banner.astro";
 //import Partners from "../components/Partners.astro";
 ---
 
 <Layout
-  title="BLISS - Machine Learning student initiative at TU Berlin"
+  title="BLISS - Machine Learning student initiative in Berlin"
   description="The AI student initiative in Berlin. We connect people with great interest and passion for the field of machine learning. Weekly Reading Group & Speaker Events."
 >
   <main>
     <ThreeScence />
+    <Banner />
     <Landing />
-    <Activities />
-    <Events />
+    <SpeakerSeries />
     <Papers />
     <!--<Partners />-->
   </main>
