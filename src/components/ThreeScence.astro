@@ -20,7 +20,7 @@
   let height: number;
   let scrollType: string = "";
 
-  let SIZE_FLOWFIELD: number = 64;
+  let SIZE_FLOWFIELD: number = 70;
   let NUM_PARTICLES: number = 20000;
   let PARTICLE_SIZE: number = 0.1;
   let PARTICLE_COLOR: number = 0xffffff;
@@ -98,7 +98,7 @@
           this.field[x][y] = [];
 
           for (let z = 0; z < size; ++z) {
-            let mod = 0.05;
+            let mod = 0.09;
 
             this.field[x][y][z] = noise.perlinNoise(x * mod, y * mod, z * mod);
           }
@@ -130,47 +130,20 @@
       this.velocities = [];
       let vertices = new Float32Array(num * 3);
 
-      // Initialize colorPalette in the constructor to ensure it's available
-      this.colorPalette = [
-        new THREE.Color(0xff0000), // Red
-        new THREE.Color(0xff1b00),
-        new THREE.Color(0xff3700),
-        new THREE.Color(0xff5200),
-        new THREE.Color(0xff6e00),
-        new THREE.Color(0xff8900),
-        new THREE.Color(0xffa500), // Orange
-        new THREE.Color(0xffb400),
-        new THREE.Color(0xffc300),
-        new THREE.Color(0xffd200),
-        new THREE.Color(0xffe100),
-        new THREE.Color(0xfff000),
-        new THREE.Color(0xffff00), // Yellow
-        new THREE.Color(0xd4e900),
-        new THREE.Color(0xaad400),
-        new THREE.Color(0x7fbf00),
-        new THREE.Color(0x55aa00),
-        new THREE.Color(0x2a9500),
-        new THREE.Color(0x008000), // Green
-        new THREE.Color(0x006a2a),
-        new THREE.Color(0x005555),
-        new THREE.Color(0x00407f),
-        new THREE.Color(0x002aaa),
-        new THREE.Color(0x0015d4),
-        new THREE.Color(0x0000ff), // Blue
-        new THREE.Color(0x1700ff),
-        new THREE.Color(0x2e00ff),
-        new THREE.Color(0x4500ff),
-        new THREE.Color(0x5c00ff),
-        new THREE.Color(0x7300ff),
-        new THREE.Color(0x8b00ff), // Violet
-      ];
-
       let colors = new Float32Array(num * 3); // Placeholder for colors, will be updated in update()
       let geometry = new THREE.BufferGeometry();
       let material = new THREE.PointsMaterial({
         size: PARTICLE_SIZE,
         vertexColors: true,
       });
+      this.prideColors = [
+        { color: new THREE.Color("red"), maxY: 1 },
+        { color: new THREE.Color("orange"), maxY: 0.8 },
+        { color: new THREE.Color("yellow"), maxY: 0.6 },
+        { color: new THREE.Color("green"), maxY: 0.4 },
+        { color: new THREE.Color("blue"), maxY: 0.2 },
+        { color: new THREE.Color("purple"), maxY: 0 },
+      ];
 
       for (var i = 0; i < num; i++) {
         vertices[i * 3] = Math.random() - 0.5;
@@ -214,7 +187,7 @@
         let vertex = new THREE.Vector3(
           this.points.geometry.attributes.position.getX(i),
           this.points.geometry.attributes.position.getY(i),
-          this.points.geometry.attributes.position.getZ(i),
+          0,
         );
         let velocity = this.velocities.at(i)!;
         var flow = this.flowField.sample(vertex.x, vertex.y, vertex.z);
@@ -222,7 +195,7 @@
         if (flow) {
           var steer = flow.clone().sub(velocity); // flow - velocity
 
-          velocity.add(steer.multiplyScalar(0.015));
+          velocity.add(steer.multiplyScalar(0.01));
           vertex.add(velocity.multiplyScalar(0.999));
         } else {
           vertex.set(
@@ -247,17 +220,37 @@
 
         const y = positions.getY(i);
         // Normalize y to [0, 1] range based on expected min/max y values
-        const normalizedY = (vertex.y - minY * 0.2) / (0.8 * maxY); // Assuming y is clamped between -0.5 and 0.5, adjust as necessary
-        const colorIndex = Math.floor(normalizedY * this.colorPalette.length);
-        const color =
-          this.colorPalette[
-            Math.max(0, Math.min(colorIndex, this.colorPalette.length - 1))
-          ];
+        const normalizedY = (vertex.y - minY * 0.5) / maxY;
+        const color = this.mapToColor(normalizedY);
         positions.setXYZ(i, vertex.x, vertex.y, vertex.z);
         colors.setXYZ(i, color.r, color.g, color.b);
       }
       positions.needsUpdate = true;
       colors.needsUpdate = true;
+    }
+
+    mapToColor(y) {
+      for (let i = 0; i < this.prideColors.length; i++) {
+        // Check if the position is within the current color's range
+        if (y >= this.prideColors[i].maxY) {
+          // Check if we're not at the last color and need to interpolate
+          if (i > 0) {
+            const color = this.prideColors[i - 1].color.clone();
+            // Calculate the interpolation factor
+            // It's important to subtract the maxY of the current color from y, and then divide by the difference
+            // between the maxY values of the current and next colors.
+            const factor =
+              (y - this.prideColors[i].maxY) /
+              (this.prideColors[i - 1].maxY - this.prideColors[i].maxY);
+            // Lerp (linearly interpolate) between the current color and the next
+            color.lerp(this.prideColors[i].color, 1 - factor);
+            return color;
+          }
+          return this.prideColors[i].color;
+        }
+      }
+      // Return the last color by default if none matched
+      return this.prideColors[this.prideColors.length - 1].color;
     }
   }
 
@@ -301,8 +294,8 @@
     } else {
       rotateSpeed = 0.001;
     }
-    particles.points.rotateX(rotateSpeed);
-    particles.points.rotateY(rotateSpeed);
+    //particles.points.rotateX(rotateSpeed);
+    //particles.points.rotateY(rotateSpeed);
     renderer.render(scene, camera);
   }
 
