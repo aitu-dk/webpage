@@ -42,8 +42,8 @@
           new THREE.Vector3(
             Math.random() * 0.1 - 0.05,
             Math.random() * 0.1 - 0.05,
-            Math.random()
-          )
+            Math.random(),
+          ),
         );
       }
 
@@ -58,7 +58,7 @@
         let vertex = new THREE.Vector3(
           this.points.geometry.attributes.position.getX(i),
           this.points.geometry.attributes.position.getY(i),
-          this.points.geometry.attributes.position.getZ(i)
+          this.points.geometry.attributes.position.getZ(i),
         );
         let velocity = this.velocities[i];
         vertex.add(velocity);
@@ -78,7 +78,7 @@
           i,
           vertex.x,
           vertex.y,
-          vertex.z
+          vertex.z,
         );
       }
       this.points.geometry.attributes.position.needsUpdate = true;
@@ -126,8 +126,8 @@
     requestAnimationFrame(animate);
     stars.update();
     stars.twinkle();
-    stars.points.rotateX(ROTATE_SPEED);
-    stars.points.rotateY(ROTATE_SPEED);
+    //stars.points.rotateX(ROTATE_SPEED);
+    //stars.points.rotateY(ROTATE_SPEED);
     renderer.render(scene, camera);
   }
 

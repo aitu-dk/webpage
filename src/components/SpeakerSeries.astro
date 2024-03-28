@@ -1,94 +1,8 @@
 ---
-const speakers = [
-    {
-        date: new Date(2024, 3, 16),
-        title: "Latent 3D Scene Representations",
-        speaker: "Mehdi S. M. Sajjadi",
-        affiliation: "Deepmind",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299466047/",
-    },
-    {
-        date: new Date(2024, 3, 30),
-        title: "MatterGen: A Generative Model for Inorganic Materials Design",
-        speaker: "Daniel Zügner",
-        affiliation: "Microsoft",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299480129/",
-    },
-    {
-        date: new Date(2024, 4, 14),
-        title: "OpenGPT-X",
-        speaker: "Malte Ostendorff",
-        affiliation: "DFKI",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299480149/",
-    },
-    {
-        date: new Date(2024, 4, 28),
-        title: "Intelligent Flying Multi-Robot Systems",
-        speaker: "Prof. Wolfgang Hönig",
-        affiliation: "TU Berlin",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299480165/",
-    },
-    {
-        date: new Date(2024, 5, 11),
-        title: "Natural Language Representations in Brains and Machines",
-        speaker: "Prof. Fatma Deniz",
-        affiliation: "TU Berlin",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299480172/",
-    },
-    {
-        date: new Date(2024, 5, 25),
-        title: "Human Alignment of Neural Network Representation",
-        speaker: "Lukas Muttenhaler",
-        affiliation: "Deepmind & TU Berlin",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299480178/",
-    },
-    {
-        date: new Date(2024, 6, 9),
-        title: "Learning Molecular Models by Integrating ML & Experimental Data",
-        speaker: "Prof. Cecilia Clementi",
-        affiliation: "FU Berlin",
-        next: false,
-        past: false,
-        url: "https://www.meetup.com/bliss-speaker-series/events/299480197/",
-    },
-];
-
-const currentDate = new Date();
-currentDate.setHours(0, 0, 0, 0);
-
-// Finding the closest event to the current date but not in the past
-const closestEvent = speakers.reduce((closest, event) => {
-    // Check if this event is in the future and closer than the current closest event
-    if (event.date >= currentDate && (!closest || event.date < closest.date)) {
-        return event;
-    }
-    return closest;
-}, null);
-
-if (closestEvent) {
-    closestEvent.next = true;
-}
-
-speakers.forEach((event) => {
-    if (event.date < currentDate) {
-        event.past = true;
-    }
-});
+import { speakers } from "./data/speakers";
 ---
 
-<div class="flex items-center justify-center">
+<div class="flex items-center flex-wrap justify-center">
     <div id="speaker Series" class="pt-32 sm:my-40 text-center">
         <strong
             class="text-4xl sm:text-5xl text-transparent bg-clip-text bg-red-right"
@@ -112,67 +26,64 @@ speakers.forEach((event) => {
             {
                 speakers
                     .sort((a, b) => a.date - b.date)
-                    .map(
-                        ({
-                            date,
-                            title,
-                            speaker,
-                            affiliation,
-                            next,
-                            past,
-                            url,
-                        }) => (
-                            <a href={url} aria-label="Event details">
-                                <li
-                                    class={`py-1 mt-6 rounded-md duration-200 ${
-                                        past ? "" : "hover:bg-li"
+                    .map((speaker) => (
+                        <a
+                            href={speaker.url}
+                            aria-label="Event details"
+                            class="no-underline"
+                        >
+                            <li
+                                class={`py-1 mt-6 rounded-md duration-200 ${
+                                    speaker.past ? "" : "hover:bg-li"
+                                }`}
+                            >
+                                <div
+                                    class={`absolute -left-1.5 w-3 h-3 bg-gray-200 rounded-full mt-1.5 border ${
+                                        speaker.next
+                                            ? "border-white"
+                                            : "border-gray-900 bg-gray-700"
                                     }`}
-                                >
-                                    <div
-                                        class={`absolute -left-1.5 w-3 h-3 bg-gray-200 rounded-full mt-1.5 border ${
-                                            next
-                                                ? "border-white"
-                                                : "border-gray-900 bg-gray-700"
+                                />
+                                <div class="text-left pl-4 border-left">
+                                    <p
+                                        class={`text-base sm:text-lg ${
+                                            speaker.past
+                                                ? "text-gray-500"
+                                                : "text-secondary"
                                         }`}
-                                    />
-                                    <div class="text-left pl-4 border-left">
-                                        <p
-                                            class={`text-base sm:text-lg ${
-                                                past
-                                                    ? "text-gray-500"
-                                                    : "text-secondary"
-                                            }`}
-                                        >
-                                            {date.toLocaleDateString("en-US", {
+                                    >
+                                        {speaker.date.toLocaleDateString(
+                                            "en-US",
+                                            {
                                                 year: "numeric",
                                                 month: "long",
                                                 day: "numeric",
-                                            })}
-                                        </p>
-                                        <p
-                                            class={`text-xl sm:text-2xl font-bold ${
-                                                past
-                                                    ? "text-gray-500"
-                                                    : "text-transparent bg-clip-text bg-red-right"
-                                            }`}
-                                        >
-                                            {title}
-                                        </p>
-                                        <p
-                                            class={`text-lg sm:text-xl ${
-                                                past
-                                                    ? "text-gray-500"
-                                                    : "text-secondary"
-                                            }`}
-                                        >
-                                            {speaker},{" "}
-                                            <strong>{affiliation}</strong>
-                                        </p>
-                                    </div>
-                                </li>
-                            </a>
-                        ),
-                    )
+                                            },
+                                        )}
+                                    </p>
+                                    <p
+                                        class={`text-xl sm:text-2xl font-bold ${
+                                            speaker.past
+                                                ? "text-gray-500"
+                                                : "text-transparent bg-clip-text bg-red-right"
+                                        }`}
+                                    >
+                                        {speaker.title}
+                                    </p>
+                                    <p
+                                        class={`text-lg sm:text-xl ${
+                                            speaker.past
+                                                ? "text-gray-500"
+                                                : "text-secondary"
+                                        }`}
+                                    >
+                                        {speaker.name},{" "}
+                                        <strong>{speaker.affiliation}</strong>
+                                    </p>
+                                </div>
+                            </li>
+                        </a>
+                    ))
             }
         </ol>
     </div>
