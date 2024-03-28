@@ -37,7 +37,9 @@ const { headerTitle } = Astro.props;
         href={`/blissathon`}
         class="hidden text-sm tracking-wider sm:text-base nounderline sm:block text-secondary hover:text-primary transition-colors duration-300"
       >
-        <p class="bg-accent-dark text-accent rounded-md px-2 text-lg">
+        <p
+          class="bg-accent-dark text-accent rounded-md px-2 text-lg hover:shadow-accent-small transition-shadow"
+        >
           Hackathon
         </p>
       </a>
@@ -62,15 +64,12 @@ const { headerTitle } = Astro.props;
         })
       }
       <a
-        id="blogLink"
-        href="/blog"
+        id="readingGroupLink"
+        href="/reading-group"
         class="tracking-wider nounderline text-secondary hover:text-primary transition-colors"
       >
-        <p>Blog</p>
+        <p>Reading Group</p>
       </a>
-      <Badge id="joinLink" hover>
-        <a href="/join" class="nounderline">Join</a>
-      </Badge>
     </div>
   </div>
 </div>
@@ -95,7 +94,8 @@ const { headerTitle } = Astro.props;
   const speakerSeriesLink: HTMLElement =
     document.getElementById("speaker SeriesLink")!;
 
-  const blogLink: HTMLElement = document.getElementById("blogLink")!;
+  const readingGroupLink: HTMLElement =
+    document.getElementById("readingGroupLink")!;
 
   const sections: HTMLElement[] = [speakerSeries];
   const links: HTMLElement[] = [speakerSeriesLink];
@@ -151,11 +151,11 @@ const { headerTitle } = Astro.props;
 
   function handleRoute() {
     if (document.URL.includes("blog")) {
-      blogLink.classList.add("text-primary");
-      blogLink.classList.remove("text-secondary");
+      readingGroupLink.classList.add("text-primary");
+      readingGroupLink.classList.remove("text-secondary");
     } else {
-      blogLink.classList.add("text-secondary");
-      blogLink.classList.remove("text-primary");
+      readingGroupLink.classList.add("text-secondary");
+      readingGroupLink.classList.remove("text-primary");
     }
   }
 

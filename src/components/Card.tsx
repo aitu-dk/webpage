@@ -1,51 +1,45 @@
-import Badge from "@components/Badge";
-import AuthorList from "@components/AuthorList";
-import type { Frontmatter } from "../utils/types";
+import { Paper } from "./data/papers";
 
 type Props = {
-  frontmatter: Frontmatter;
-  centered?: boolean;
+  paper: Paper
 };
 
-export default function Card({ frontmatter, centered }: Props) {
+export default function Card({ paper }: Props) {
   return (
-    <a
-      href={`/blog/${frontmatter.slug}`}
-      className="rounded-lg group nounderline"
+    <div
+      className="group nounderline w-full"
     >
-      <div className="flex flex-col sm:flex-row sm:space-x-10 sm:items-center">
-        <div
-          className={`w-full h-[200px] max-w-[400px] flex 
-      will-change-transform items-center justify-center rounded-lg overflow-hidden object-cover`}
-        >
-          <img
-            src={frontmatter.ogImage.src}
-            alt={frontmatter.ogImage.alt}
-            className="group-hover:scale-105 transition-transform"
-          />
-        </div>
-        <div className={`flex flex-col py-6`}>
-          <div className="flex items-center space-x-1">
-            <Badge>
-              <p className="text-sm uppercase">{frontmatter.format}</p>
-            </Badge>
-            <p className="text-tertiary">
-              ·{" "}
-              {new Date(
-                frontmatter.published.replace(/-/g, "/")
-              ).toLocaleString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
+      <a href={paper.link} >
+        <div className="flex flex-col sm:flex-row sm:space-x-10 sm:items-center sm:h-[100px]">
+          <div
+            className={`w-full h-[90px] sm:max-w-[200px] flex 
+      will-change-transform items-center justify-center rounded-lg overflow-hidden sm:ml-2 object-cover`}
+          >
+
+            <img
+              src={paper.imagePath}
+              alt="Paper Image"
+              className="group-hover:scale-105 transition-transform object-cover"
+            />
+
           </div>
-          <h2 className="my-2 text-3xl font-medium leading-snug text-primary">
-            {frontmatter.title}
-          </h2>
-          <AuthorList authors={frontmatter.authors} />
+          <div className={`flex flex-col`}>
+            <div className="flex items-center space-x-1">
+              <p className="text-tertiary">
+                {paper.readingDay.toLocaleString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+            </div>
+            <h2 className="text-xl font-medium leading-snug text-primary">
+              {paper.name}
+            </h2>
+            <p className="text-gray-300 text-md">{paper.authors.join(", ")}</p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 }

@@ -1,0 +1,90 @@
+---
+import Card from "@components/Card";
+import { dayToPapers, Paper } from "./data/papers";
+
+const today = new Date().toISOString().split("T")[0];
+
+const futurePapers = Object.entries(dayToPapers)
+    .filter(([date, papers]) => date >= today)
+    .reduce((obj, [date, papers]) => {
+        obj[date] = papers;
+        return obj;
+    }, {});
+const futurePaperList = Object.entries(futurePapers)
+    .sort(([date1], [date2]) => date1.localeCompare(date2))
+    .map(([, event]) => event)
+    .reverse() as Paper[][];
+
+const pastPapers = Object.entries(dayToPapers)
+    .filter(([date, papers]) => date < today)
+    .reduce((obj, [date, papers]) => {
+        obj[date] = papers;
+        return obj;
+    }, {});
+
+const pastPaperList = Object.entries(pastPapers)
+    .sort(([date1], [date2]) => date1.localeCompare(date2))
+    .map(([, event]) => event)
+    .reverse() as Paper[][];
+---
+
+<div>
+    <strong
+        class="text-4xl sm:text-5xl text-transparent bg-clip-text bg-red-right"
+        >Reading Group
+    </strong>
+    <div class="w-full mb-10 max-w-full border-b sm:border-b-0 h-[0px] sm:h-[1px] bg-gradient-to-r from-gray-200 to-transparent ...">
+    </div>
+
+    {
+        futurePaperList.length > 0 && (
+            <div class="my-2">
+                <strong class="text-3xl sm:text-5xl text-transparent bg-clip-text bg-red-right">
+                    Upcomming
+                </strong>
+                <div class="flex items-center justify-center flex-col mt-2 sm:mt-4">
+                    {futurePaperList.map((papers) => {
+                        return (
+                            <div class="w-10/12 hover:bg-li rounded">
+                                {papers.map((paper) => {
+                                    return <Card paper={paper} />;
+                                })}
+                            </div>
+                            <div class="border-b w-10/12 my-1"></div>
+                        );
+                    })}
+                </div>
+            </div>
+        )
+    }
+
+    <div class="my-2 mt-4">
+        <strong
+            class="text-3xl sm:text-5xl text-transparent bg-clip-text bg-red-right"
+            >Past
+        </strong>
+        <div class="flex items-center justify-center flex-col mt-2 sm:mt-4">
+            {
+                pastPaperList.map((papers) => {
+                    return (
+                        <div class="w-10/12 hover:bg-li rounded-lg">
+                            {papers.map((paper) => {
+                                return <Card paper={paper} />;
+                            })}
+                        </div>
+                        <div class="border-b w-10/12 my-1"></div>
+                    );
+                })
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover\:bg-li:hover {
+        background-color: rgba(203, 45, 62, 0.25);
+    }
+    .faded {
+        border-image: linear-gradient(90deg, rgba(60,74,83,0.90) rgba(60,74,83,.00))
+    }
+</style>
