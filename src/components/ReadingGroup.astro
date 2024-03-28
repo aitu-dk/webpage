@@ -45,7 +45,7 @@ const pastPaperList = Object.entries(pastPapers)
                 <div class="flex items-center justify-center flex-col mt-2 sm:mt-4">
                     {futurePaperList.map((papers) => {
                         return (
-                            <div class="w-10/12 hover:bg-li rounded">
+                            <div class="w-10/12 hover:bg-li rounded mt-4">
                                 {papers.map((paper) => {
                                     return <Card paper={paper} />;
                                 })}
@@ -72,7 +72,7 @@ const pastPaperList = Object.entries(pastPapers)
                                 return <Card paper={paper} />;
                             })}
                         </div>
-                        <div class="border-b w-10/12 my-1"></div>
+                        <div class="border-b w-10/12 my-4 sm:my-2"></div>
                     );
                 })
             }
@@ -83,8 +83,5 @@ const pastPaperList = Object.entries(pastPapers)
 <style>
     .hover\:bg-li:hover {
         background-color: rgba(203, 45, 62, 0.25);
-    }
-    .faded {
-        border-image: linear-gradient(90deg, rgba(60,74,83,0.90) rgba(60,74,83,.00))
     }
 </style>
