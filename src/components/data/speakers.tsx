@@ -12,7 +12,7 @@ class Speaker {
 const speakersRaw = [
     new Speaker(new Date(2024, 3, 16), "Set Learning for Accurate and Calibrated Models", "Thomas Unterthiner", "Deepmind", "https://www.meetup.com/bliss-speaker-series/events/299466047/"),
     new Speaker(new Date(2024, 3, 30), "MatterGen: A Generative Model for Inorganic Materials Design", "Daniel Zügner", "Microsoft", "https://www.meetup.com/bliss-speaker-series/events/299480129/"),
-    new Speaker(new Date(2024, 4, 14), "OpenGPT-X", "Malte Ostendorff", "DFKI", "https://www.meetup.com/bliss-speaker-series/events/299480149/"),
+    new Speaker(new Date(2024, 4, 14), "Towards Open Language Models for Europe", "Malte Ostendorff", "DFKI", "https://www.meetup.com/bliss-speaker-series/events/299480149/"),
     new Speaker(new Date(2024, 4, 28), "Intelligent Flying Multi-Robot Systems", "Prof. Wolfgang Hönig", "TU Berlin", "https://www.meetup.com/bliss-speaker-series/events/299480165/"),
     new Speaker(new Date(2024, 5, 11), "Natural Language Representations in Brains and Machines", "Prof. Fatma Deniz", "TU Berlin", "https://www.meetup.com/bliss-speaker-series/events/299480172/"),
     new Speaker(new Date(2024, 5, 25), "Human Alignment of Neural Network Representation", "Lukas Muttenhaler", "Deepmind & TU Berlin", "https://www.meetup.com/bliss-speaker-series/events/299480178/"),
