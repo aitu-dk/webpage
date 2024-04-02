@@ -38,11 +38,20 @@ const pastPaperList = Object.entries(pastPapers)
     >
     </div>
 
+    <div class="mb-10">
+        This semester, the reading group will convene at 6pm every second
+        Tuesday. The room is yet to be determined. Our sessions will entail
+        in-depth discussions on upcoming papers. Each gathering will involve an
+        discussion of two papers, accompanied by a brief introductory
+        presentation from one of the attendees. Our initial focus will be on
+        self-supervised learning, followed by optimizers.
+    </div>
+
     {
         futurePaperList.length > 0 && (
             <div class="my-2">
                 <strong class="text-3xl sm:text-5xl text-transparent bg-clip-text bg-red-right">
-                    Upcomming
+                    Upcoming
                 </strong>
                 <div class="flex items-center justify-center flex-col mt-2 sm:mt-4">
                     {futurePaperList.map((papers) => {
