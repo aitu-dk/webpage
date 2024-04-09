@@ -37,7 +37,7 @@ const papers = [
     new Paper("What do Self Supervised Vision Transformers Learn?", ["Namuk Park", "Wonjae Kim", "Byeongho Heo", "Taekyung Kim", "Sangdoo Yun"], "https://arxiv.org/pdf/2305.00729.pdf", "posts/images/What do Self Supervised Vision Transformers Learn.png", new Date(2024, 4, 14)),
 
     new Paper("Revealing the Dark Secrets of Masked Image Modeling", ["Zhenda Xie", "Zigang Geng", "Jingcheng Hu", "Zheng Zhang", "Han Hu", "Yue Cao"], "https://arxiv.org/abs/2205.13543", "posts/images/Revealing the Dark Secrets of Masked Image Modeling.png", new Date(2024, 4, 28)),
-    new Paper("Stochastic Gradient Descend", ["appliedprobability"], "https://appliedprobability.wordpress.com/2024/05/12/sgd/", "posts/images/SGD.png", new Date(2024, 4, 28)),
+    new Paper("Stochastic Gradient Descend", ["appliedprobability"], "https://appliedprobability.blog/2019/01/26/robbins-munro-2/", "posts/images/SGD.png", new Date(2024, 4, 28)),
 
     new Paper("Adding Gradient Noise Improves Learning for Very Deep Networks", ["Arvind Neelakantan", "Luke Vilnis", "Quoc V. Le", "Ilya Sutskever", "Lukasz Kaiser", "Karol Kurach", "James Martens"], "https://arxiv.org/pdf/1511.06807.pdf", "posts/images/Added Gradient Noise.png", new Date(2024, 5, 11)),
     new Paper("On the importance of initialization and momentum in deep learning", ["Ilya Sutskever", "James Martens", "George Dahl", "Geoffrey Hinton"], "https://proceedings.mlr.press/v28/sutskever13.html", "posts/images/On the importance of initialization and momentum in deep learning.png", new Date(2024, 5, 11)),
