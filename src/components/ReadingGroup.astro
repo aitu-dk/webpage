@@ -11,7 +11,7 @@ const futurePapers = Object.entries(dayToPapers)
         return obj;
     }, {});
 const futurePaperList = Object.entries(futurePapers)
-    .sort(([date1], [date2]) => date1.localeCompare(date2))
+    .sort(([date1], [date2]) => date2.localeCompare(date1))
     .map(([, event]) => event)
     .reverse() as Paper[][];
 
