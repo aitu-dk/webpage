@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { LazyThree } from "../components/LazyThree.tsx";
+import ThreeScence from "@components/ThreeScence.astro";
 import Landing from "../components/Landing.astro";
-import Papers from "../components/Papers.astro";
 import SpeakerSeries from "@components/SpeakerSeries.astro";
 import Banner from "@components/Banner.astro";
 ---
@@ -12,8 +11,8 @@ import Banner from "@components/Banner.astro";
   description="The AI student initiative in Berlin. We connect people with great interest and passion for the field of machine learning. Weekly Reading Group & Speaker Events."
 >
   <main>
-    <LazyThree client:only />
-    <Banner
+    <ThreeScence client:idle />
+    <Banner />
     <Landing />
     <SpeakerSeries />
   </main>
