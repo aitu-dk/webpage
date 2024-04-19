@@ -17,6 +17,7 @@ import vercel from '@astrojs/vercel/static';
 export default defineConfig({
   site: "https://bliss.berlin",
   integrations: [tailwind(), react()],
+  renderers: ['@astrojs/renderer-react'],
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
