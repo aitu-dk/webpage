@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import ThreeScence from "../components/ThreeScence.astro";
 import Landing from "../components/Landing.astro";
-import SpeakerSeries from "@components/SpeakerSeries.astro";
+import { SpeakerSeries } from "@components/SpeakerSeries";
 import Banner from "@components/Banner.astro";
+import Arrow from "@components/Arrow.astro";
 ---
 
 <Layout
@@ -14,6 +15,7 @@ import Banner from "@components/Banner.astro";
     <ThreeScence />
     <Banner />
     <Landing />
-    <SpeakerSeries />
+    <SpeakerSeries client:idle />
+    <Arrow />
   </main>
 </Layout>

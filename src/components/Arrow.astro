@@ -1,0 +1,40 @@
+---
+
+---
+
+<div>
+    <img
+        src="assets/arrow.svg"
+        id="arrow"
+        alt="arrow"
+        class="fixed w-[30px] h-[30px] left-[50%] hovering opacity-[80%]"
+    />
+</div>
+
+<script>
+    const arrow = document.getElementById("arrow");
+
+    window.addEventListener("scroll", () => {
+        let opacity = 1 - window.scrollY / 150 - 0.2;
+        opacity = opacity < 0 ? 0 : opacity;
+        arrow.style.opacity = opacity;
+    });
+</script>
+
+<style>
+    .hovering {
+        animation: MoveUpDown 4s forwards infinite;
+    }
+
+    @keyframes MoveUpDown {
+        0%,
+        100% {
+            bottom: 10px;
+            scale: 1 1;
+        }
+        50% {
+            bottom: 15px;
+            scale: 0.9 1.2;
+        }
+    }
+</style>
