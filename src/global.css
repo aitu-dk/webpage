@@ -1,3 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+.hover\:bg-li:hover {
+  background-color: rgba(203, 45, 62, 0.25);
+}
