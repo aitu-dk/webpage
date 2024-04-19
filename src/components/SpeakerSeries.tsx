@@ -113,5 +113,4 @@ export const SpeakerSeries = () => {
             </ol>
         </div>
     </div >
-
 }
