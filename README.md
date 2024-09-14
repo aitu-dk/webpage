@@ -317,3 +317,7 @@ the following for adding an author image.
 
 For any inquiries or questions, reach out to
 [mika@aitu.group](mailto:mika@aitu.group).
+
+## TODO
+
+[] Take care of key prop for Card component (low importance)
