@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
@@ -15,7 +16,7 @@ import vercel from "@astrojs/vercel/static";
 // https://astro.build/config
 export default defineConfig({
   site: "https://aitu.group",
-  integrations: [tailwind(), react()],
+  integrations: [tailwind(), react(), mdx()],
   markdown: {
     shikiConfig: {
       theme: "github-dark",

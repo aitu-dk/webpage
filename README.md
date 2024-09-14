@@ -112,7 +112,7 @@ If your `node` version is too low, you can install a recent version through the
 To install the dependencies of the project you need have to install the project
 dependencies. You can choose any package manager of your liking, like `npm`,
 `yarn` or `pnpm`. However, we recommend that you use `yarn` and assume that you
-have it installed for the reet of this walk-through. To 
+have it installed for the reet of this walk-through. To
 
 ```bash
 yarn install
@@ -176,7 +176,7 @@ know the precise types of all the fields._
 layout: ../../layouts/BlogLayout.astro
 slug: intro-post
 title: AITU's First Meeting! 🎉
-description: 
+description:
   We are official! AITU is officially registered as a student organisation at
   ITU. In this post we talk about everything from the organisation's idea and
   mission, and provide some behind-the-scenes into the foundational work in the
@@ -189,10 +189,10 @@ tags:
   - welcome
   - aitu
   - first-meeting
-banner: 
+banner:
   src: /assets/banner.jpg
   alt: The AITU Banner
-ogImage: 
+ogImage:
   src: /assets/ogImage.jpg
   alt: The AITU Banner
 published: 02/01/2023
@@ -224,10 +224,12 @@ This is a paragraph with some **bold** and _italic_ text. You can also add
 ![Aitu Logo](/assets/logo.png)
 
 You can also add ordered lists:
+
 1. First
 2. Second
 
 And unordered lists:
+
 - First
 - Second
 
@@ -239,9 +241,6 @@ And unordered lists:
 
 We support code blocks as well:
 ```
-
-_Note, that we are looking to support `.mdx` features, such as including dynamic
-UI components. However, this is not yet supported._
 
 ### Add a Title Image
 
@@ -261,8 +260,8 @@ shown in large across the entire blog page. Assuming your title image is called
 `titleImage.png`, run the following two commands:
 
 ```bash
-magick titleImage.png -resize "1455x265^" -background black -gravity center -extent "1455x398" banner.jpg 
-magick titleImage.png -resize "1200x630^" -background black -gravity center -extent "1200x630" ogImage.jpg 
+magick titleImage.png -resize "1455x265^" -background black -gravity center -extent "1455x398" banner.jpg
+magick titleImage.png -resize "1200x630^" -background black -gravity center -extent "1200x630" ogImage.jpg
 ```
 
 This will create two images `banner.jpg` and `ogImage.jpg` with the correct
@@ -276,12 +275,12 @@ When you are happy with the result, move the images into the `public/posts`
 directory and add the following metadata to your blog post:
 
 ```md
-banner: 
-  src: /public/posts/<blog-post>/banner.jpg
-  alt: A description of the image
+banner:
+src: /public/posts/<blog-post>/banner.jpg
+alt: A description of the image
 ogImage:
-  src: /public/posts/<blog-post>/ogImage.jpg
-  alt: A description of the image
+src: /public/posts/<blog-post>/ogImage.jpg
+alt: A description of the image
 ```
 
 ### Add Images
