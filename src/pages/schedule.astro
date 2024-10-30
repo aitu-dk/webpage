@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="max-w-4xl mt-10">
       <a href="/" class="text-sm text-accent">Back</a>
       <h1 class="my-6 text-3xl font-medium sm:text-4xl">
-        💫 Preliminary Schedule 24/25
+        Preliminary Schedule Fall 2024
       </h1>
       <span class="font-light text-secondary"><i>Subject to change</i></span>
       <h2 class="my-4 text-2xl font-medium">Speech2text</h2>
@@ -20,70 +20,102 @@ import Layout from "../layouts/Layout.astro";
         <li>
           W38 <a href="https://arxiv.org/pdf/1904.05862" class="text-accent"
             >Waw2vec</a
-          > / FAIR / 2019: Unsupervised Pretraining for Speech Recognition
+          > (FAIR / 2019): Unsupervised Pretraining for Speech Recognition
         </li>
         <li>
           W39 <a href="https://arxiv.org/pdf/2005.08100" class="text-accent">
             Conformer</a
-          > / Google / 2020: Convolution-augmented Transformer for Speech Recognition
+          > (Google / 2020): Convolution-augmented Transformer for Speech Recognition
         </li>
         <li>
           W40 <a
             href="https://cdn.openai.com/papers/whisper.pdf"
             class="text-accent">Whisper</a
-          > / OpenAI / 2022: Robust Speech Recognition via Large-Scale Weak
-          Supervision
+          > (OpenAI / 2022): Robust Speech Recognition via Large-Scale Weak Supervision
         </li>
-        <li>W41 Industry talk TBA</li>
-        <li>W42 Autumn Break</li>
+      </ul>
+      <h2 class="my-4 text-2xl font-medium">Transformers</h2>
+      <p class="text-lg font-light text-secondary">
+        Before the Autumn break, we will make a quick stop at the transformers.
+        We will go through the original paper and discuss the key ideas behind
+        the transformer architecture which is omnipresent across all ML fields
+        nowadays.
+      </p>
+      <ul class="my-4 text-lg font-light text-secondary">
+        <li>
+          W41 <a href="https://arxiv.org/pdf/1706.03762" class="text-accent"
+            >Transformers</a
+          > (Google / 2017): Attention is All You Need
+        </li>
+      </ul>
+      <h2 class="my-4 text-2xl font-medium">Graph Neural Networks</h2>
+      <p class="text-lg font-light text-secondary">
+        In this block, we venture into graph neural networks and their
+        application in football tactics.
+      </p>
+      <ul class="my-4 text-lg font-light text-secondary">
+        <li>
+          W43 <a href="https://arxiv.org/pdf/2301.08210" class="text-accent"
+            >GNNs Intro</a
+          > (Deepmind / 2023): Everything is Connected
+        </li>
+        <li>
+          W44 <a href="https://arxiv.org/pdf/1710.10903" class="text-accent"
+            >GANs</a
+          > (UofCambridge / 2018): Graph Attention Networks
+        </li>
+        <li>
+          W45 <a href="https://arxiv.org/pdf/2310.10553" class="text-accent"
+            >Tactic AI</a
+          > (Deepmind / 2023): AI assistant for football tactics
+        </li>
+      </ul>
+      <h2 class="my-4 text-2xl font-medium">Training our own GPT</h2>
+      <p class="text-lg font-light text-secondary">
+        We have now read many interesting research papers. Now, it is time to
+        get our hands dirty. We will make use of Andrej Karpathy’s <a
+          href="https://github.com/karpathy/nanoGPT"
+          class="text-accent">open source implementation</a
+        > of GPT-2 to train our small language model. We will go through the whole
+        setup from collecting and preparing the data to logging the training results.
+        First week, we will spend on setting up the baseline model. The following
+        week, we will try to add some tweaks to it to see if we can improve its performance.
+      </p>
+      <ul class="my-4 text-lg font-light text-secondary">
+        <li>
+          W46 <a href="https://github.com/karpathy/nanoGPT" class="text-accent"
+            >nanoGPT</a
+          > baseline implementation
+        </li>
+        <li>W47 can we make our nanoGPT better?</li>
+      </ul>
+      <h2 class="my-4 text-2xl font-medium">Industry talks</h2>
+      <ul class="my-4 text-lg font-light text-secondary">
+        <li>
+          W48 <a
+            href="https://www.linkedin.com/in/gustav-l-k-hansen-0b175316a/"
+            class="text-accent">Gustav Hansen</a
+          > (ML Researcher at <a href="https://www.veo.co/" class="text-accent"
+            >Veo Technologies</a
+          >)
+          <p class="text-lg font-light text-secondary">
+            Gustav will present results of his master thesis at DTU titled <i
+              >Representation Learning Techniques for Sequence Data in Football
+              Game Dynamics</i
+            > which he has done in collaboration with Veo. Being able to efficiently
+            encode and represent football game dynamics is crucial for many downstream
+            tasks such as action recognition, event detection, and tactical analysis.
+          </p>
+          <li>
+            W49 <a
+              href="https://www.linkedin.com/in/frederikwarburg/"
+              class="text-accent">Frederik Warburg</a
+            > (Head of AI at <a href="https://www.teton.ai/" class="text-accent"
+              >Teton</a
+            >)
+          </li>
+        </li>
       </ul>
     </div>
-    <h2 class="my-4 text-2xl font-medium">Graph Neural Networks</h2>
-    <p class="text-lg font-light text-secondary">
-      In this block, we venture into graph neural networks and their application
-      in football tactics.
-    </p>
-    <ul class="my-4 text-lg font-light text-secondary">
-      <li>
-        W43 <a href="https://arxiv.org/pdf/2301.08210" class="text-accent"
-          >Everything</a
-        > is Connected / Deepmind / 2023: Graph Neural Networks
-      </li>
-      <li>
-        W44 <a href="https://arxiv.org/pdf/1710.10903" class="text-secondary"
-          >GAN</a
-        >/ UofCambridge / 2018: Graph Attention Networks
-      </li>
-      <li>
-        W45 <a href="https://arxiv.org/pdf/2310.10553" class="text-accent"
-          >Tactic AI</a
-        > / Deepmind / 2023: an AI assistant for football tactics
-      </li>
-    </ul>
-
-    <h2 class="my-4 text-2xl font-medium">Training our own GPT</h2>
-    <p class="text-lg font-light text-secondary">
-      We have now read many interesting research papers. Now, it is time to get
-      our hands dirty. We will make use of Andrej Karpathy’s <a
-        href="https://github.com/karpathy/nanoGPT"
-        class="text-accent">open source implementation</a
-      > of GPT-2 to train our small language model. We will go through the whole
-      setup from collecting and preparing the data to logging the training results.
-      First week, we will spend on setting up the baseline model. The following week,
-      we will try to add some tweaks to it to see if we can improve its performance.
-    </p>
-    <ul class="my-4 text-lg font-light text-secondary">
-      <li>
-        W46 <a href="https://github.com/karpathy/nanoGPT" class="text-accent"
-          >nanoGPT</a
-        > baseline implementation
-      </li>
-      <li>W47 can we make our nanoGPT better?</li>
-    </ul>
-    <h2 class="my-4 text-2xl font-medium">Industry talks</h2>
-    <ul class="my-4 text-lg font-light text-secondary">
-      <li>W48 Veo Technologies</li>
-      <li>W49 TBA</li>
-    </ul>
   </main>
 </Layout>
