@@ -7,9 +7,8 @@ import Layout from "../layouts/Layout.astro";
     <div class="max-w-4xl mt-10">
       <a href="/" class="text-sm text-accent">Back</a>
       <h1 class="my-6 text-3xl font-medium sm:text-4xl">
-        Preliminary Schedule Fall 2024
+        Schedule Fall 2024
       </h1>
-      <span class="font-light text-secondary"><i>Subject to change</i></span>
       <h2 class="my-4 text-2xl font-medium">Speech2text</h2>
       <p class="text-lg font-light text-secondary">
         In the first block of the semester, we will focus on automatic speech
@@ -70,24 +69,21 @@ import Layout from "../layouts/Layout.astro";
           > (Deepmind / 2023): AI assistant for football tactics
         </li>
       </ul>
-      <h2 class="my-4 text-2xl font-medium">Training our own GPT</h2>
+      <h2 class="my-4 text-2xl font-medium">3D reconstruction</h2>
       <p class="text-lg font-light text-secondary">
-        We have now read many interesting research papers. Now, it is time to
-        get our hands dirty. We will make use of Andrej Karpathy’s <a
-          href="https://github.com/karpathy/nanoGPT"
-          class="text-accent">open source implementation</a
-        > of GPT-2 to train our small language model. We will go through the whole
-        setup from collecting and preparing the data to logging the training results.
-        First week, we will spend on setting up the baseline model. The following
-        week, we will try to add some tweaks to it to see if we can improve its performance.
+        This block covers Neural Radiance Fields (NeRF), a major breakthrough in 3D reconstruction. In the first session, we will review the original paper, and in the second, we will explore training and implementation details.
       </p>
       <ul class="my-4 text-lg font-light text-secondary">
         <li>
-          W46 <a href="https://github.com/karpathy/nanoGPT" class="text-accent"
-            >nanoGPT</a
-          > baseline implementation
+          W46 <a href="https://arxiv.org/abs/2003.08934" class="text-accent"
+            >NeRF</a
+          > (UC Berkley / 2020): Representing Scenes as Neural Radiance Fields for View Synthesis
         </li>
-        <li>W47 can we make our nanoGPT better?</li>
+        <li>
+          W47 <a href="https://github.com/facebookresearch/pytorch3d/tree/main/projects/nerf" class="text-accent"
+            >PyTorch3D</a
+          > (Meta / 2021): Going over the implementation and training details of NeRF
+        </li>
       </ul>
       <h2 class="my-4 text-2xl font-medium">Industry talks</h2>
       <ul class="my-4 text-lg font-light text-secondary">
@@ -113,6 +109,11 @@ import Layout from "../layouts/Layout.astro";
             > (Head of AI at <a href="https://www.teton.ai/" class="text-accent"
               >Teton</a
             >)
+            <p class="text-lg font-light text-secondary">
+              Frederik will talk about Teton's AI-powered caregiving system that 
+              supports nurses in their daily work by monitoring patients and providing
+              real-time insights.
+            </p>
           </li>
         </li>
       </ul>
