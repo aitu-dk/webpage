@@ -29,16 +29,6 @@ export default function Card({ frontmatter, centered }: Props) {
             <Badge>
               <p className="text-sm uppercase">{frontmatter.format}</p>
             </Badge>
-            <p className="text-tertiary">
-              ·{" "}
-              {new Date(
-                frontmatter.published.replace(/-/g, "/")
-              ).toLocaleString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
           </div>
           <h1 className="my-2 text-3xl font-medium leading-snug text-primary">
             {frontmatter.title}
