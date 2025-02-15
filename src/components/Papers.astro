@@ -11,7 +11,7 @@ function comparePosts(postA: any, postB: any) {
   return -1;
 }
 
-const posts = await Astro.glob("../pages/blog/*.md");
+const posts = Object.values(import.meta.glob("../pages/blog/*.md", {eager: true}));
 const papers = posts.filter((post) => post.frontmatter.format === "paper");
 const mostRecent = papers.sort(comparePosts).slice(0, 3);
 ---

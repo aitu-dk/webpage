@@ -11,7 +11,7 @@ import { remarkReadingTime } from "./remark-reading-time.mjs";
 import react from "@astrojs/react";
 
 // https://docs.astro.build/en/guides/integrations-guide/vercel/
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
